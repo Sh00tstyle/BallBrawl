@@ -270,13 +270,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Ball Brawl Project.csproj">
-      <Project>{6968E52F-AC9C-90CA-6E58-373AE746E254}</Project>
-      <Name>Ball Brawl Project</Name>
-    </ProjectReference>
     <ProjectReference Include="Ball Brawl Project.Plugins.csproj">
       <Project>{AA598749-4FC0-41E7-2EC1-C997012EA339}</Project>
       <Name>Ball Brawl Project.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="Ball Brawl Project.csproj">
+      <Project>{6968E52F-AC9C-90CA-6E58-373AE746E254}</Project>
+      <Name>Ball Brawl Project</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

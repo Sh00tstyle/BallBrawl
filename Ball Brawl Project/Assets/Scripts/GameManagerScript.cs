@@ -1,20 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class GameManagerScript : MonoBehaviour {
+public class GameManagerScript : NetworkBehaviour {
 
-    public static bool isPaused = false;
+    private static GameManagerScript _instance = null;
 
-    public static void PauseGame() {
-        Debug.Log("Game paused");
-        Time.timeScale = 0f;
-        isPaused = true;
+    [SyncVar]
+    private bool _isPaused = false;
+
+    public void Awake() {
+        if(_instance == null) {
+            _instance = this;
+        } else if(_instance != this) {
+            Destroy(gameObject); //In case there is another gamemanager up and running already
+        }
     }
 
-    public static void ResumeGame() {
+    [Command]
+    public void CmdPauseGame() {
+        Debug.Log("Game paused");
+        Time.timeScale = 0f;
+        _isPaused = true;
+    }
+
+    [Command]
+    public void CmdResumeGame() {
         Debug.Log("Game resumed");
         Time.timeScale = 1f;
-        isPaused = false;
+        _isPaused = false;
+    }
+
+    public static bool IsPaused {
+        get { return _instance._isPaused; }
     }
 }
