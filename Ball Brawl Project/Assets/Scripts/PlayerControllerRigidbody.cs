@@ -22,13 +22,6 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     private Rigidbody rigidbody;
     private Camera cam;
 
-    public override void OnStartLocalPlayer() {
-        //Init the local player
-        GetComponentInChildren<Camera>().enabled = true;
-        GetComponentInChildren<AudioListener>().enabled = true;
-        GetComponentInChildren<CameraController>().enabled = true;
-    }
-
     void Awake() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

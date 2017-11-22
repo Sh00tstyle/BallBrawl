@@ -225,6 +225,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BallBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\BallCollisionScript.cs" />
     <Compile Include="Assets\Scripts\BallInteractionScript.cs" />
     <Compile Include="Assets\Scripts\BallSpawnerScript.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
