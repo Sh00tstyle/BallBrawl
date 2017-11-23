@@ -46,7 +46,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
 
     void FixedUpdate() {
         if (!isLocalPlayer) return;
-        if (GameManagerScript.IsPaused) return;
+        //if (GameManagerScript.IsPaused) return;
 
         // Calculate how fast we should be moving
         Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -144,6 +144,6 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
             if(_currentFlightCharge < maxFlightCharge) _currentFlightCharge += flightChargeRechargeRatePerSecond * Time.deltaTime;
             if (_currentFlightCharge > maxFlightCharge) _currentFlightCharge = maxFlightCharge;
         }
-        print(_currentFlightCharge);
+        //print(_currentFlightCharge);
     }
 }

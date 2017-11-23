@@ -11,10 +11,8 @@ public class GameManagerScript : NetworkBehaviour {
     private bool _isPaused = false;
 
     public void Awake() {
-        if(_instance == null) {
+        if (_instance == null) {
             _instance = this;
-        } else if(_instance != this) {
-            Destroy(gameObject); //In case there is another gamemanager up and running already
         }
     }
 

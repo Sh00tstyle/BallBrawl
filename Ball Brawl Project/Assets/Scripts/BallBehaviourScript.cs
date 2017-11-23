@@ -1,22 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class BallBehaviourScript : MonoBehaviour {
+public class BallBehaviourScript : NetworkBehaviour {
 
     private Rigidbody _ballRb;
     private Collider _ballCollider;
-    private bool _isActive;
+
+    private static BallBehaviourScript _instance;
 
     public void Awake() {
         _ballRb = GetComponent<Rigidbody>();
         _ballCollider = GetComponent<Collider>();
 
         ActivateBallBehaviour();
+
+        if(_instance == null) {
+            _instance = this;
+        }
+    }
+
+    public void SetBallPosition(Vector3 newPos) {
+        transform.position = newPos;
     }
 
     public void ActivateBallBehaviour() {
-        if (_isActive) return;
+        Debug.Log("Activating Ball");
 
         _ballRb.isKinematic = false;
         _ballRb.useGravity = true;
@@ -24,11 +34,10 @@ public class BallBehaviourScript : MonoBehaviour {
         _ballCollider.enabled = true;
 
         _ballRb.velocity = Vector3.zero;
-        _isActive = true;
     }
 
     public void DeactivateBallBehaviour() {
-        if (!_isActive) return;
+        Debug.Log("Deactivating Ball");
 
         _ballRb.isKinematic = true;
         _ballRb.useGravity = false;
@@ -36,14 +45,14 @@ public class BallBehaviourScript : MonoBehaviour {
         _ballCollider.enabled = false;
 
         _ballRb.velocity = Vector3.zero;
-        _isActive = false;
     }
 
     public void PushBall(Vector3 direction, float strength) {
+        //_ballRb.velocity = Vector3.zero;
         _ballRb.AddForce(direction * strength);
     }
 
-    public bool IsActive {
-        get { return _isActive; }
+    public static BallBehaviourScript Instance {
+        get { return _instance; }
     }
 }

@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour {
     Quaternion originalRotation;
 
     void Update() {
-        if (GameManagerScript.IsPaused) return;
+        //if (GameManagerScript.IsPaused) return;
 
         if (axes == RotationAxes.MouseXAndY) {
             // Read the mouse input axis
@@ -48,9 +48,6 @@ public class CameraController : MonoBehaviour {
     }
 
     void Start() {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb)
-            rb.freezeRotation = true;
         originalRotation = transform.localRotation;
     }
 

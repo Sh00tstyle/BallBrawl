@@ -5,10 +5,7 @@ using UnityEngine.Networking;
 
 public class PlayerCollisionScript : NetworkBehaviour {
 
-    [SyncVar]
     private Vector3 _spawnPos;
-
-    [SyncVar]
     private Vector3 _spawnRotation;
 
     public override void OnStartLocalPlayer() {
@@ -20,12 +17,11 @@ public class PlayerCollisionScript : NetworkBehaviour {
         if(collision.gameObject.tag == Tags.BALL) {
             Debug.Log("You died, resetting position");
 
-            RpcRespawn();
+            Respawn();
         }
     }
 
-    [ClientRpc]
-    private void RpcRespawn() {
+    private void Respawn() {
         if (!isLocalPlayer) return;
 
         transform.position = _spawnPos;
