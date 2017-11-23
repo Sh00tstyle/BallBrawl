@@ -594,7 +594,13 @@ MonoBehaviour:
   maxVelocityChange: 25
   canJump: 1
   jumpHeight: 15
-  sensitivityX: 10
+  dashStrength: 250
+  maxFlightCharge: 3
+  flightChargeDepletionRatePerSecond: 1.5
+  flightChargeRechargeRatePerSecond: 0.75
+  flightUpwardsForceMultiplier: 25
+  flightMovementPenalty: 2
+  rotationSensitivity: 10
 --- !u!124 &124002718390647512
 Behaviour:
   m_ObjectHideFlags: 1

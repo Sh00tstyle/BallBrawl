@@ -109,7 +109,11 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
+<<<<<<< HEAD
   controlID: 91
+=======
+  controlID: 99
+>>>>>>> feature/CharacterControllerNetwork
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +137,11 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 92
+=======
+  controlID: 100
+>>>>>>> feature/CharacterControllerNetwork
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +165,11 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 93
+=======
+  controlID: 101
+>>>>>>> feature/CharacterControllerNetwork
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -175,7 +187,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 441
+<<<<<<< HEAD
     height: 673
+=======
+    height: 671
+>>>>>>> feature/CharacterControllerNetwork
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 13}
@@ -372,9 +388,15 @@ MonoBehaviour:
     height: 652
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 90fbffff
     m_LastClickedID: -1136
     m_ExpandedIDs: 76fbffff7cfbffffa6fbffff00000000
+=======
+    m_SelectedIDs: aa270000
+    m_LastClickedID: 0
+    m_ExpandedIDs: a6fbffff00000000
+>>>>>>> feature/CharacterControllerNetwork
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -456,7 +478,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.010389179, y: 0.2779922, z: -0.003006909, w: -0.9605225}
     speed: 2
+<<<<<<< HEAD
     m_Value: {x: -0.010389179, y: 0.2779922, z: -0.003006909, w: -0.96052253}
+=======
+    m_Value: {x: -0.19738469, y: -0.29889265, z: 0.06333496, w: -0.93149936}
+>>>>>>> feature/CharacterControllerNetwork
   m_Size:
     m_Target: 14.713915
     speed: 2
@@ -584,14 +610,20 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scripts
   m_LastFoldersGridSize: 71
-  m_LastProjectPath: C:\Users\Nico\OneDrive\Dokumente\Quarter 2.2\2.2 Project Indie
-    Game\Ball Brawl\Ball Brawl Project
+  m_LastProjectPath: D:\ProgrammingProjects\BallBrawl\Ball Brawl Project
   m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 40}
     m_SelectedIDs: ce270000
     m_LastClickedID: 10190
     m_ExpandedIDs: 0000000098270000dc2700000428000000ca9a3bffffff7f
+=======
+    scrollPos: {x: 0, y: 2}
+    m_SelectedIDs: 46280000
+    m_LastClickedID: 10310
+    m_ExpandedIDs: 000000008e270000d6270000fe27000000ca9a3bffffff7f
+>>>>>>> feature/CharacterControllerNetwork
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,7 +651,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000098270000dc27000004280000
+=======
+    m_ExpandedIDs: 000000008e270000d6270000fe270000
+>>>>>>> feature/CharacterControllerNetwork
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -872,7 +908,7 @@ MonoBehaviour:
     y: 92
     width: 444
     height: 926
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 720}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160
