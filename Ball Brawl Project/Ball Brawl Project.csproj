@@ -231,8 +231,11 @@
     <Compile Include="Assets\Scripts\BallSpawnerScript.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameManagerScript.cs" />
+    <Compile Include="Assets\Scripts\GoalManagerScript.cs" />
     <Compile Include="Assets\Scripts\GoalScript.cs" />
     <Compile Include="Assets\Scripts\GoalSpawnerScript.cs" />
+    <Compile Include="Assets\Scripts\HudOverlayManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerCollisionScript.cs" />
     <Compile Include="Assets\Scripts\PlayerControllerRigidbody.cs" />
     <Compile Include="Assets\Scripts\Tags.cs" />
   </ItemGroup>

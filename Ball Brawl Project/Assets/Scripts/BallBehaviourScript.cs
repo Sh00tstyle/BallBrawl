@@ -23,6 +23,7 @@ public class BallBehaviourScript : MonoBehaviour {
 
         _ballCollider.enabled = true;
 
+        _ballRb.velocity = Vector3.zero;
         _isActive = true;
     }
 
@@ -39,7 +40,7 @@ public class BallBehaviourScript : MonoBehaviour {
     }
 
     public void PushBall(Vector3 direction, float strength) {
-        _ballRb.AddRelativeForce(direction * strength);
+        _ballRb.AddForce(direction * strength);
     }
 
     public bool IsActive {

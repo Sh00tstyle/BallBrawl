@@ -9,7 +9,7 @@ public class BallCollisionScript : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other) {
         if(other.tag == Tags.BALL) {
-            if (_ball == null || _ball != other.gameObject) _ball = other.gameObject;
+            if (_ball == null) _ball = other.gameObject;
 
             _inRange = true;
         }
