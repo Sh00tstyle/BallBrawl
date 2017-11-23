@@ -29,7 +29,6 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     private Quaternion originalRotation;
 
     private Rigidbody _rigidbody;
-    private Camera _cam;
 
     void Awake() {
         Cursor.lockState = CursorLockMode.Locked;
@@ -39,7 +38,6 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         _currentFlightCharge = maxFlightCharge;
 
         _rigidbody = GetComponent<Rigidbody>();
-        _cam = GetComponentInChildren<Camera>();
         _rigidbody.freezeRotation = true;
         _rigidbody.useGravity = false;
     }
@@ -120,11 +118,11 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     private void Dash (Vector3 velocity) {
         if(velocity.magnitude == 0) {
             _rigidbody.AddRelativeForce(transform.forward * dashStrength, ForceMode.Impulse);
-            print("No velocity, dash forward");
+            //print("No velocity, dash forward");
         }
         else {
             _rigidbody.AddForce(velocity.normalized * dashStrength, ForceMode.Impulse);
-            print("Dash into velocity direction: " + velocity); 
+            //print("Dash into velocity direction: " + velocity); 
         }
     }
 
