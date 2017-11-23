@@ -11,6 +11,11 @@ public class GoalScript : NetworkBehaviour {
     private int _goalsScored;
 
     private Team _goalTeam;
+    private GoalManagerScript _goalManager;
+
+    public void Awake() {
+        _goalManager = GetComponentInParent<GoalManagerScript>();
+    }
 
     public void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == Tags.BALL) CmdScorePoint();
@@ -19,6 +24,7 @@ public class GoalScript : NetworkBehaviour {
     [Command]
     public void CmdScorePoint() {
         _goalsScored++;
+        _goalManager.UpdateUIGoals(_goalTeam, _goalsScored);
 
         Debug.Log("Team " + _goalTeam + " now has " + _goalsScored + " goals");
     }
