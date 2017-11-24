@@ -5,36 +5,32 @@ using UnityEngine.Networking;
 
 public class GoalScript : NetworkBehaviour {
 
-	public enum Team { A, B };
-
     [SyncVar]
     private int _goalsScored;
 
-    private Team _goalTeam;
-    private GoalManagerScript _goalManager;
-
-    public void Awake() {
-        _goalManager = GetComponentInParent<GoalManagerScript>();
-    }
+    [SyncVar]
+    private bool _isTeamA;
 
     public void OnTriggerEnter(Collider other) {
-        if(other.gameObject.tag == Tags.BALL) CmdScorePoint();
+        if (other.gameObject.tag == Tags.BALL) {
+            CmdScorePoint();
+
+            if(_isTeamA)  HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamA, _goalsScored);
+            else HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamB, _goalsScored);
+        }
     }
 
     [Command]
     public void CmdScorePoint() {
         _goalsScored++;
-        _goalManager.UpdateUIGoals(_goalTeam, _goalsScored);
-
-        Debug.Log("Team " + _goalTeam + " now has " + _goalsScored + " goals");
     }
 
-    public void SetTeam(Team team) {
-        _goalTeam = team;
+    public void SetTeam(bool isTeamA) {
+        _isTeamA = isTeamA;
     }
 
-    public Team goalTeam {
-        get { return _goalTeam; }
+    public bool isTeamA {
+        get { return _isTeamA; }
     }
 
     public int goalsScored {

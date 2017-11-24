@@ -24,6 +24,7 @@ public class BallInteractionScript : NetworkBehaviour {
     private BallBehaviourScript _ballBehaviour;
 
     private float _holdingTimer;
+    private float _catchCooldown;
 
     private bool _isHolding;
 
@@ -39,46 +40,47 @@ public class BallInteractionScript : NetworkBehaviour {
 
     public void Update() {
         if(!isLocalPlayer) return;
-        //if (GameManagerScript.IsPaused) return;
 
         ProcessMouseInput();
 
         if(_isHolding) {
             HudOverlayManager.Instance.UpdateHoldingBar(_holdingTimer / _maxHoldingTime);
-            CmdHoverBall();
         }
 
         _holdingTimer += Time.deltaTime;
+        _catchCooldown += Time.deltaTime;
     }
 
     private void ProcessMouseInput() {
-        if (_isHolding && (Input.GetMouseButtonDown(0) || _holdingTimer > _maxHoldingTime)) {
+        if (_isHolding && (Input.GetMouseButtonUp(1) || _holdingTimer > _maxHoldingTime)) {
             _isHolding = false;
+            _catchCooldown = 0f;
             HudOverlayManager.Instance.UpdateHoldingBar(0f);
+
             CmdThrowBall();
         } else if (_ballCollision.InRange) {
-            if (Input.GetMouseButtonDown(1)) {
+            if (Input.GetMouseButtonDown(0)) {
                 CmdPushBall();
-            } else if(Input.GetMouseButtonDown(0) && !_isHolding) {
+            } else if(Input.GetMouseButton(1) && !_isHolding && _catchCooldown >= 2f) {
                 _isHolding = true;
                 _holdingTimer = 0f;
+
                 CmdCatchBall();
             }
         }      
     }
 
     [Command]
-    private void CmdHoverBall() {
-        _ballBehaviour.SetBallPosition(_ballParent.position);
-    }
-
-    [Command]
     private void CmdCatchBall() {
+        _ballBehaviour.SetBallPosition(_ballParent);
+
         _ballBehaviour.DeactivateBallBehaviour();
     }
 
     [Command]
     private void CmdThrowBall() {
+        _ballBehaviour.SetBallPosition(null);
+
         _ballBehaviour.ActivateBallBehaviour();
 
         Vector3 throwingDir = _playerCamera.transform.forward;

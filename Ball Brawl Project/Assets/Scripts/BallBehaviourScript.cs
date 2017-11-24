@@ -8,6 +8,10 @@ public class BallBehaviourScript : NetworkBehaviour {
     private Rigidbody _ballRb;
     private Collider _ballCollider;
 
+    private Transform _holdingPos;
+
+    private bool _isActive;
+
     private static BallBehaviourScript _instance;
 
     public void Awake() {
@@ -21,12 +25,20 @@ public class BallBehaviourScript : NetworkBehaviour {
         }
     }
 
-    public void SetBallPosition(Vector3 newPos) {
-        transform.position = newPos;
+    public void Update() {
+        if(_holdingPos != null && !_isActive) {
+            transform.position = _holdingPos.position;
+        }
+    }
+
+    public void SetBallPosition(Transform newTransform) {
+        _holdingPos = newTransform;
     }
 
     public void ActivateBallBehaviour() {
         Debug.Log("Activating Ball");
+
+        _isActive = true;
 
         _ballRb.isKinematic = false;
         _ballRb.useGravity = true;
@@ -39,6 +51,8 @@ public class BallBehaviourScript : NetworkBehaviour {
     public void DeactivateBallBehaviour() {
         Debug.Log("Deactivating Ball");
 
+        _isActive = false;
+
         _ballRb.isKinematic = true;
         _ballRb.useGravity = false;
 
@@ -50,6 +64,10 @@ public class BallBehaviourScript : NetworkBehaviour {
     public void PushBall(Vector3 direction, float strength) {
         //_ballRb.velocity = Vector3.zero;
         _ballRb.AddForce(direction * strength);
+    }
+
+    public bool IsActive {
+        get { return _isActive; }
     }
 
     public static BallBehaviourScript Instance {
