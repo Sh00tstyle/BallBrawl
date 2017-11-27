@@ -98,6 +98,10 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         transform.localRotation = _originalRotation * xQuaternion;
     }
 
+    public void SetRotationPlayer(float newRotation) {
+        _rotationX = newRotation;
+    }
+
     public static float ClampAngle(float angle, float min, float max) {
         angle = angle % 360;
         if ((angle >= -360F) && (angle <= 360F)) {
