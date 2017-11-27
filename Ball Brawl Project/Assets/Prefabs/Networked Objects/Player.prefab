@@ -682,7 +682,7 @@ MonoBehaviour:
   dashStrength: 125
   dashCooldown: 1
   jumpForce: 4
-  jetpackActivationDelay: 1
+  jetpackActivationDelay: 0.5
   maxFlightCharge: 3
   flightChargeDepletionRatePerSecond: 1.5
   flightChargeRechargeRatePerSecond: 0.75
