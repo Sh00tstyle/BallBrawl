@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+[NetworkSettings(channel=2, sendInterval = 0.05f)]
 public class BallBehaviourScript : NetworkBehaviour {
 
     private Rigidbody _ballRb;
     private Collider _ballCollider;
+    private MeshRenderer _renderer;
 
-    private Transform _holdingPos;
-
+    [SyncVar]
     private bool _isActive;
+
+    [SyncVar]
+    private int _lastPlayerID;
 
     private static BallBehaviourScript _instance;
 
     public void Awake() {
         _ballRb = GetComponent<Rigidbody>();
         _ballCollider = GetComponent<Collider>();
+        _renderer = GetComponent<MeshRenderer>();
+
+        SetLastPlayerID(0); //Nothing
 
         ActivateBallBehaviour();
 
@@ -25,38 +32,62 @@ public class BallBehaviourScript : NetworkBehaviour {
         }
     }
 
-    public void Update() {
-        if(_holdingPos != null && !_isActive) {
-            transform.position = _holdingPos.position;
+    public void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.tag != Tags.PLAYER) {
+            SetLastPlayerID(0);
         }
     }
 
-    public void SetBallPosition(Transform newTransform) {
-        _holdingPos = newTransform;
+    public void Update() {
+        //DEBUG: Only to test/ensure that the ball is in the same state at both sides
+        //if (_isActive) EnableBall();
+        //else DisableBall();
     }
 
-    public void ActivateBallBehaviour() {
-        Debug.Log("Activating Ball");
+    private void SetLastPlayerID(int playerID) {
+        _lastPlayerID = playerID;
+    }
 
-        _isActive = true;
+    private void SetIsActive(bool isActive) {
+        _isActive = isActive;
+    }
+
+    public void SetBallPosition(Vector3 newPos) {
+        transform.position = newPos;
+    }
+
+    private void EnableBall() {
+        _renderer.enabled = true;
 
         _ballRb.isKinematic = false;
         _ballRb.useGravity = true;
 
         _ballCollider.enabled = true;
-
-        _ballRb.velocity = Vector3.zero;
     }
 
-    public void DeactivateBallBehaviour() {
-        Debug.Log("Deactivating Ball");
-
-        _isActive = false;
+    private void DisableBall() {
+        _renderer.enabled = false;
 
         _ballRb.isKinematic = true;
         _ballRb.useGravity = false;
 
         _ballCollider.enabled = false;
+    }
+
+    public void ActivateBallBehaviour() {
+        SetIsActive(true);
+
+        EnableBall();
+
+        _ballRb.velocity = Vector3.zero;
+    }
+
+    public void DeactivateBallBehaviour(int playerID) {
+        SetIsActive(false);
+
+        SetLastPlayerID(playerID);
+
+        DisableBall();
 
         _ballRb.velocity = Vector3.zero;
     }
@@ -68,6 +99,10 @@ public class BallBehaviourScript : NetworkBehaviour {
 
     public bool IsActive {
         get { return _isActive; }
+    }
+
+    public int LastPlayerID {
+        get { return _lastPlayerID; }
     }
 
     public static BallBehaviourScript Instance {

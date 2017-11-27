@@ -272,16 +272,19 @@
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\BallBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\BallCollisionScript.cs" />
-    <Compile Include="Assets\Scripts\BallInteractionScript.cs" />
     <Compile Include="Assets\Scripts\BallSpawnerScript.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GoalScript.cs" />
     <Compile Include="Assets\Scripts\GoalSpawnerScript.cs" />
     <Compile Include="Assets\Scripts\HudOverlayManager.cs" />
+    <Compile Include="Assets\Scripts\IDManager.cs" />
     <Compile Include="Assets\Scripts\NetworkTransformScript.cs" />
     <Compile Include="Assets\Scripts\PlayerCollisionScript.cs" />
     <Compile Include="Assets\Scripts\PlayerControllerRigidbody.cs" />
+    <Compile Include="Assets\Scripts\PlayerInteractionScript.cs" />
     <Compile Include="Assets\Scripts\Tags.cs" />
+    <Compile Include="Assets\Scripts\TeamAssignmentScript.cs" />
+    <Compile Include="Assets\Scripts\TeamManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
@@ -325,6 +328,7 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Readme.txt" />
     <None Include="Assets\Standard Assets\Effects\Projectors\Guidelines.txt" />

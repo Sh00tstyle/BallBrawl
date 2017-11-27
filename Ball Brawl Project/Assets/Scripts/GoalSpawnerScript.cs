@@ -18,8 +18,8 @@ public class GoalSpawnerScript : NetworkBehaviour {
         GameObject goalA = Instantiate(_goalPrefab, _goalPosTeamA.position, Quaternion.Euler(new Vector3(90, 0, 0)));
         GameObject goalB = Instantiate(_goalPrefab, _goalPosTeamB.position, Quaternion.Euler(new Vector3(90, 0, 0)));
 
-        goalA.GetComponent<GoalScript>().SetTeam(true);
-        goalB.GetComponent<GoalScript>().SetTeam(false);
+        goalA.GetComponent<GoalScript>().SetTeam(TeamManager.TEAM_A);
+        goalB.GetComponent<GoalScript>().SetTeam(TeamManager.TEAM_B);
 
         NetworkServer.Spawn(goalA);
         NetworkServer.Spawn(goalB);

@@ -6,18 +6,22 @@ using UnityEngine.Networking;
 public class PlayerCollisionScript : NetworkBehaviour {
 
     private Vector3 _spawnPos;
-    private Vector3 _spawnRotation;
+
+    private PlayerInteractionScript _ballInteraction;
 
     public override void OnStartLocalPlayer() {
         _spawnPos = transform.position;
-        _spawnRotation = transform.eulerAngles;
+    }
+
+    public void Awake() {
+        _ballInteraction = GetComponent<PlayerInteractionScript>();
     }
 
     public void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.tag == Tags.BALL) {
-            Debug.Log("You died, resetting position");
+            BallBehaviourScript ballBehaviour = collision.gameObject.GetComponent<BallBehaviourScript>();
 
-            Respawn();
+            if(ballBehaviour.LastPlayerID != _ballInteraction.PlayerID) Respawn();
         }
     }
 
@@ -25,6 +29,5 @@ public class PlayerCollisionScript : NetworkBehaviour {
         if (!isLocalPlayer) return;
 
         transform.position = _spawnPos;
-        transform.eulerAngles = _spawnRotation;
     }
 }

@@ -9,14 +9,24 @@ public class GoalScript : NetworkBehaviour {
     private int _goalsScored;
 
     [SyncVar]
-    private bool _isTeamA;
+    private string _assignedTeam;
+
+    public override void OnStartClient() {
+        MeshRenderer renderer = GetComponent<MeshRenderer>();
+
+        if (_assignedTeam == TeamManager.TEAM_A) renderer.material.color = Color.red;
+        else if (_assignedTeam == TeamManager.TEAM_B) renderer.material.color = Color.blue;
+    }
 
     public void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == Tags.BALL) {
             CmdScorePoint();
 
-            if(_isTeamA)  HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamA, _goalsScored);
-            else HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamB, _goalsScored);
+            if (_assignedTeam == TeamManager.TEAM_A) {
+                HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamA, _goalsScored);
+            } else {
+                HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamB, _goalsScored);
+            }
         }
     }
 
@@ -25,12 +35,12 @@ public class GoalScript : NetworkBehaviour {
         _goalsScored++;
     }
 
-    public void SetTeam(bool isTeamA) {
-        _isTeamA = isTeamA;
+    public void SetTeam(string team) {
+        _assignedTeam = team;
     }
 
-    public bool isTeamA {
-        get { return _isTeamA; }
+    public string AssigenedTeam {
+        get { return _assignedTeam; }
     }
 
     public int goalsScored {
