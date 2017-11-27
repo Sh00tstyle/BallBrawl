@@ -42,10 +42,17 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
+<<<<<<< HEAD
   m_MinSize: {x: 679, y: 321}
   m_MaxSize: {x: 12004, y: 8021}
   vertical: 0
   controlID: 9
+=======
+  m_MinSize: {x: 768, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
+  vertical: 0
+  controlID: 53
+>>>>>>> feature/ImprovedCharacterControlsLeon
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -64,14 +71,20 @@ MonoBehaviour:
     y: 0
     width: 618
     height: 947
+<<<<<<< HEAD
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
+=======
+  m_MinSize: {x: 362, y: 411}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 12}
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_Panes:
   - {fileID: 15}
   - {fileID: 12}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -88,10 +101,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 326
     height: 648
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
+=======
+    width: 336
+    height: 649
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -112,12 +132,21 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 648
     width: 1302
     height: 299
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
+=======
+    y: 649
+    width: 1346
+    height: 298
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 14}
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_Panes:
   - {fileID: 14}
   - {fileID: 19}
@@ -210,7 +239,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 321}
   m_MaxSize: {x: 8004, y: 8021}
   vertical: 1
-  controlID: 10
+  controlID: 54
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -229,12 +258,19 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1302
     height: 648
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
+=======
+    width: 1346
+    height: 649
+  m_MinSize: {x: 406, y: 221}
+  m_MaxSize: {x: 8006, y: 4021}
+>>>>>>> feature/ImprovedCharacterControlsLeon
   vertical: 0
-  controlID: 11
+  controlID: 55
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,8 +287,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 326
     y: 0
+<<<<<<< HEAD
     width: 976
     height: 648
+=======
+    width: 1010
+    height: 649
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 17}
@@ -313,7 +354,7 @@ MonoBehaviour:
     x: 338
     y: 92
     width: 1006
-    height: 627
+    height: 628
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -337,9 +378,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 740
     width: 1300
     height: 278
+=======
+    y: 741
+    width: 1344
+    height: 277
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_SearchFilter:
     m_NameFilter: 
     m_ClassNames: []
@@ -352,34 +399,48 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
+<<<<<<< HEAD
     - Assets/Physics Materials
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
   - Assets/Physics Materials
+=======
+    - Assets/Scripts
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/Scripts
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Nico\OneDrive\Dokumente\Quarter 2.2\2.2 Project Indie
-    Game\Ball Brawl\Ball Brawl Project
+  m_LastProjectPath: D:\ProgrammingProjects\BallBrawl\Ball Brawl Project
   m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 95}
     m_SelectedIDs: 4c310000
     m_LastClickedID: 12620
     m_ExpandedIDs: 00000000b42800000e2900004a290000642900006a290000a22900005e2a00009c2a00004a2d0000b42d0000362e0000443d0000463d0000
+=======
+    scrollPos: {x: 0, y: 96}
+    m_SelectedIDs: 00380000
+    m_LastClickedID: 14336
+    m_ExpandedIDs: 00000000303700006a3700009c370000a2370000b83700002c3800004c38000078390000ec3900006c3a000000ca9a3bffffff7f
+>>>>>>> feature/ImprovedCharacterControlsLeon
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: PostProcessing
+      m_OriginalName: PostProcessing
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 14810
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
@@ -393,7 +454,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000b42800000e2900004a290000642900006a290000a22900005e2a00009c2a00004a2d0000b42d0000362e0000443d0000463d0000
+=======
+    m_ExpandedIDs: 00000000303700006a3700009c370000a2370000b83700002c3800004c38000078390000ec3900006c3a0000
+>>>>>>> feature/ImprovedCharacterControlsLeon
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -420,8 +485,13 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
+<<<<<<< HEAD
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000006280000cc2a0000b2270000000000006e30000054290000602f0000
+=======
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c623000006280000cc2a0000b2270000000000006e300000dc310000
+>>>>>>> feature/ImprovedCharacterControlsLeon
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -505,13 +575,22 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 92
+<<<<<<< HEAD
     width: 324
     height: 627
+=======
+    width: 334
+    height: 628
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: a6fbffff00000000
+=======
+    m_ExpandedIDs: a8c7ffff66d3ffff00000000be420000
+>>>>>>> feature/ImprovedCharacterControlsLeon
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -558,22 +637,33 @@ MonoBehaviour:
     serializedVersion: 2
     x: 328
     y: 92
+<<<<<<< HEAD
     width: 972
     height: 627
+=======
+    width: 1006
+    height: 628
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_SceneLighting: 1
   lastFramingTime: 3452.14570800011
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -68.6742, y: 43.83758, z: 1.3104429}
     speed: 2
     m_Value: {x: -68.6742, y: 43.83758, z: 1.3104429}
+=======
+    m_Target: {x: 66.09394, y: 1.2434692, z: -273.10754}
+    speed: 2
+    m_Value: {x: 66.09394, y: 1.2434692, z: -273.10754}
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
     showFog: 1
-    showMaterialUpdate: 0
+    showMaterialUpdate: 1
     showSkybox: 1
     showFlares: 1
     showImageEffects: 1
@@ -591,6 +681,7 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.105394624, y: 0.6884695, z: -0.1021603, w: -0.710257}
     speed: 2
     m_Value: {x: -0.105394624, y: 0.6884695, z: -0.1021603, w: -0.710257}
@@ -598,12 +689,21 @@ MonoBehaviour:
     m_Target: 127.70091
     speed: 2
     m_Value: 127.70091
+=======
+    m_Target: {x: 0.016628996, y: 0.95789766, z: -0.2809648, w: 0.05669661}
+    speed: 2
+    m_Value: {x: 0.016628996, y: 0.95789766, z: -0.2809648, w: 0.05669661}
+  m_Size:
+    m_Target: 353.8147
+    speed: 2
+    m_Value: 353.8147
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_LastSceneViewRotation: {x: 0.12224304, y: 0.87738293, z: -0.3141311, w: 0.34143436}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -633,8 +733,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 328
     y: 92
+<<<<<<< HEAD
     width: 972
     height: 627
+=======
+    width: 1006
+    height: 628
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
@@ -643,10 +748,17 @@ MonoBehaviour:
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -486
     m_HBaseRangeMax: 486
     m_VBaseRangeMin: -305
     m_VBaseRangeMax: 305
+=======
+    m_HBaseRangeMin: -503
+    m_HBaseRangeMax: 503
+    m_VBaseRangeMin: -305.5
+    m_VBaseRangeMax: 305.5
+>>>>>>> feature/ImprovedCharacterControlsLeon
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -663,25 +775,43 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
+<<<<<<< HEAD
       width: 972
       height: 610
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 486, y: 305}
+=======
+      width: 1006
+      height: 611
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 503, y: 305.5}
+>>>>>>> feature/ImprovedCharacterControlsLeon
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -486
       y: -305
       width: 972
       height: 610
+=======
+      x: -503
+      y: -305.5
+      width: 1006
+      height: 611
+>>>>>>> feature/ImprovedCharacterControlsLeon
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 1
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 972, y: 627}
+=======
+  m_LastWindowPixelSize: {x: 1006, y: 628}
+>>>>>>> feature/ImprovedCharacterControlsLeon
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -708,6 +838,12 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 740
     width: 1300
     height: 278
+=======
+    y: 741
+    width: 1344
+    height: 277
+>>>>>>> feature/ImprovedCharacterControlsLeon

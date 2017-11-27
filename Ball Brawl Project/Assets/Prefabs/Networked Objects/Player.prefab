@@ -679,14 +679,16 @@ MonoBehaviour:
   speed: 25
   gravity: 10
   maxVelocityChange: 25
-  canJump: 1
-  jumpHeight: 15
-  dashStrength: 250
+  dashStrength: 125
+  dashCooldown: 1
+  jumpForce: 4
+  jetpackActivationDelay: 1
   maxFlightCharge: 3
   flightChargeDepletionRatePerSecond: 1.5
   flightChargeRechargeRatePerSecond: 0.75
   flightUpwardsForceMultiplier: 25
   flightMovementPenalty: 2
+  gravityMultiplierOnPress: 3
   rotationSensitivity: 10
 --- !u!114 &114987230142226542
 MonoBehaviour:
