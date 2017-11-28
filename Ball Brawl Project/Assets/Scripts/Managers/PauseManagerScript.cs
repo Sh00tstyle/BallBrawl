@@ -11,19 +11,13 @@ public class PauseManagerScript : NetworkBehaviour {
     private static PauseManagerScript _instance;
 
     public override void OnStartServer() {
-        CmdResumeGame();
+        _isPaused = false;
     }
 
     public void Awake() {
         if(_instance == null) {
             _instance = this;
         }
-    }
-
-    public void Update() {
-        //DEBUG: To ensure that the time scale is getting set on each client for now
-        if (_isPaused) Time.timeScale = 0f;
-        else Time.timeScale = 1f;
     }
 
     [Command]

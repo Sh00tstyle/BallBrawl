@@ -48,6 +48,7 @@ public class CameraController : MonoBehaviour {
     }
 
     public void ResetRotation() {
+        rotationY = 0f;
         transform.localRotation = originalRotation;
     }
 

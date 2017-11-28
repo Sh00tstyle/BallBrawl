@@ -12,13 +12,22 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private GameObject _localBall;
 
     [SerializeField]
+    private GameObject _visualBall;
+
+    [SerializeField]
     private Transform _ballParent;
 
     [SerializeField]
     private float _throwingForce;
 
     [SerializeField]
+    private float _pushForce;
+
+    [SerializeField]
     private float _maxHoldingTime;
+
+    [SerializeField]
+    private float _abilityCooldown;
 
     [SerializeField]
     private float _precisionReductionFactor;
@@ -26,18 +35,20 @@ public class PlayerInteractionScript : NetworkBehaviour {
     [SyncVar]
     private int _playerID;
 
-    private BallCollisionScript _ballCollision;
+    [SyncVar]
+    private bool _isHolding;
+
+    private InteractionRangeScript _interactionRange;
     private BallBehaviourScript _ballBehaviour;
 
     private float _holdingTimer;
-    private float _catchCooldown;
-
-    private bool _isHolding;
+    private float _catchCooldownTimer;
+    private float _abilityCooldownTimer;
 
     public override void OnStartLocalPlayer() {
         _playerCamera.SetActive(true);
 
-        _ballCollision = GetComponentInChildren<BallCollisionScript>();
+        _interactionRange = GetComponentInChildren<InteractionRangeScript>();
 
         CmdSetPlayerID(IDManager.Instance.GetNextID());
     }
@@ -47,6 +58,9 @@ public class PlayerInteractionScript : NetworkBehaviour {
     }
 
     public void Update() {
+        if (!isLocalPlayer && _isHolding) _visualBall.SetActive(true);
+        else if (!isLocalPlayer && !_isHolding) _visualBall.SetActive(false);
+
         if(!isLocalPlayer) return;
 
         ProcessMouseInput();
@@ -56,13 +70,13 @@ public class PlayerInteractionScript : NetworkBehaviour {
         }
 
         _holdingTimer += Time.deltaTime;
-        _catchCooldown += Time.deltaTime;
+        _catchCooldownTimer += Time.deltaTime;
+        _abilityCooldownTimer += Time.deltaTime;
     }
 
     private void ProcessMouseInput() {
         if (_isHolding && (Input.GetMouseButtonUp(1) || _holdingTimer > _maxHoldingTime)) {
-            _isHolding = false;
-            _catchCooldown = 0f;
+            _catchCooldownTimer = 0f;
             HudOverlayManager.Instance.UpdateHoldingBar(0f);
 
             _localBall.SetActive(false);
@@ -72,23 +86,51 @@ public class PlayerInteractionScript : NetworkBehaviour {
             throwingDir = Quaternion.Euler(new Vector3(Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor),
                 Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor), 0)) * throwingDir; //rotating randomly based on the holding time
 
+            CmdSetIsHolding(false);
             CmdThrowBall(throwingDir);
-        } else if (_ballCollision.InRange) {
+        } else if (_interactionRange.BallInRange) {
             if (Input.GetMouseButtonDown(0)) {
                 CmdPushBall();
-            } else if(Input.GetMouseButton(1) && !_isHolding && _catchCooldown >= 2f) {
-                _isHolding = true;
+            } else if(Input.GetMouseButton(1) && !_isHolding && _catchCooldownTimer >= 2f) {
                 _holdingTimer = 0f;
-
                 _localBall.SetActive(true);
+
+                CmdSetIsHolding(true);
                 CmdCatchBall();
             }
-        }      
+        }
+
+        if(Input.GetKeyDown(KeyCode.Q) && _interactionRange.PlayerInRange && _abilityCooldownTimer >= _abilityCooldown) {
+            Debug.Log("Pushing player");
+
+            //Pushed player releases the ball if he holds it
+            PlayerInteractionScript playerInteraction = _interactionRange.PlayerObject.GetComponent<PlayerInteractionScript>();
+            if (playerInteraction.IsHolding) {
+                playerInteraction.CmdReleaseBall();
+                playerInteraction.CmdSetIsHolding(false);
+            }
+
+            Vector3 deltaVec = _interactionRange.PlayerObject.transform.position - transform.position;
+
+            CmdPushPlayer(_interactionRange.PlayerObject, deltaVec.normalized, _pushForce);
+
+            _abilityCooldownTimer = 0f;
+        }
+    }
+
+    [Command]
+    private void CmdPushPlayer (GameObject pTarget, Vector3 direction, float force) {
+        pTarget.GetComponent<PlayerControllerRigidbody>().RpcReceivePush(direction, force);
     }
 
     [Command]
     private void CmdSetPlayerID(int playerID) {
         _playerID = playerID;
+    }
+
+    [Command(channel = 2)]
+    private void CmdSetIsHolding(bool state) {
+        _isHolding = state;
     }
 
     [Command(channel = 2)]
@@ -106,9 +148,16 @@ public class PlayerInteractionScript : NetworkBehaviour {
         _ballBehaviour.PushBall(throwingDir, _throwingForce);
     }
 
-    [Command(channel =2)]
+    [Command(channel = 2)]
     private void CmdPushBall() {
         _ballBehaviour.PushBall(_playerCamera.transform.forward, _throwingForce);
+    }
+
+    [Command(channel = 2)]
+    public void CmdReleaseBall() {
+        //Activating the ball and dropping it in front of the player
+        _ballBehaviour.ActivateBallBehaviour();
+        _ballBehaviour.SetBallPosition(_ballParent.position);
     }
 
     public bool IsHolding {
@@ -117,5 +166,9 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
     public int PlayerID {
         get { return _playerID; }
+    }
+
+    public float AbilityCooldownTimer {
+        get { return _abilityCooldownTimer; }
     }
 }

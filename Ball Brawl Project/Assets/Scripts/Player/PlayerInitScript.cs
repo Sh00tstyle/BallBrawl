@@ -15,6 +15,8 @@ public class PlayerInitScript : NetworkBehaviour {
 
         if (_assignedTeam == TeamManager.TEAM_A) {
             renderer.material.color = Color.red;
+
+            GetComponent<PlayerControllerRigidbody>().SetRotationPlayer(180f);
         } else if (_assignedTeam == TeamManager.TEAM_B) {
             renderer.material.color = Color.blue;
         }

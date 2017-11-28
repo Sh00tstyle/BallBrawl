@@ -102,6 +102,11 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         _rotationX = newRotation;
     }
 
+    [ClientRpc]
+    public void RpcReceivePush(Vector3 direction, float force) {
+        _rigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
+    }
+
     public static float ClampAngle(float angle, float min, float max) {
         angle = angle % 360;
         if ((angle >= -360F) && (angle <= 360F)) {
