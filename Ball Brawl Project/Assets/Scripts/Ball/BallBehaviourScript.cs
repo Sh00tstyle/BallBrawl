@@ -8,7 +8,7 @@ public class BallBehaviourScript : NetworkBehaviour {
 
     private Rigidbody _ballRb;
     private Collider _ballCollider;
-    private MeshRenderer _renderer;
+    private MeshRenderer[] _renderers;
 
     [SyncVar]
     private bool _isActive;
@@ -21,7 +21,7 @@ public class BallBehaviourScript : NetworkBehaviour {
     public void Awake() {
         _ballRb = GetComponent<Rigidbody>();
         _ballCollider = GetComponent<Collider>();
-        _renderer = GetComponent<MeshRenderer>();
+        _renderers = GetComponentsInChildren<MeshRenderer>();
 
         SetLastPlayerID(0); //Nothing
 
@@ -38,12 +38,6 @@ public class BallBehaviourScript : NetworkBehaviour {
         }
     }
 
-    public void Update() {
-        //DEBUG: Only to test/ensure that the ball is in the same state at both sides
-        //if (_isActive) EnableBall();
-        //else DisableBall();
-    }
-
     private void SetLastPlayerID(int playerID) {
         _lastPlayerID = playerID;
     }
@@ -56,8 +50,15 @@ public class BallBehaviourScript : NetworkBehaviour {
         transform.position = newPos;
     }
 
+    public void ResetBall(Vector3 position) {
+        transform.position = position;
+        _ballRb.velocity = Vector3.zero;
+    }
+
     private void EnableBall() {
-        _renderer.enabled = true;
+        for(int i = 0; i < _renderers.Length; i++) {
+            _renderers[i].enabled = true;
+        }
 
         _ballRb.isKinematic = false;
         _ballRb.useGravity = true;
@@ -66,7 +67,9 @@ public class BallBehaviourScript : NetworkBehaviour {
     }
 
     private void DisableBall() {
-        _renderer.enabled = false;
+        for (int i = 0; i < _renderers.Length; i++) {
+            _renderers[i].enabled = false;
+        }
 
         _ballRb.isKinematic = true;
         _ballRb.useGravity = false;

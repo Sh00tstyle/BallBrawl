@@ -33,13 +33,11 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private float _precisionReductionFactor;
 
     [SyncVar]
-    private int _playerID;
-
-    [SyncVar]
     private bool _isHolding;
 
     private InteractionRangeScript _interactionRange;
     private BallBehaviourScript _ballBehaviour;
+    private PlayerIdScript _playerId;
 
     private float _holdingTimer;
     private float _catchCooldownTimer;
@@ -49,12 +47,11 @@ public class PlayerInteractionScript : NetworkBehaviour {
         _playerCamera.SetActive(true);
 
         _interactionRange = GetComponentInChildren<InteractionRangeScript>();
-
-        CmdSetPlayerID(IDManager.Instance.GetNextID());
     }
 
     private void Awake() {
         _ballBehaviour = BallBehaviourScript.Instance;
+        _playerId = GetComponent<PlayerIdScript>();
     }
 
     public void Update() {
@@ -118,14 +115,10 @@ public class PlayerInteractionScript : NetworkBehaviour {
         }
     }
 
-    [Command]
+    [Command(channel = 2)]
     private void CmdPushPlayer (GameObject pTarget, Vector3 direction, float force) {
+        //Requests the target to push itself into the target direction
         pTarget.GetComponent<PlayerControllerRigidbody>().RpcReceivePush(direction, force);
-    }
-
-    [Command]
-    private void CmdSetPlayerID(int playerID) {
-        _playerID = playerID;
     }
 
     [Command(channel = 2)]
@@ -135,7 +128,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
     [Command(channel = 2)]
     private void CmdCatchBall() {
-        _ballBehaviour.DeactivateBallBehaviour(_playerID);
+        _ballBehaviour.DeactivateBallBehaviour(_playerId.ID);
 
         _ballBehaviour.SetBallPosition(new Vector3(1000f, 1000f, 1000f)); //somewhere outside of the playingfield
     }
@@ -162,10 +155,6 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
     public bool IsHolding {
         get { return _isHolding; }
-    }
-
-    public int PlayerID {
-        get { return _playerID; }
     }
 
     public float AbilityCooldownTimer {

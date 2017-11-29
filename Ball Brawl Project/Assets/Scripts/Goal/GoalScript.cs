@@ -14,19 +14,21 @@ public class GoalScript : NetworkBehaviour {
     public override void OnStartClient() {
         MeshRenderer renderer = GetComponent<MeshRenderer>();
 
-        if (_assignedTeam == TeamManager.TEAM_A) renderer.material.color = Color.red;
-        else if (_assignedTeam == TeamManager.TEAM_B) renderer.material.color = Color.blue;
+        if (_assignedTeam == Teams.TEAM_A) renderer.material.color = Color.red;
+        else if (_assignedTeam == Teams.TEAM_B) renderer.material.color = Color.blue;
     }
 
     public void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == Tags.BALL) {
             CmdScorePoint();
 
-            if (_assignedTeam == TeamManager.TEAM_A) {
+            if (_assignedTeam == Teams.TEAM_A) {
                 HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamA, _goalsScored);
             } else {
                 HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamB, _goalsScored);
             }
+
+            GameStateManager.Instance.CmdResetRound(); //Reset the round whenever a goal is scored
         }
     }
 
