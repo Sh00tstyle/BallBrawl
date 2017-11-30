@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 1339230851986888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -30.66, y: 58.37, z: -6.908724}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4249067770873050}
   - {fileID: 4493178915852050}
@@ -186,7 +186,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 27b7542e07843b34f98af3042b585f61, type: 2}
+  - {fileID: 2100000, guid: 28337eaeece7cc84b9b034fac433c3d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -220,7 +220,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2f9c0f7a907a86746bb8b0e981bd8e7d, type: 2}
+  - {fileID: 2100000, guid: d2cbc566876ca5541969cfd6fc83d52a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -325,7 +325,7 @@ TrailRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: a660614560ce58541bc2233e77c437e7, type: 2}
+  - {fileID: 2100000, guid: 59477a08adf94864888499273ea09a46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -447,6 +447,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c14968c76a22d4cbd38c0b7cdbdf90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ball2RedMat: {fileID: 2100000, guid: 27b7542e07843b34f98af3042b585f61, type: 2}
+  _ball3RedMat: {fileID: 2100000, guid: 2f9c0f7a907a86746bb8b0e981bd8e7d, type: 2}
+  _ballTrailRedMat: {fileID: 2100000, guid: a660614560ce58541bc2233e77c437e7, type: 2}
+  _ball2BlueMat: {fileID: 2100000, guid: 8d45bbd70dc4fa84cacdc1b73cb3d96c, type: 2}
+  _ball3BlueMat: {fileID: 2100000, guid: 5407b461c81a3bd4084b2884bb4e9e6a, type: 2}
+  _ballTrailBlueMat: {fileID: 2100000, guid: b3f5c875ac4cbcf4c8fd0837336bebee, type: 2}
+  _ball2WhiteMat: {fileID: 2100000, guid: 28337eaeece7cc84b9b034fac433c3d2, type: 2}
+  _ball3WhiteMat: {fileID: 2100000, guid: d2cbc566876ca5541969cfd6fc83d52a, type: 2}
+  _ballTrailWhiteMat: {fileID: 2100000, guid: 59477a08adf94864888499273ea09a46, type: 2}
 --- !u!114 &114428334033009426
 MonoBehaviour:
   m_ObjectHideFlags: 1

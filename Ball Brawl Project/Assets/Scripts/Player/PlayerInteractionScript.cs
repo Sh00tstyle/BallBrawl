@@ -38,6 +38,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private InteractionRangeScript _interactionRange;
     private BallBehaviourScript _ballBehaviour;
     private PlayerIdScript _playerId;
+    private PlayerTeamScript _playerTeam;
 
     private float _holdingTimer;
     private float _catchCooldownTimer;
@@ -52,6 +53,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private void Awake() {
         _ballBehaviour = BallBehaviourScript.Instance;
         _playerId = GetComponent<PlayerIdScript>();
+        _playerTeam = GetComponent<PlayerTeamScript>();
     }
 
     public void Update() {
@@ -138,12 +140,12 @@ public class PlayerInteractionScript : NetworkBehaviour {
         _ballBehaviour.ActivateBallBehaviour();
         _ballBehaviour.SetBallPosition(_ballParent.position); 
 
-        _ballBehaviour.PushBall(throwingDir, _throwingForce);
+        _ballBehaviour.PushBall(throwingDir, _throwingForce, _playerTeam.AssignedTeam);
     }
 
     [Command(channel = 2)]
     private void CmdPushBall() {
-        _ballBehaviour.PushBall(_playerCamera.transform.forward, _throwingForce);
+        _ballBehaviour.PushBall(_playerCamera.transform.forward, _throwingForce, _playerTeam.AssignedTeam);
     }
 
     [Command(channel = 2)]
@@ -159,5 +161,13 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
     public float AbilityCooldownTimer {
         get { return _abilityCooldownTimer; }
+    }
+
+    public GameObject VisualBall {
+        get { return _visualBall; }
+    }
+
+    public GameObject LocalBall {
+        get { return _localBall; }
     }
 }

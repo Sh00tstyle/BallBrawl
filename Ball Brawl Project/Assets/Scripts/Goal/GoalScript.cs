@@ -5,6 +5,9 @@ using UnityEngine.Networking;
 
 public class GoalScript : NetworkBehaviour {
 
+    [SerializeField]
+    private Material _redGoalMaterial;
+
     [SyncVar]
     private int _goalsScored;
 
@@ -14,8 +17,15 @@ public class GoalScript : NetworkBehaviour {
     public override void OnStartClient() {
         MeshRenderer renderer = GetComponent<MeshRenderer>();
 
-        if (_assignedTeam == Teams.TEAM_A) renderer.material.color = Color.red;
-        else if (_assignedTeam == Teams.TEAM_B) renderer.material.color = Color.blue;
+        if (_assignedTeam == Teams.TEAM_A) {
+            renderer.material.color = Color.red;
+
+            ParticleSystem particleSys = GetComponentInChildren<ParticleSystem>();
+            Renderer particleRenderer = particleSys.GetComponent<Renderer>();
+            particleRenderer.material = _redGoalMaterial;
+        } else if (_assignedTeam == Teams.TEAM_B) {
+            renderer.material.color = Color.blue;
+        }
     }
 
     public void OnTriggerEnter(Collider other) {

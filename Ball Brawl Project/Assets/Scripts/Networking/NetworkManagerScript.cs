@@ -19,15 +19,17 @@ public class NetworkManagerScript : NetworkManager {
         PlayerSpawnerScript playerSpawner = GetComponent<PlayerSpawnerScript>();
 
         Vector3 spawnPos;
+        Quaternion startRota = Quaternion.identity;
 
         //Spawns the players based on how many players are connected
         if(_spawnedPlayers % 2 == 0) {
             spawnPos = playerSpawner.TeamASpawn.position;
+            startRota = Quaternion.Euler(new Vector3(0, 180f, 0));
         } else {
             spawnPos = playerSpawner.TeamBSpawn.position;
         }
 
-        GameObject newPlayer = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
+        GameObject newPlayer = Instantiate(playerPrefab, spawnPos, startRota);
         NetworkServer.AddPlayerForConnection(conn, newPlayer, playerControllerId);
 
         IncreasePlayerCount();

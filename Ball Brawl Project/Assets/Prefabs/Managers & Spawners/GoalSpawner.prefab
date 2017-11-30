@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1655795802660244}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 70, z: 45}
+  m_LocalPosition: {x: -8.6123, y: 65, z: 35.864}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4707336944772816}
@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1330751213226516}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 70, z: -45}
+  m_LocalPosition: {x: -8.6125, y: 65, z: -32.887}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4707336944772816}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3fe90d8efef80341a31a00d12a9521b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _goalPrefab: {fileID: 1633424434932884, guid: ec32c10f2a518ee4399bac9e4e40c619,
+  _goalPrefab: {fileID: 1744458757995288, guid: 8c180208cafe4f943ba5560c1da0ecf0,
     type: 2}
   _goalPosTeamA: {fileID: 4597946403339246}
   _goalPosTeamB: {fileID: 4982996312231782}
