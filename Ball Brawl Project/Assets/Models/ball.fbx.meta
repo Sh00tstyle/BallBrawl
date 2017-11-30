@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: 07df06a8a6b538d4c82aa327e1b617ed
+timeCreated: 1511870178
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: pSphere2
+    100004: pSphere3
+    100006: pSphere4
+    100008: pSphere5
+    100010: pSphere6
+    100012: transform1
+    100014: transform2
+    100016: transform3
+    100018: transform4
+    100020: pSolid2
+    100022: pSolid3
+    100024: pSolid4
+    100026: pSolid5
+    100028: pSolid6
+    100030: transform5
+    100032: transform6
+    100034: transform7
+    100036: transform8
+    100038: ball_center
+    100040: ball_middle
+    100042: ball_top
+    400000: //RootNode
+    400002: pSphere2
+    400004: pSphere3
+    400006: pSphere4
+    400008: pSphere5
+    400010: pSphere6
+    400012: transform1
+    400014: transform2
+    400016: transform3
+    400018: transform4
+    400020: pSolid2
+    400022: pSolid3
+    400024: pSolid4
+    400026: pSolid5
+    400028: pSolid6
+    400030: transform5
+    400032: transform6
+    400034: transform7
+    400036: transform8
+    400038: ball_center
+    400040: ball_middle
+    400042: ball_top
+    2300000: //RootNode
+    2300002: pSphere6
+    2300004: pSolid6
+    2300006: ball_center
+    2300008: ball_middle
+    2300010: ball_top
+    3300000: //RootNode
+    3300002: pSphere6
+    3300004: pSolid6
+    3300006: ball_center
+    3300008: ball_middle
+    3300010: ball_top
+    4300000: pSphere1
+    4300002: pSphere6
+    4300004: pSolid1
+    4300006: pSphere8
+    4300008: pSolid6
+    4300010: ball_top
+    4300012: ball_center
+    4300014: ball_middle
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 9b0fa1b263304ab4fba28cfd92274b57, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

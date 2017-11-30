@@ -7,9 +7,9 @@ public class PlayerCollisionScript : NetworkBehaviour {
 
     private Vector3 _spawnPos;
 
-    private PlayerInteractionScript _ballInteraction;
+    private PlayerIdScript _playerId;
     private PlayerControllerRigidbody _playerController;
-    private PlayerInitScript _playerInit;
+    private PlayerTeamScript _playerInit;
     private CameraController _cameraController;
 
     public override void OnStartLocalPlayer() {
@@ -17,20 +17,21 @@ public class PlayerCollisionScript : NetworkBehaviour {
     }
 
     public void Awake() {
-        _ballInteraction = GetComponent<PlayerInteractionScript>();
+        _playerId = GetComponent<PlayerIdScript>();
         _playerController = GetComponent<PlayerControllerRigidbody>();
-        _playerInit = GetComponent<PlayerInitScript>();
+        _playerInit = GetComponent<PlayerTeamScript>();
     }
 
     public void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.tag == Tags.BALL) {
             BallBehaviourScript ballBehaviour = collision.gameObject.GetComponent<BallBehaviourScript>();
 
-            if(ballBehaviour.LastPlayerID != _ballInteraction.PlayerID) Respawn();
+            if(ballBehaviour.LastPlayerID != _playerId.ID) RpcRespawn();
         }
     }
 
-    private void Respawn() {
+    [ClientRpc]
+    public void RpcRespawn() {
         if (!isLocalPlayer) return;
 
         //restoring original position and rotation
@@ -39,9 +40,9 @@ public class PlayerCollisionScript : NetworkBehaviour {
         if(_cameraController == null) _cameraController = GetComponentInChildren<CameraController>(); //cant be done in awake, since the camera is enabled after the client connects
         _cameraController.ResetRotation();
 
-        if(_playerInit.AssignedTeam == TeamManager.TEAM_A) {
+        if(_playerInit.AssignedTeam == Teams.TEAM_A) {
             _playerController.SetRotationPlayer(180f);
-        } else if(_playerInit.AssignedTeam == TeamManager.TEAM_B) {
+        } else if(_playerInit.AssignedTeam == Teams.TEAM_B) {
             _playerController.SetRotationPlayer(0f);
         }
     }

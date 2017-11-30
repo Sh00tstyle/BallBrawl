@@ -271,21 +271,29 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\Ball\BallBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\Ball\BallRotation.cs" />
     <Compile Include="Assets\Scripts\Goal\GoalScript.cs" />
     <Compile Include="Assets\Scripts\Managers\BallSpawnerScript.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameStateManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GoalSpawnerScript.cs" />
     <Compile Include="Assets\Scripts\Managers\HudOverlayManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\IDManager.cs" />
     <Compile Include="Assets\Scripts\Managers\PauseManagerScript.cs" />
+    <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\PlayerSpawnerScript.cs" />
     <Compile Include="Assets\Scripts\Managers\TeamManager.cs" />
+    <Compile Include="Assets\Scripts\Networking\NetworkManagerScript.cs" />
     <Compile Include="Assets\Scripts\Networking\NetworkTransformScript.cs" />
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\InteractionRangeScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCollisionScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControllerRigidbody.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerInitScript.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerIdScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInteractionScript.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerTeamScript.cs" />
+    <Compile Include="Assets\Scripts\Utility\PlayerSyncList.cs" />
     <Compile Include="Assets\Scripts\Utility\Tags.cs" />
+    <Compile Include="Assets\Scripts\Utility\Teams.cs" />
+    <Compile Include="Assets\Scripts\Visuals\Crowd.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
@@ -329,6 +337,7 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Shaders\CrowdShader.shader" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

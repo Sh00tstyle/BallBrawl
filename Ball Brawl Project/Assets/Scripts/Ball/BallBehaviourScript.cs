@@ -8,7 +8,35 @@ public class BallBehaviourScript : NetworkBehaviour {
 
     private Rigidbody _ballRb;
     private Collider _ballCollider;
-    private MeshRenderer _renderer;
+    private MeshRenderer[] _renderers;
+    private TrailRenderer _trailRenderer;
+
+    [SerializeField]
+    private Material _ball2RedMat;
+
+    [SerializeField]
+    private Material _ball3RedMat;
+
+    [SerializeField]
+    private Material _ballTrailRedMat;
+
+    [SerializeField]
+    private Material _ball2BlueMat;
+
+    [SerializeField]
+    private Material _ball3BlueMat;
+
+    [SerializeField]
+    private Material _ballTrailBlueMat;
+
+    [SerializeField]
+    private Material _ball2WhiteMat;
+
+    [SerializeField]
+    private Material _ball3WhiteMat;
+
+    [SerializeField]
+    private Material _ballTrailWhiteMat;
 
     [SyncVar]
     private bool _isActive;
@@ -16,12 +44,16 @@ public class BallBehaviourScript : NetworkBehaviour {
     [SyncVar]
     private int _lastPlayerID;
 
+    [SyncVar(hook = "AdjustBallColor")] //Hooks the AdjustBallColor() function to the sync var so that it is called whenever the sync var is changed
+    private string _currentTeam;
+
     private static BallBehaviourScript _instance;
 
     public void Awake() {
         _ballRb = GetComponent<Rigidbody>();
         _ballCollider = GetComponent<Collider>();
-        _renderer = GetComponent<MeshRenderer>();
+        _renderers = GetComponentsInChildren<MeshRenderer>();
+        _trailRenderer = GetComponent<TrailRenderer>();
 
         SetLastPlayerID(0); //Nothing
 
@@ -38,14 +70,28 @@ public class BallBehaviourScript : NetworkBehaviour {
         }
     }
 
-    public void Update() {
-        //DEBUG: Only to test/ensure that the ball is in the same state at both sides
-        //if (_isActive) EnableBall();
-        //else DisableBall();
+    private void AdjustBallColor(string newValue) {
+        if(newValue == Teams.TEAM_A) {
+            _renderers[0].material = _ball2RedMat;
+            _renderers[1].material = _ball3RedMat;
+            _trailRenderer.material = _ballTrailRedMat;
+        } else if(newValue == Teams.TEAM_B) {
+            _renderers[0].material = _ball2BlueMat;
+            _renderers[1].material = _ball3BlueMat;
+            _trailRenderer.material = _ballTrailBlueMat;
+        } else {
+            _renderers[0].material = _ball2WhiteMat;
+            _renderers[1].material = _ball3WhiteMat;
+            _trailRenderer.material = _ballTrailWhiteMat;
+        }
     }
 
     private void SetLastPlayerID(int playerID) {
         _lastPlayerID = playerID;
+    }
+
+    private void SetCurrentTeam(string team) {
+        _currentTeam = team;
     }
 
     private void SetIsActive(bool isActive) {
@@ -56,20 +102,36 @@ public class BallBehaviourScript : NetworkBehaviour {
         transform.position = newPos;
     }
 
+    public void ResetBall(Vector3 position) {
+        transform.position = position;
+        _ballRb.velocity = Vector3.zero;
+
+        SetLastPlayerID(0);
+        SetCurrentTeam(Teams.TEAM_NEUTRAL);
+    }
+
     private void EnableBall() {
-        _renderer.enabled = true;
+        for(int i = 0; i < _renderers.Length; i++) {
+            _renderers[i].enabled = true;
+        }
 
         _ballRb.isKinematic = false;
         _ballRb.useGravity = true;
+
+        _trailRenderer.enabled = true;
 
         _ballCollider.enabled = true;
     }
 
     private void DisableBall() {
-        _renderer.enabled = false;
+        for (int i = 0; i < _renderers.Length; i++) {
+            _renderers[i].enabled = false;
+        }
 
         _ballRb.isKinematic = true;
         _ballRb.useGravity = false;
+
+        _trailRenderer.enabled = false;
 
         _ballCollider.enabled = false;
     }
@@ -92,9 +154,10 @@ public class BallBehaviourScript : NetworkBehaviour {
         _ballRb.velocity = Vector3.zero;
     }
 
-    public void PushBall(Vector3 direction, float strength) {
-        //_ballRb.velocity = Vector3.zero;
+    public void PushBall(Vector3 direction, float strength, string playerTeam) {
         _ballRb.AddForce(direction * strength);
+
+        SetCurrentTeam(playerTeam);
     }
 
     public bool IsActive {
