@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4931134422513532}
-  - component: {fileID: 114903198444123790}
+  - component: {fileID: 114011637772744616}
   - component: {fileID: 114625249194316214}
   - component: {fileID: 114842125348673984}
   m_Layer: 0
@@ -42,6 +42,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114011637772744616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908064448657824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61cebf2c8e1e29439fcf4bb092c44e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetX: 0
+  offsetY: 0
 --- !u!114 &114625249194316214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -62,7 +75,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.001
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1650426215472508, guid: 3e50a3915ad8d24479f2aaa658f1b68c,
+  m_PlayerPrefab: {fileID: 1900157992051082, guid: ab035ea21d5a62e40ba2e45b5c2becb1,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
@@ -139,18 +152,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _teamASpawn: {fileID: 0}
   _teamBSpawn: {fileID: 0}
---- !u!114 &114903198444123790
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1908064448657824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 227461547, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  showGUI: 1
-  offsetX: 0
-  offsetY: 0

@@ -1,0 +1,240 @@
+fileFormatVersion: 2
+guid: e6ce7b99d91443a4dbc7da0e9d8f2799
+timeCreated: 1512051533
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: CHEST
+    100002: CTRL_Chest
+    100004: CTRL_MASTER
+    100006: L_Elbow1
+    100008: L_FPS_Elbow2
+    100010: L_FPS_Forearm1
+    100012: L_FPS_Forearm2
+    100014: L_FPS_Forearm3
+    100016: L_FPS_Index1
+    100018: L_FPS_Index2
+    100020: L_FPS_Index3
+    100022: L_FPS_Index4
+    100024: L_FPS_Middle1
+    100026: L_FPS_Middle2
+    100028: L_FPS_Middle3
+    100030: L_FPS_Middle4
+    100032: L_FPS_Pinky1
+    100034: L_FPS_Pinky2
+    100036: L_FPS_Pinky3
+    100038: L_FPS_Pinky4
+    100040: L_FPS_Ring1
+    100042: L_FPS_Ring2
+    100044: L_FPS_Ring3
+    100046: L_FPS_Ring4
+    100048: L_FPS_Shoulder
+    100050: L_FPS_Thumb1
+    100052: L_FPS_Thumb2
+    100054: L_FPS_Thumb3
+    100056: L_FPS_Thumb4
+    100058: L_FPS_Wrist
+    100060: L_UpperArm
+    100062: LEFT_FPS_HAND
+    100064: //RootNode
+    100066: R_Elbow1
+    100068: R_FPS_Elbow2
+    100070: R_FPS_Forearm1
+    100072: R_FPS_Forearm2
+    100074: R_FPS_Forearm3
+    100076: R_FPS_Index1
+    100078: R_FPS_Index2
+    100080: R_FPS_Index3
+    100082: R_FPS_Index4
+    100084: R_FPS_Middle1
+    100086: R_FPS_Middle2
+    100088: R_FPS_Middle3
+    100090: R_FPS_Middle4
+    100092: R_FPS_Pinky1
+    100094: R_FPS_Pinky2
+    100096: R_FPS_Pinky3
+    100098: R_FPS_Pinky4
+    100100: R_FPS_Ring1
+    100102: R_FPS_Ring2
+    100104: R_FPS_Ring3
+    100106: R_FPS_Ring4
+    100108: R_FPS_Shoulder
+    100110: R_FPS_Thumb1
+    100112: R_FPS_Thumb2
+    100114: R_FPS_Thumb3
+    100116: R_FPS_Thumb4
+    100118: R_FPS_Wrist
+    100120: R_UpperArm
+    100122: RIGHT_FPS_HAND
+    400000: CHEST
+    400002: CTRL_Chest
+    400004: CTRL_MASTER
+    400006: L_Elbow1
+    400008: L_FPS_Elbow2
+    400010: L_FPS_Forearm1
+    400012: L_FPS_Forearm2
+    400014: L_FPS_Forearm3
+    400016: L_FPS_Index1
+    400018: L_FPS_Index2
+    400020: L_FPS_Index3
+    400022: L_FPS_Index4
+    400024: L_FPS_Middle1
+    400026: L_FPS_Middle2
+    400028: L_FPS_Middle3
+    400030: L_FPS_Middle4
+    400032: L_FPS_Pinky1
+    400034: L_FPS_Pinky2
+    400036: L_FPS_Pinky3
+    400038: L_FPS_Pinky4
+    400040: L_FPS_Ring1
+    400042: L_FPS_Ring2
+    400044: L_FPS_Ring3
+    400046: L_FPS_Ring4
+    400048: L_FPS_Shoulder
+    400050: L_FPS_Thumb1
+    400052: L_FPS_Thumb2
+    400054: L_FPS_Thumb3
+    400056: L_FPS_Thumb4
+    400058: L_FPS_Wrist
+    400060: L_UpperArm
+    400062: LEFT_FPS_HAND
+    400064: //RootNode
+    400066: R_Elbow1
+    400068: R_FPS_Elbow2
+    400070: R_FPS_Forearm1
+    400072: R_FPS_Forearm2
+    400074: R_FPS_Forearm3
+    400076: R_FPS_Index1
+    400078: R_FPS_Index2
+    400080: R_FPS_Index3
+    400082: R_FPS_Index4
+    400084: R_FPS_Middle1
+    400086: R_FPS_Middle2
+    400088: R_FPS_Middle3
+    400090: R_FPS_Middle4
+    400092: R_FPS_Pinky1
+    400094: R_FPS_Pinky2
+    400096: R_FPS_Pinky3
+    400098: R_FPS_Pinky4
+    400100: R_FPS_Ring1
+    400102: R_FPS_Ring2
+    400104: R_FPS_Ring3
+    400106: R_FPS_Ring4
+    400108: R_FPS_Shoulder
+    400110: R_FPS_Thumb1
+    400112: R_FPS_Thumb2
+    400114: R_FPS_Thumb3
+    400116: R_FPS_Thumb4
+    400118: R_FPS_Wrist
+    400120: R_UpperArm
+    400122: RIGHT_FPS_HAND
+    4300000: RIGHT_FPS_HAND
+    4300002: LEFT_FPS_HAND
+    7400000: Idle
+    9500000: //RootNode
+    13700000: LEFT_FPS_HAND
+    13700002: RIGHT_FPS_HAND
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: CTRL_MASTER
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
