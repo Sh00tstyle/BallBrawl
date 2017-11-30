@@ -37,6 +37,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     private Quaternion _originalRotation;
 
     private Rigidbody _rigidbody;
+    private AnimationsPlayer _anim;
 
     void Awake() {
         Cursor.lockState = CursorLockMode.Locked;
@@ -49,6 +50,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.freezeRotation = true;
         _rigidbody.useGravity = false;
+        _anim = GetComponentInChildren<AnimationsPlayer>();
     }
 
     void FixedUpdate() {
@@ -81,6 +83,8 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         }
 
         DoRotation();
+
+        if (_anim != null) _anim.UpdateAnimator(transform.InverseTransformDirection(targetVelocity), _grounded);
 
         _grounded = false;
     }
@@ -159,6 +163,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         if(_grounded) {
             if(Input.GetKey(KeyCode.Space)) {
                 _rigidbody.AddRelativeForce(transform.up * jumpForce, ForceMode.Impulse);
+                _grounded = false;
             }
         }
 
@@ -176,6 +181,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
             }
 
             if (Input.GetKey(KeyCode.LeftControl)) _currentGravity *= gravityMultiplierOnPress;
+            _grounded = false;
         }
         
         //Otherwise recharge

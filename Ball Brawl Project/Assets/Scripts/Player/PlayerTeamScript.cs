@@ -6,6 +6,9 @@ using UnityEngine.Networking;
 public class PlayerTeamScript : NetworkBehaviour {
 
     [SerializeField]
+    private GameObject _playerMeshHolder;
+
+    [SerializeField]
     private Material _ball2BlueMat;
 
     [SerializeField]
@@ -23,8 +26,12 @@ public class PlayerTeamScript : NetworkBehaviour {
         ApplyTeamColor();
     }
 
+    public override void OnStartLocalPlayer() {
+        SetLayerRecursively(_playerMeshHolder, 9);
+    }
+
     public void ApplyTeamColor() {
-        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        SkinnedMeshRenderer renderer = GetComponentInChildren<SkinnedMeshRenderer>();
 
         if (_assignedTeam == Teams.TEAM_A) {
             renderer.material.color = Color.red; //will have to be changed for the real model
@@ -42,6 +49,21 @@ public class PlayerTeamScript : NetworkBehaviour {
             MeshRenderer[] visualBallRenderers = playerInteraction.VisualBall.GetComponentsInChildren<MeshRenderer>();
             visualBallRenderers[0].material = _ball2BlueMat;
             visualBallRenderers[1].material = _ball3BlueMat;
+        }
+    }
+
+    private void SetLayerRecursively(GameObject obj, int newLayer) {
+        if (null == obj) {
+            return;
+        }
+
+        obj.layer = newLayer;
+
+        foreach (Transform child in obj.transform) {
+            if (null == child) {
+                continue;
+            }
+            SetLayerRecursively(child.gameObject, newLayer);
         }
     }
 
