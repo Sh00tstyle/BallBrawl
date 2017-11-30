@@ -84,7 +84,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
 
         DoRotation();
 
-        if (_anim != null) _anim.UpdateAnimator(targetVelocity, _grounded);
+        if (_anim != null) _anim.UpdateAnimator(transform.InverseTransformDirection(targetVelocity), _grounded);
 
         _grounded = false;
     }
