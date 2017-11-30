@@ -40,9 +40,6 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     private AnimationsPlayer _anim;
 
     void Awake() {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         _originalRotation = transform.localRotation;
         _currentFlightCharge = maxFlightCharge;
         _jetpackActivationTimer = 0;
@@ -51,6 +48,11 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         _rigidbody.freezeRotation = true;
         _rigidbody.useGravity = false;
         _anim = GetComponentInChildren<AnimationsPlayer>();
+    }
+
+    private void Start() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void FixedUpdate() {
@@ -62,6 +64,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         //Put it into WorldSpace
         targetVelocity = transform.TransformDirection(targetVelocity);
         targetVelocity *= speed;
+        targetVelocity = PreventBoundaryStuck(targetVelocity);
 
         //If we are flying apply a movement penalty so we ensure that we dont manouver quite as fast midair
         if (!_grounded) targetVelocity /= flightMovementPenalty;
@@ -203,5 +206,27 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
 
         // We apply gravity manually for more tuning control
         _rigidbody.AddRelativeForce(new Vector3(0, -_currentGravity * _rigidbody.mass, 0));
+    }
+
+    private Vector3 PreventBoundaryStuck(Vector3 targetVelocity) {
+        Vector3 move = targetVelocity;
+
+        // Don't use the vertical velocity
+        move.y = 0;
+        // Calculate the approximate distance that will be traversed
+        float distance = move.magnitude * Time.fixedDeltaTime;
+        // Normalize horizontalMove since it should be used to indicate direction
+        move.Normalize();
+        RaycastHit hit;
+
+        // Check if the body's current velocity will result in a collision
+        if (_rigidbody.SweepTest(move, out hit, distance)) {
+            // If so, stop the movement
+            _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
+            return new Vector3(0, targetVelocity.y, 0);
+        }
+        else {
+            return targetVelocity;
+        }
     }
 } 
