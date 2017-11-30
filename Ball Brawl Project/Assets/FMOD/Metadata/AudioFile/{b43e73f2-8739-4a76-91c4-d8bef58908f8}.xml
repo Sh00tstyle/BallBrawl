@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{b43e73f2-8739-4a76-91c4-d8bef58908f8}">
+        <property name="assetPath">
+            <value>mid_loop.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>5.9258503401360541</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{31f42e85-b128-4cd7-9c72-012eda132e80}</destination>
+        </relationship>
+    </object>
+</objects>

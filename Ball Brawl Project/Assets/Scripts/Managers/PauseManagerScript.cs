@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class PauseManagerScript : NetworkBehaviour {
 
-    [SyncVar]
+    [SyncVar(hook = "AdjustTimeScale")]
     private bool _isPaused;
 
     private static PauseManagerScript _instance;
@@ -22,14 +22,17 @@ public class PauseManagerScript : NetworkBehaviour {
 
     [Command]
     public void CmdPauseGame() {
-        _isPaused = false;
-        Time.timeScale = 0f;
+        _isPaused = true;
     }
 
     [Command]
     public void CmdResumeGame() {
-        _isPaused = true;
-        Time.timeScale = 1f;
+        _isPaused = false;
+    }
+
+    private void AdjustTimeScale(bool newValue) {
+        if (newValue) Time.timeScale = 0f;
+        else Time.timeScale = 1f;
     }
 
     public bool IsPaused {
