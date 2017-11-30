@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour {
     Quaternion originalRotation;
 
     void Update() {
-        //if (GameManagerScript.IsPaused) return;
+        if (PauseManagerScript.Instance.IsPaused || PauseManagerScript.Instance.BlockInput) return;
 
         if (axes == RotationAxes.MouseXAndY) {
             // Read the mouse input axis

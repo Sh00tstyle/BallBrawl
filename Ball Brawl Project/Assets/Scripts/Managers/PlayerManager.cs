@@ -32,6 +32,9 @@ public class PlayerManager : NetworkBehaviour {
         else playerTeamScript.CmdSetTeam(Teams.TEAM_B);
 
         _playerList.Add(playerObj);
+
+        //Initialize the round, as soon as two players have been registered
+        if (PlayerCount >= 2) GameStateManager.Instance.CmdSetState(GameStates.STATE_READYROUND);
     }
 
     [Command]

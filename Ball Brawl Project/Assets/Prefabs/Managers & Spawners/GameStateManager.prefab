@@ -85,3 +85,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballSpawnPos: {fileID: 0}
+  _slowdownDuration: 1

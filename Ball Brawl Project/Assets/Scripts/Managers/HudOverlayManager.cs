@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class HudOverlayManager : MonoBehaviour {
 
-	public enum HUDText { SimpleCrosshair, CaptionTeamA, CaptionTeamB, CounterTeamA, CounterTeamB }
+	public enum HUDText { SimpleCrosshair, CaptionTeamA, CaptionTeamB, CounterTeamA, CounterTeamB, MatchTimer, RoundCountdown }
     public enum HUDImage { HoldingBarEmpty, HoldingBarFilled }
 
-    private static HudOverlayManager _instance = null;
+    private static HudOverlayManager _instance;
 
     private Text[] _hudTexts;
     private Image[] _hudImages;
@@ -28,6 +28,20 @@ public class HudOverlayManager : MonoBehaviour {
 
     public void UpdateHoldingBar(float fillAmount) {
         _hudImages[(int)HUDImage.HoldingBarFilled].fillAmount = fillAmount;
+    }
+
+    public void UpdateMatchTimer(float time) {
+        _hudTexts[(int)HUDText.MatchTimer].text = "" + time;
+    }
+
+    public void UpdateRoundCountdown(float countdown) {
+        _hudTexts[(int)HUDText.RoundCountdown].text = "" + Mathf.RoundToInt(countdown);
+
+        if(countdown <= 0) {
+            _hudTexts[(int)HUDText.RoundCountdown].enabled = false;
+        } else {
+            _hudTexts[(int)HUDText.RoundCountdown].enabled = true;
+        }
     }
 
     public static HudOverlayManager Instance {

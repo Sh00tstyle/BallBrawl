@@ -8,6 +8,12 @@ public class GoalScript : NetworkBehaviour {
     [SerializeField]
     private Material _redGoalMaterial;
 
+    [SerializeField]
+    private GameObject _redGoalParticle;
+
+    [SerializeField]
+    private GameObject _blueGoalParticle;
+
     [SyncVar]
     private int _goalsScored;
 
@@ -34,11 +40,26 @@ public class GoalScript : NetworkBehaviour {
 
             if (_assignedTeam == Teams.TEAM_A) {
                 HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamA, _goalsScored);
+
+                if(isServer) {
+                    GameObject redParticle = Instantiate(_redGoalParticle, other.gameObject.transform.position, Quaternion.identity);
+                    NetworkServer.Spawn(redParticle);
+
+                    Destroy(redParticle, 2f);
+                }
+                
             } else {
                 HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamB, _goalsScored);
+
+                if(isServer) {
+                    GameObject blueParticle = Instantiate(_blueGoalParticle, other.gameObject.transform.position, Quaternion.identity);
+                    NetworkServer.Spawn(blueParticle);
+
+                    Destroy(blueParticle, 2f);
+                }
             }
 
-            GameStateManager.Instance.CmdResetRound(); //Reset the round whenever a goal is scored
+            GameStateManager.Instance.CmdSetState(GameStates.STATE_SLOWDOWN); //Reset the round whenever a goal is scored
         }
     }
 

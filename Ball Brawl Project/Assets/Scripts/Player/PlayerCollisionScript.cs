@@ -32,13 +32,11 @@ public class PlayerCollisionScript : NetworkBehaviour {
 
     [ClientRpc]
     public void RpcRespawn() {
-        if (!isLocalPlayer) return;
-
         //restoring original position and rotation
         transform.position = _spawnPos;
 
         if(_cameraController == null) _cameraController = GetComponentInChildren<CameraController>(); //cant be done in awake, since the camera is enabled after the client connects
-        _cameraController.ResetRotation();
+        if(_cameraController != null) _cameraController.ResetRotation();
 
         if(_playerInit.AssignedTeam == Teams.TEAM_A) {
             _playerController.SetRotationPlayer(180f);

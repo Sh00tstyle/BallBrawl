@@ -61,11 +61,14 @@ public class PlayerInteractionScript : NetworkBehaviour {
         else if (!isLocalPlayer && !_isHolding) _visualBall.SetActive(false);
 
         if(!isLocalPlayer) return;
+        if (PauseManagerScript.Instance.IsPaused || PauseManagerScript.Instance.BlockInput) return;
 
         ProcessMouseInput();
 
         if(_isHolding) {
             HudOverlayManager.Instance.UpdateHoldingBar(_holdingTimer / _maxHoldingTime);
+        } else {
+            HudOverlayManager.Instance.UpdateHoldingBar(0f);
         }
 
         _holdingTimer += Time.deltaTime;
@@ -153,6 +156,10 @@ public class PlayerInteractionScript : NetworkBehaviour {
         //Activating the ball and dropping it in front of the player
         _ballBehaviour.ActivateBallBehaviour();
         _ballBehaviour.SetBallPosition(_ballParent.position);
+    }
+
+    public void ResetCooldowns() {
+        _abilityCooldownTimer = 0f;
     }
 
     public bool IsHolding {

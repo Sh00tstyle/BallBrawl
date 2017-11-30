@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4425678647235442}
+  - component: {fileID: 114005929019064038}
   m_Layer: 0
   m_Name: GoalParticle_Blue
   m_TagString: Untagged
@@ -102,6 +103,38 @@ Transform:
   m_Father: {fileID: 4425678647235442}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114005929019064038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881587948568528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 24
+    i1: 121
+    i2: 209
+    i3: 193
+    i4: 37
+    i5: 225
+    i6: 180
+    i7: 180
+    i8: 88
+    i9: 201
+    i10: 80
+    i11: 251
+    i12: 244
+    i13: 159
+    i14: 132
+    i15: 175
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!198 &198096441606951730
 ParticleSystem:
   m_ObjectHideFlags: 1

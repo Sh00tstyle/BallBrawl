@@ -37,6 +37,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     private Quaternion _originalRotation;
 
     private Rigidbody _rigidbody;
+    private AnimationsPlayer _anim;
 
     void Awake() {
         Cursor.lockState = CursorLockMode.Locked;
@@ -49,11 +50,12 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.freezeRotation = true;
         _rigidbody.useGravity = false;
+        _anim = GetComponentInChildren<AnimationsPlayer>();
     }
 
     void FixedUpdate() {
         if (!isLocalPlayer) return;
-        //if (GameManagerScript.IsPaused) return;
+        if (PauseManagerScript.Instance.IsPaused || PauseManagerScript.Instance.BlockInput) return;
 
         // Calculate how fast we should be moving
         Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -82,6 +84,8 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
 
         DoRotation();
 
+        if (_anim != null) _anim.UpdateAnimator(transform.InverseTransformDirection(targetVelocity), _grounded);
+
         _grounded = false;
     }
 
@@ -100,11 +104,22 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
 
     public void SetRotationPlayer(float newRotation) {
         _rotationX = newRotation;
+        DoRotation(); //applying the rotation
     }
 
     [ClientRpc]
     public void RpcReceivePush(Vector3 direction, float force) {
         _rigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
+    }
+
+    [ClientRpc]
+    public void RpcResetVelocity() {
+        _rigidbody.velocity = Vector3.zero;
+    }
+
+    public void ResetCooldowns() {
+        _dashCooldownTimer = 0f;
+        _currentFlightCharge = maxFlightCharge;
     }
 
     public static float ClampAngle(float angle, float min, float max) {
@@ -159,6 +174,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         if(_grounded) {
             if(Input.GetKey(KeyCode.Space)) {
                 _rigidbody.AddRelativeForce(transform.up * jumpForce, ForceMode.Impulse);
+                _grounded = false;
             }
         }
 
@@ -176,6 +192,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
             }
 
             if (Input.GetKey(KeyCode.LeftControl)) _currentGravity *= gravityMultiplierOnPress;
+            _grounded = false;
         }
         
         //Otherwise recharge
