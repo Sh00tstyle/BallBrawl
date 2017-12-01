@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114107398311555820}
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   EditorEvents:
   - {fileID: 114915794323067500}
   - {fileID: 114459574059795216}
@@ -27,9 +27,9 @@ MonoBehaviour:
   - {fileID: 114625487355233818}
   - {fileID: 114370464739459438}
   - {fileID: 114286307219207958}
-  MasterBankRef: {fileID: 114959802633359286}
+  MasterBankRef: {fileID: 114915344600772268}
   StringsBankRef: {fileID: 114107398311555820}
-  stringsBankWriteTime: 636477171639989888
+  stringsBankWriteTime: 636477372420256590
   cacheVersion: 2
 --- !u!114 &114107398311555820
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\FMOD\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636477171639989888
+  lastModified: 636477372420256590
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -63,7 +63,7 @@ MonoBehaviour:
   Path: event:/Multiplayer/Goal
   guid: 9a1f973e80d44045bc4fcbd445636151
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -85,7 +85,7 @@ MonoBehaviour:
   Path: event:/Player/Actions/Footsteps/Grass
   guid: 91c9fda263cbae409ae103b251e7766e
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
   Path: event:/Player/Actions/Footsteps/Gravel
   guid: f419d5b4503d7149adac2dbb259eefed
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -129,7 +129,7 @@ MonoBehaviour:
   Path: event:/Player/Actions/Jump_up/Gravel
   guid: d8422b71fa71a2488bd3541481229619
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -170,7 +170,7 @@ MonoBehaviour:
   Path: event:/Multiplayer/Respawn
   guid: 2b672528fc89c24d87273b2af6f75ea1
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -192,7 +192,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/Impact_Shield
   guid: c825bc7205cbfc43a1590b14e46b3db2
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -214,7 +214,7 @@ MonoBehaviour:
   Path: event:/Player/Actions/Jump_down/Grass
   guid: 6210264a128a1743a1a5ca5e52073da7
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -236,7 +236,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/Loop
   guid: 8e75ef1978c697438e29c283b3d5a87c
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
   Path: event:/Player/Actions/Jump_down/Gravel
   guid: 5f7e4b5ee3791b44925c9069cf348d3b
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -280,7 +280,7 @@ MonoBehaviour:
   Path: event:/Player/Actions/Jump_up/Grass
   guid: 7d7f03ceee2ddd4b87e17dfa3a320273
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -302,7 +302,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/Charging
   guid: 5768a8d6c0f0fd40b4994d146bc2f7d1
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -329,6 +329,25 @@ MonoBehaviour:
   - Name: Desktop
     Value: 374464
   Exists: 1
+--- !u!114 &114915344600772268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\Eigene Dateien\OneDrive\Dokumente\Quarter 2.2\2.2 Project Indie Game\Ball
+    Brawl\Ball Brawl Project\Assets\FMOD\Build\Desktop\Master Bank.bank
+  lastModified: 636477372420246552
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 374464
+  Exists: 1
 --- !u!114 &114915794323067500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +362,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/Shoot
   guid: 2ae74b4e02674143ad00fac02cb9089c
   Banks:
-  - {fileID: 114959802633359286}
+  - {fileID: 114915344600772268}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
