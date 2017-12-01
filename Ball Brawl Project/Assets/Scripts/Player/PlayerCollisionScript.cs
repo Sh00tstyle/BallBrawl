@@ -26,12 +26,11 @@ public class PlayerCollisionScript : NetworkBehaviour {
         if(collision.gameObject.tag == Tags.BALL) {
             BallBehaviourScript ballBehaviour = collision.gameObject.GetComponent<BallBehaviourScript>();
 
-            if(ballBehaviour.LastPlayerID != _playerId.ID) RpcRespawn();
+            if(ballBehaviour.LastPlayerID != _playerId.ID) Respawn();
         }
     }
 
-    [ClientRpc]
-    public void RpcRespawn() {
+    public void Respawn() {
         //restoring original position and rotation
         transform.position = _spawnPos;
 

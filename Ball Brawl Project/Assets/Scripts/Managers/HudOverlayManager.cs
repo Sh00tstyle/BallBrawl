@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HudOverlayManager : MonoBehaviour {
 
 	public enum HUDText { SimpleCrosshair, CaptionTeamA, CaptionTeamB, CounterTeamA, CounterTeamB, MatchTimer, RoundCountdown }
-    public enum HUDImage { HoldingBarEmpty, HoldingBarFilled }
+    public enum HUDImage { HoldingBarEmpty, HoldingBarFilled, TeamBackground }
 
     private static HudOverlayManager _instance;
 
