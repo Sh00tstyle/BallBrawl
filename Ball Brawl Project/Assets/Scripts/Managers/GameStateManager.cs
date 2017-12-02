@@ -54,8 +54,6 @@ public class GameStateManager : NetworkBehaviour {
 
         UpdateState();
 
-        Time.timeScale = _timeScale;
-
         _matchStartTimer -= Time.deltaTime;
         _slowdownTimer -= Time.deltaTime;
 
@@ -70,8 +68,8 @@ public class GameStateManager : NetworkBehaviour {
             case GameStates.STATE_READYROUND:
                 if (_matchStartTimer <= 0) {
                     CmdSetState(GameStates.STATE_INGAME);
-                    AudioManager.SetCrowd(Teams.TEAM_A, 0.5f);
-                    AudioManager.SetCrowd(Teams.TEAM_B, 0.5f);
+                    AudioManager.SetCrowd(Teams.TEAM_RED, 0.5f);
+                    AudioManager.SetCrowd(Teams.TEAM_BLUE, 0.5f);
                 }
                 break;
 
@@ -86,7 +84,7 @@ public class GameStateManager : NetworkBehaviour {
                 break;
 
             case GameStates.STATE_SLOWDOWN:
-                if (_timeScale > 0.3f) _timeScale -= Time.deltaTime;
+                if (_timeScale > 0.1f) _timeScale -= Time.deltaTime * 1.5f;
 
                 if(_slowdownTimer <= 0) CmdSetState(GameStates.STATE_READYROUND);
                 break;
@@ -141,7 +139,7 @@ public class GameStateManager : NetworkBehaviour {
         for (int i = 0; i < PlayerManager.Instance.PlayerCount; i++) {
             //Respawn each player
             PlayerObject playerObj = PlayerManager.Instance.GetPlayerAt(i);
-            playerObj.playerObject.GetComponent<PlayerCollisionScript>().Respawn();
+            playerObj.playerObject.GetComponent<PlayerCollisionScript>().RpcRespawn();
             playerObj.playerObject.GetComponent<PlayerInteractionScript>().ResetCooldowns();
 
             PlayerControllerRigidbody playerController = playerObj.playerObject.GetComponent<PlayerControllerRigidbody>();

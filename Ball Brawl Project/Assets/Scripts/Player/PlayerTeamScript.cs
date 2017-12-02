@@ -33,11 +33,11 @@ public class PlayerTeamScript : NetworkBehaviour {
     public void ApplyTeamColor() {
         SkinnedMeshRenderer renderer = GetComponentInChildren<SkinnedMeshRenderer>();
 
-        if (_assignedTeam == Teams.TEAM_A) {
+        if (_assignedTeam == Teams.TEAM_RED) {
             renderer.material.color = Color.red; //will have to be changed for the real model
 
             GetComponent<PlayerControllerRigidbody>().SetRotationPlayer(180f);
-        } else if (_assignedTeam == Teams.TEAM_B) {
+        } else if (_assignedTeam == Teams.TEAM_BLUE) {
             renderer.material.color = Color.blue;
 
             PlayerInteractionScript playerInteraction = GetComponent<PlayerInteractionScript>();

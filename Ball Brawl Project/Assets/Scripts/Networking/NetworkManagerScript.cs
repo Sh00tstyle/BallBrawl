@@ -7,7 +7,7 @@ public class NetworkManagerScript : NetworkManager {
 
     private static NetworkManagerScript _instance;
 
-    private int _spawnedPlayers;
+    private int _connectedPlayers;
 
     public void Awake() {
         if(_instance == null) {
@@ -15,6 +15,11 @@ public class NetworkManagerScript : NetworkManager {
         }
     }
 
+    private void CloseConnection(NetworkConnection conn) {
+        conn.Disconnect();
+    }
+
+    //Called when a player is added to a client
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId) {
         PlayerSpawnerScript playerSpawner = GetComponent<PlayerSpawnerScript>();
 
@@ -22,7 +27,7 @@ public class NetworkManagerScript : NetworkManager {
         Quaternion startRota = Quaternion.identity;
 
         //Spawns the players based on how many players are connected
-        if(_spawnedPlayers % 2 == 0) {
+        if(_connectedPlayers % 2 == 1) {
             spawnPos = playerSpawner.TeamASpawn.position;
             startRota = Quaternion.Euler(new Vector3(0, 180f, 0));
         } else {
@@ -32,30 +37,53 @@ public class NetworkManagerScript : NetworkManager {
         GameObject newPlayer = Instantiate(playerPrefab, spawnPos, startRota);
         NetworkServer.AddPlayerForConnection(conn, newPlayer, playerControllerId);
 
-        IncreasePlayerCount();
-        PlayerManager.Instance.CmdRegisterPlayer(_spawnedPlayers, newPlayer);  
+        PlayerManager.Instance.CmdRegisterPlayer(_connectedPlayers, newPlayer);
     }
 
+    //Called when a client connects
+    public override void OnServerConnect(NetworkConnection conn) {
+        Debug.Log("OnServerConnect is called");
+
+        IncreaseConnectionCount();
+
+        if (_connectedPlayers >= 3) {
+            //Prevents more than 2 clients to connect
+            conn.Dispose();
+            conn.Disconnect();
+            return;
+        }
+
+        base.OnServerConnect(conn);
+    }
+
+    //Called when a player is removed from a client
     public override void OnServerRemovePlayer(NetworkConnection conn, PlayerController player) {
         base.OnServerRemovePlayer(conn, player);
 
-        Debug.Log("On Server Remove Player is called");
+        Debug.Log("OnServerRemovePlayer is called");
+    }
+
+    //Called when a client disconnects
+    public override void OnServerDisconnect(NetworkConnection conn) {
+        Debug.Log("OnServerDisconnect is called");
+
+        base.OnServerDisconnect(conn);
 
         //Unregister player from our list
-        DecreasePlayerCount();
-        PlayerManager.Instance.CmdUnregisterPlayer(_spawnedPlayers);
+        DecreaseConnectionCount();
+        PlayerManager.Instance.CmdUnregisterPlayer(_connectedPlayers);
     }
 
-    private void IncreasePlayerCount() {
-        _spawnedPlayers++;
+    private void IncreaseConnectionCount() {
+        _connectedPlayers++;
     }
 
-    private void DecreasePlayerCount() {
-        _spawnedPlayers--;
+    private void DecreaseConnectionCount() {
+        _connectedPlayers--;
     }
 
     public int SpawnedPlayers {
-        get { return _spawnedPlayers; }
+        get { return _connectedPlayers; }
     }
 
     public static NetworkManagerScript Instance {

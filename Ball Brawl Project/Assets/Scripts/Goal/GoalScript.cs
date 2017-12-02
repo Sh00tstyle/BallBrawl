@@ -28,13 +28,13 @@ public class GoalScript : NetworkBehaviour {
     public override void OnStartClient() {
         MeshRenderer renderer = GetComponent<MeshRenderer>();
 
-        if (_assignedTeam == Teams.TEAM_A) {
+        if (_assignedTeam == Teams.TEAM_RED) {
             renderer.material.color = Color.red;
 
             ParticleSystem particleSys = GetComponentInChildren<ParticleSystem>();
             Renderer particleRenderer = particleSys.GetComponent<Renderer>();
             particleRenderer.material = _redGoalMaterial;
-        } else if (_assignedTeam == Teams.TEAM_B) {
+        } else if (_assignedTeam == Teams.TEAM_BLUE) {
             renderer.material.color = Color.blue;
         }
     }
@@ -43,8 +43,7 @@ public class GoalScript : NetworkBehaviour {
         if (other.gameObject.tag == Tags.BALL) {
             CmdScorePoint();
 
-            if (_assignedTeam == Teams.TEAM_A) {
-                AudioManager.GoalScored(Teams.TEAM_A);
+            if (_assignedTeam == Teams.TEAM_RED) {
                 HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamA, _goalsScored);
                 if (isServer) {
                     GameObject redParticle = Instantiate(_redGoalParticle, other.gameObject.transform.position, Quaternion.identity);
@@ -54,7 +53,7 @@ public class GoalScript : NetworkBehaviour {
                 }
                 
             } else {
-                AudioManager.GoalScored(Teams.TEAM_B);
+                AudioManager.GoalScored(Teams.TEAM_BLUE);
                 HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamB, _goalsScored);
                 if (isServer) {
                     GameObject blueParticle = Instantiate(_blueGoalParticle, other.gameObject.transform.position, Quaternion.identity);

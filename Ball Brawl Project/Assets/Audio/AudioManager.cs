@@ -135,25 +135,25 @@ public class AudioManager : MonoBehaviour
 
     public static void GoalScored(string team)
     {
-        if (team == Teams.TEAM_A)
+        if (team == Teams.TEAM_RED)
         {
             PlayOneShot(audioManager._crowdCheer, audioManager._redCrowd);
             PlayOneShot(audioManager._crowdBoo, audioManager._blueCrowd);
-            SetCrowd(Teams.TEAM_A, 5f);
-            SetCrowd(Teams.TEAM_B, 0.5f);
+            SetCrowd(Teams.TEAM_RED, 5f);
+            SetCrowd(Teams.TEAM_BLUE, 0.5f);
         }
         else
         {
             PlayOneShot(audioManager._crowdCheer, audioManager._blueCrowd);
             PlayOneShot(audioManager._crowdBoo, audioManager._redCrowd);
-            SetCrowd(Teams.TEAM_B, 5f);
-            SetCrowd(Teams.TEAM_A, 0.5f);
+            SetCrowd(Teams.TEAM_BLUE, 5f);
+            SetCrowd(Teams.TEAM_RED, 0.5f);
         }
     }
 
     public static void SetCrowd(string team, float value)
     {
-        if (team == Teams.TEAM_B)
+        if (team == Teams.TEAM_BLUE)
             audioManager._blueCrowd.GetComponent<Crowd>().cheering = value;
         else
             audioManager._redCrowd.GetComponent<Crowd>().cheering = value;

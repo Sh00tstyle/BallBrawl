@@ -18,6 +18,9 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private string _shootSound;
 
     [SerializeField]
+    private GameObject _fakeBallPrefab;
+
+    [SerializeField]
     private GameObject _playerCamera;
 
     [SerializeField]
@@ -150,14 +153,19 @@ public class PlayerInteractionScript : NetworkBehaviour {
     [Command(channel = 2)]
     private void CmdCatchBall() {
         _ballBehaviour.DeactivateBallBehaviour(_playerId.ID);
-
-        _ballBehaviour.SetBallPosition(new Vector3(1000f, 1000f, 1000f)); //somewhere outside of the playingfield
+        _ballBehaviour.SetBallPosition(new Vector3(1000f, 1000f, 1000f)); //somewhere
     }
 
     [Command(channel = 2)]
     private void CmdThrowBall(Vector3 throwingDir) {
+        GameObject fakeBall = Instantiate(_fakeBallPrefab);
+        fakeBall.transform.position = _ballParent.position;
+        fakeBall.GetComponent<Rigidbody>().AddForce(throwingDir * _throwingForce);
+        NetworkServer.Spawn(fakeBall);
+        Destroy(fakeBall, 0.5f);
+
         _ballBehaviour.ActivateBallBehaviour();
-        _ballBehaviour.SetBallPosition(_ballParent.position); 
+        _ballBehaviour.SetBallPosition(_ballParent);
 
         _ballBehaviour.PushBall(throwingDir, _throwingForce, _playerTeam.AssignedTeam);
     }
@@ -171,7 +179,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
     public void CmdReleaseBall() {
         //Activating the ball and dropping it in front of the player
         _ballBehaviour.ActivateBallBehaviour();
-        _ballBehaviour.SetBallPosition(_ballParent.position);
+        _ballBehaviour.SetBallPosition(_ballParent);
     }
 
     public void ResetCooldowns() {

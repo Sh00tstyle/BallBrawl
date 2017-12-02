@@ -31,7 +31,19 @@ public class HudOverlayManager : MonoBehaviour {
     }
 
     public void UpdateMatchTimer(float time) {
-        _hudTexts[(int)HUDText.MatchTimer].text = "" + time;
+        string minString = "" + Mathf.FloorToInt(time / 60f);
+
+        int sec = Mathf.FloorToInt(time) % 60;
+        string secString = "" + sec;
+
+        //Some formatting
+        if(sec < 10) {
+            secString = "0" + sec;
+        } else if(sec == 0) {
+            secString = "00";
+        }
+
+        _hudTexts[(int)HUDText.MatchTimer].text = minString + ":" + secString;
     }
 
     public void UpdateRoundCountdown(float countdown) {

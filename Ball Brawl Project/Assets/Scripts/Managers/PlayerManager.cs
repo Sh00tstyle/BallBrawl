@@ -28,8 +28,8 @@ public class PlayerManager : NetworkBehaviour {
 
         PlayerTeamScript playerTeamScript = playerObject.GetComponent<PlayerTeamScript>();
 
-        if (playerId % 2 == 1) playerTeamScript.CmdSetTeam(Teams.TEAM_A);
-        else playerTeamScript.CmdSetTeam(Teams.TEAM_B);
+        if (playerId % 2 == 1) playerTeamScript.CmdSetTeam(Teams.TEAM_RED);
+        else playerTeamScript.CmdSetTeam(Teams.TEAM_BLUE);
 
         _playerList.Add(playerObj);
 
@@ -39,6 +39,8 @@ public class PlayerManager : NetworkBehaviour {
 
     [Command]
     public void CmdUnregisterPlayer(int index) {
+        if (_playerList.Count < index + 1) return; //Prevent removing non existen objects
+
         _playerList.RemoveAt(index);
     }
 

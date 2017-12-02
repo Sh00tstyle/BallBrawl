@@ -11,7 +11,7 @@ d7f68f45a029ab03de575e344838c574 Assembly-CSharp.dll:.GameStateManager
 3b945a83fa61133bbb7c61d4d7012fd9 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.Hose
 783bf6d659235f53a950684dd61ab5b9 Assembly-CSharp.dll:.CameraController
 8e9f5b922979e9356a11d2ee2b32ee60 Assembly-CSharp-firstpass.dll:UnityStandardAssets.CrossPlatformInput.TiltInput
-9176e90abd22690da33b9980b0da1563 Assembly-CSharp.dll:.PlayerInteractionScript
+763bf11259017319dfe0dd689bb2ba0a Assembly-CSharp.dll:.PlayerInteractionScript
 aa13baec1c19c8fa869cb21cb01a3767 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Water.WaterBase
 3ecea0c2e43f5d97a17c441bfcf59a7d Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingBehaviour
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Ball.BallUserControl
@@ -88,6 +88,7 @@ f4b175ffc1eeca85d2783436b4c764a7 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 389ed87a68a9c6f5dc384765fd599dbc Assembly-CSharp.dll:.PlayerSpawnerScript
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerCollisionScript
 0f3d4bb7128a287827d041c696039525 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch
+<<<<<<< HEAD
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
@@ -223,3 +224,6 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 956845aebacf9664c1c6884d8d6521a3 Assembly-CSharp.dll:.NetworkHUD
+=======
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.FakeBallScript
+>>>>>>> feature/WeekendNico

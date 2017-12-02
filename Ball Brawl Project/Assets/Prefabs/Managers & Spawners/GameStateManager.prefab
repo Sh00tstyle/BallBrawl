@@ -84,5 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772f2ce196a58644e9f1e3239b40341b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _roundTimer: event:/Multiplayer/Countdown
+  _roundStart: event:/Multiplayer/Roundstart
   _ballSpawnPos: {fileID: 0}
   _slowdownDuration: 1

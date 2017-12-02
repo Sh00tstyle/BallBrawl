@@ -77,7 +77,9 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         //Put it into WorldSpace
         targetVelocity = transform.TransformDirection(targetVelocity);
         targetVelocity *= speed;
-        targetVelocity = PreventBoundaryStuck(targetVelocity);
+
+        //Testing, if it solves a collision issue
+        //targetVelocity = PreventBoundaryStuck(targetVelocity);
 
         //If we are flying apply a movement penalty so we ensure that we dont manouver quite as fast midair
         if (!_grounded) targetVelocity /= flightMovementPenalty;
