@@ -275,6 +275,7 @@
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\Ball\BallBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Ball\BallRotation.cs" />
+    <Compile Include="Assets\Scripts\Ball\FakeBallScript.cs" />
     <Compile Include="Assets\Scripts\Goal\GoalScript.cs" />
     <Compile Include="Assets\Scripts\Hud\NetworkHUD.cs" />
     <Compile Include="Assets\Scripts\Managers\BallSpawnerScript.cs" />

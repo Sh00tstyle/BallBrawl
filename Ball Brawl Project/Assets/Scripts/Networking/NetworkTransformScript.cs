@@ -4,6 +4,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 //Makes the NetworkTransform use another channel at a different sendInterval
-[NetworkSettings(channel=1, sendInterval = 0.05f)]
+[NetworkSettings(channel = 2)]
 public class NetworkTransformScript : NetworkTransform {
 }

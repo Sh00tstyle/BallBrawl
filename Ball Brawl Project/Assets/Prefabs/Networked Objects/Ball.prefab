@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 54545485053706158}
   - component: {fileID: 114640746598733964}
   - component: {fileID: 114425023207815228}
-  - component: {fileID: 114276405912717598}
   - component: {fileID: 96148502212508166}
-  m_Layer: 0
+  - component: {fileID: 114900626779418686}
+  m_Layer: 2
   m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 33574297465563130}
   - component: {fileID: 23935176959909372}
   - component: {fileID: 114871178664342236}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ball_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 33234165807937066}
   - component: {fileID: 23493186230563638}
   - component: {fileID: 114123491787071780}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ball_center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 4415054974669440}
   - component: {fileID: 198084004795819652}
   - component: {fileID: 199642098697949012}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 33463416808485508}
   - component: {fileID: 23397639102178674}
   - component: {fileID: 114428334033009426}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ball_middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,27 +415,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0.3
---- !u!114 &114276405912717598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1339230851986888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e462d59c6468f01428dde0407485f336, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 3
-  m_SendInterval: 0.045454547
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 0.8
 --- !u!114 &114425023207815228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -512,6 +491,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0.6
+--- !u!114 &114900626779418686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1339230851986888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e462d59c6468f01428dde0407485f336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.055555556
+  m_SyncRotationAxis: 0
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 0.8
 --- !u!135 &135094560463893646
 SphereCollider:
   m_ObjectHideFlags: 1

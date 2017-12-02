@@ -29,7 +29,7 @@ MonoBehaviour:
   - {fileID: 114286307219207958}
   MasterBankRef: {fileID: 114915344600772268}
   StringsBankRef: {fileID: 114107398311555820}
-  stringsBankWriteTime: 636477372420256590
+  stringsBankWriteTime: 636477531201949397
   cacheVersion: 2
 --- !u!114 &114107398311555820
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\FMOD\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636477372420256590
+  lastModified: 636477531201949397
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: D:\Eigene Dateien\OneDrive\Dokumente\Quarter 2.2\2.2 Project Indie Game\Ball
     Brawl\Ball Brawl Project\Assets\FMOD\Build\Desktop\Master Bank.bank
-  lastModified: 636477372420246552
+  lastModified: 636477531201934361
   LoadResult: 0
   FileSizes:
   - Name: Desktop

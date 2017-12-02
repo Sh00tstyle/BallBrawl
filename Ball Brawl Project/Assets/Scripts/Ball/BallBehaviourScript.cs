@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-[NetworkSettings(channel=2, sendInterval = 0.05f)]
 public class BallBehaviourScript : NetworkBehaviour {
 
     private Rigidbody _ballRb;
@@ -70,12 +69,18 @@ public class BallBehaviourScript : NetworkBehaviour {
         }
     }
 
+    public void Update() {
+        if(transform.position.y < 53f) {
+            transform.position = new Vector3(transform.position.x, 53f, transform.position.z);
+        }
+    }
+
     private void AdjustBallColor(string newValue) {
-        if(newValue == Teams.TEAM_A) {
+        if(newValue == Teams.TEAM_RED) {
             _renderers[0].material = _ball2RedMat;
             _renderers[1].material = _ball3RedMat;
             _trailRenderer.material = _ballTrailRedMat;
-        } else if(newValue == Teams.TEAM_B) {
+        } else if(newValue == Teams.TEAM_BLUE) {
             _renderers[0].material = _ball2BlueMat;
             _renderers[1].material = _ball3BlueMat;
             _trailRenderer.material = _ballTrailBlueMat;
@@ -96,6 +101,10 @@ public class BallBehaviourScript : NetworkBehaviour {
 
     private void SetIsActive(bool isActive) {
         _isActive = isActive;
+    }
+
+    public void SetBallPosition(Transform newPos) {
+        transform.position = newPos.position;
     }
 
     public void SetBallPosition(Vector3 newPos) {
@@ -155,6 +164,7 @@ public class BallBehaviourScript : NetworkBehaviour {
     }
 
     public void PushBall(Vector3 direction, float strength, string playerTeam) {
+        _ballRb.velocity = Vector3.zero;
         _ballRb.AddForce(direction * strength);
 
         SetCurrentTeam(playerTeam);

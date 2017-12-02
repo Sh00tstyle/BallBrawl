@@ -9,7 +9,7 @@ public class PlayerCollisionScript : NetworkBehaviour {
 
     private PlayerIdScript _playerId;
     private PlayerControllerRigidbody _playerController;
-    private PlayerTeamScript _playerInit;
+    private PlayerTeamScript _playerTeam;
     private CameraController _cameraController;
 
     public override void OnStartLocalPlayer() {
@@ -19,7 +19,7 @@ public class PlayerCollisionScript : NetworkBehaviour {
     public void Awake() {
         _playerId = GetComponent<PlayerIdScript>();
         _playerController = GetComponent<PlayerControllerRigidbody>();
-        _playerInit = GetComponent<PlayerTeamScript>();
+        _playerTeam = GetComponent<PlayerTeamScript>();
     }
 
     public void OnCollisionEnter(Collision collision) {
@@ -31,16 +31,23 @@ public class PlayerCollisionScript : NetworkBehaviour {
     }
 
     public void Respawn() {
+        Debug.Log("Respawn called");
+
         //restoring original position and rotation
         transform.position = _spawnPos;
 
         if(_cameraController == null) _cameraController = GetComponentInChildren<CameraController>(); //cant be done in awake, since the camera is enabled after the client connects
         if(_cameraController != null) _cameraController.ResetRotation();
 
-        if(_playerInit.AssignedTeam == Teams.TEAM_A) {
+        if(_playerTeam.AssignedTeam == Teams.TEAM_RED) {
             _playerController.SetRotationPlayer(180f);
-        } else if(_playerInit.AssignedTeam == Teams.TEAM_B) {
+        } else if(_playerTeam.AssignedTeam == Teams.TEAM_BLUE) {
             _playerController.SetRotationPlayer(0f);
         }
+    }
+
+    [ClientRpc]
+    public void RpcRespawn() {
+        Respawn();
     }
 }
