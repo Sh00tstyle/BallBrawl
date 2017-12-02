@@ -559,6 +559,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 75.43428, y: 0.33841905, z: 37.434277}
   m_Center: {x: -0.00001242781, y: -15.61059, z: 0.000004296169}
+--- !u!1 &603064134 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1492197881352668, guid: c59de704220078a4983cc77b2ccc8010,
+    type: 2}
+  m_PrefabInternal: {fileID: 1187858465}
 --- !u!4 &693434635 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4508214979541604, guid: 8c1f7668a60862f429e4d3495125d817,
@@ -632,12 +637,12 @@ Prefab:
     - target: {fileID: 224168184765157340, guid: 119b23c66fbaf7f42a2e10cc90cca6bd,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 541.5
       objectReference: {fileID: 0}
     - target: {fileID: 224168184765157340, guid: 119b23c66fbaf7f42a2e10cc90cca6bd,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 304.5
       objectReference: {fileID: 0}
     - target: {fileID: 224168184765157340, guid: 119b23c66fbaf7f42a2e10cc90cca6bd,
         type: 2}
@@ -1082,8 +1087,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 989690618}
-  m_LocalRotation: {x: 0.078016385, y: 0.89375675, z: 0.1712507, w: -0.40716776}
-  m_LocalPosition: {x: 4.491755, y: -53.949898, z: -25.042255}
+  m_LocalRotation: {x: 0.2987687, y: 0.40091056, z: 0.14015658, w: -0.8546134}
+  m_LocalPosition: {x: 73.44501, y: -152.24205, z: -34.00792}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1167,6 +1172,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1144871503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1144871504}
+  m_Layer: 0
+  m_Name: Crowd_Blue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1144871504
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1144871503}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 114, y: 81, z: -115}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1613407669}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1187858465
 Prefab:
   m_ObjectHideFlags: 0
@@ -1209,6 +1242,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c59de704220078a4983cc77b2ccc8010, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1191693918 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1155895141356528, guid: c59de704220078a4983cc77b2ccc8010,
+    type: 2}
+  m_PrefabInternal: {fileID: 1187858465}
 --- !u!1001 &1278207742
 Prefab:
   m_ObjectHideFlags: 0
@@ -1253,6 +1291,16 @@ Prefab:
       propertyPath: _ballSpawnPos
       value: 
       objectReference: {fileID: 693434635}
+    - target: {fileID: 114259552101113232, guid: 3f9f2b2015855304dafa2dabfc85b6de,
+        type: 2}
+      propertyPath: _roundTimer
+      value: event:/Multiplayer/Countdown
+      objectReference: {fileID: 0}
+    - target: {fileID: 114259552101113232, guid: 3f9f2b2015855304dafa2dabfc85b6de,
+        type: 2}
+      propertyPath: _roundStart
+      value: event:/Multiplayer/Roundstart
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f9f2b2015855304dafa2dabfc85b6de, type: 2}
   m_IsPrefabParent: 0
@@ -1320,6 +1368,11 @@ Prefab:
       propertyPath: _teamBSpawn
       value: 
       objectReference: {fileID: 1080748091}
+    - target: {fileID: 114011637772744616, guid: e86696b0b42c2c74b8ef157bbb41a2bd,
+        type: 2}
+      propertyPath: _mainMenu
+      value: event:/Music/Main Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e86696b0b42c2c74b8ef157bbb41a2bd, type: 2}
   m_IsPrefabParent: 0
@@ -1328,6 +1381,57 @@ GameObject:
   m_PrefabParentObject: {fileID: 1600371457690594, guid: 119b23c66fbaf7f42a2e10cc90cca6bd,
     type: 2}
   m_PrefabInternal: {fileID: 852124082}
+--- !u!1 &1613407667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1613407669}
+  - component: {fileID: 1613407668}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1613407668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1613407667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7573093e6b048e42860bf47a2d90595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _redCrowd: {fileID: 603064134}
+  _blueCrowd: {fileID: 1191693918}
+  _redCrowdOrigin: {fileID: 1684193977}
+  _blueCrowdOrigin: {fileID: 1144871503}
+  _crowdBoo: event:/Ambient/Crowd/Boo
+  _crowdCheer: event:/Ambient/Crowd/Cheer
+  _crowdMiss: event:/Ambient/Crowd/Miss
+  _crowdLoop: event:/Ambient/Crowd/Loop
+  FMODInstances: []
+--- !u!4 &1613407669
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1613407667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1684193978}
+  - {fileID: 1144871504}
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1625201778
 Prefab:
   m_ObjectHideFlags: 0
@@ -1450,6 +1554,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d99e276d1f2e0e14d86fe329a879804b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1684193977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1684193978}
+  m_Layer: 0
+  m_Name: Crowd_Red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1684193978
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1684193977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 114, y: 81, z: 106}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1613407669}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1733440915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,8 +1704,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1855651143}
-  m_LocalRotation: {x: -0.1533613, y: 0.658192, z: 0.13947009, w: 0.7237484}
-  m_LocalPosition: {x: -81.416214, y: -111.446686, z: -0.9177017}
+  m_LocalRotation: {x: -0.14724648, y: 0.58810115, z: 0.10994378, w: 0.7876344}
+  m_LocalPosition: {x: -7.2883377, y: -53.77175, z: 15.827644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

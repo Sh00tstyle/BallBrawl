@@ -2,11 +2,24 @@
 using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 using System.Collections;
+using FMODUnity;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 
 public class PlayerControllerRigidbody : NetworkBehaviour {
+
+    [Header("Sounds")]
+    [SerializeField]
+    [EventRef]
+    private string _footsteps;
+    [SerializeField]
+    [EventRef]
+    private string _dash;
+    [SerializeField]
+    [EventRef]
+    private string _jump;
+
 
     [Header("General Movement")]
     public float speed = 10.0f;
@@ -160,7 +173,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
                 _rigidbody.AddForce(velocity.normalized * dashStrength, ForceMode.Impulse);
                 //print("Dash into velocity direction: " + velocity); 
             }
-
+            AudioManager.PlayEvent(_dash, gameObject, true);
             _dashCooldownTimer = dashCooldown;
         }
 
@@ -228,5 +241,13 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         else {
             return targetVelocity;
         }
+    }
+
+    private void PlayerSounds(string name)
+    {
+        if(name == "jump")
+            AudioManager.PlayEvent(_jump, gameObject);
+        if (name == "footstep")
+            AudioManager.PlayEvent(_footsteps, gameObject);
     }
 } 

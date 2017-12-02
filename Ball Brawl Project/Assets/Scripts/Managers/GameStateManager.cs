@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -7,6 +8,13 @@ using UnityEngine.Networking;
 public class GameStateManager : NetworkBehaviour {
 
     private static GameStateManager _instance;
+    [SerializeField]
+    [EventRef]
+    private string _roundTimer;
+    [SerializeField]
+    [EventRef]
+    private string _roundStart;
+
 
     [SerializeField]
     private Transform _ballSpawnPos;
@@ -62,6 +70,8 @@ public class GameStateManager : NetworkBehaviour {
             case GameStates.STATE_READYROUND:
                 if (_matchStartTimer <= 0) {
                     CmdSetState(GameStates.STATE_INGAME);
+                    AudioManager.SetCrowd(Teams.TEAM_A, 0.5f);
+                    AudioManager.SetCrowd(Teams.TEAM_B, 0.5f);
                 }
                 break;
 
@@ -97,9 +107,8 @@ public class GameStateManager : NetworkBehaviour {
 
             case GameStates.STATE_READYROUND:
                 _timeScale = 1f;
-
+                AudioManager.PlayOneShot(_roundTimer, gameObject);
                 PauseManagerScript.Instance.CmdSetBlockInput(true);
-
                 CmdResetBall();
                 CmdResetPlayers();
 
@@ -107,6 +116,7 @@ public class GameStateManager : NetworkBehaviour {
                 break;
 
             case GameStates.STATE_INGAME:
+                AudioManager.PlayOneShot(_roundStart, gameObject);
                 CmdResetPlayers();
 
                 PauseManagerScript.Instance.CmdSetPause(false); //Disables both pause and input blocking

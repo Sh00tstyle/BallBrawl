@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -10,6 +11,13 @@ public class BallBehaviourScript : NetworkBehaviour {
     private Collider _ballCollider;
     private MeshRenderer[] _renderers;
     private TrailRenderer _trailRenderer;
+
+    [SerializeField]
+    [EventRef]
+    public string _impactShield;
+    [SerializeField]
+    [EventRef]
+    public string _ballLoop;
 
     [SerializeField]
     private Material _ball2RedMat;
@@ -50,13 +58,14 @@ public class BallBehaviourScript : NetworkBehaviour {
     private static BallBehaviourScript _instance;
 
     public void Awake() {
+
         _ballRb = GetComponent<Rigidbody>();
         _ballCollider = GetComponent<Collider>();
         _renderers = GetComponentsInChildren<MeshRenderer>();
         _trailRenderer = GetComponent<TrailRenderer>();
+        AudioManager.PlayEvent(_ballLoop, gameObject, true);
 
         SetLastPlayerID(0); //Nothing
-
         ActivateBallBehaviour();
 
         if(_instance == null) {
@@ -68,6 +77,7 @@ public class BallBehaviourScript : NetworkBehaviour {
         if(collision.gameObject.tag != Tags.PLAYER) {
             SetLastPlayerID(0);
         }
+        AudioManager.PlayOneShot(_impactShield, gameObject);
     }
 
     private void AdjustBallColor(string newValue) {
@@ -156,7 +166,6 @@ public class BallBehaviourScript : NetworkBehaviour {
 
     public void PushBall(Vector3 direction, float strength, string playerTeam) {
         _ballRb.AddForce(direction * strength);
-
         SetCurrentTeam(playerTeam);
     }
 

@@ -4,14 +4,34 @@ using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
-    
+    [SerializeField]
+    private GameObject _redCrowd;
+    [SerializeField]
+    private GameObject _blueCrowd;
+    [SerializeField]
+    private GameObject _redCrowdOrigin;
+    [SerializeField]
+    private GameObject _blueCrowdOrigin;
+
+    [SerializeField]
+    [EventRef]
+    private string _crowdBoo;
+    [SerializeField]
+    [EventRef]
+    private string _crowdCheer;
+    [SerializeField]
+    [EventRef]
+    private string _crowdMiss;
+    [SerializeField]
+    [EventRef]
+    private string _crowdLoop;
 
     public List<FMODInstance> FMODInstances;
     [System.Serializable]
     public class FMODInstance
     {
         [EventRef]
-        public string eventName;
+        public string eventString;
         public GameObject origin;
         public FMOD.Studio.EventInstance instance;
     }
@@ -21,6 +41,8 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        PlayOneShot(_crowdLoop, _redCrowd);
+        PlayOneShot(_crowdLoop, _blueCrowd);
         if (audioManager != null && audioManager != this)
         {
             Destroy(this.gameObject);
@@ -35,17 +57,17 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShot(eventString, gameObject.transform.position);
     }
 
-    public static void PlayEvent(string eventString, GameObject gameObject, bool attach = false)
+    public static void PlayEvent(string eventString, GameObject gameObject, bool attach = false, bool instantDelete = true)
     {
         // Storing all values in a list, so we can later adjust values/variables of those specific events.
         // As FMOD doesn't actually store this data anywhere.
         FMODInstance newInstance = new FMODInstance();
         newInstance.origin = gameObject;
-        newInstance.eventName = eventString;
+        newInstance.eventString = eventString;
         audioManager.FMODInstances.Add(newInstance);
 
         // Playing the new event
-        newInstance.instance = RuntimeManager.CreateInstance(newInstance.eventName);
+        newInstance.instance = RuntimeManager.CreateInstance(newInstance.eventString);
         newInstance.instance.set3DAttributes(RuntimeUtils.To3DAttributes(newInstance.origin.transform.position));
         newInstance.instance.start();
 
@@ -55,18 +77,39 @@ public class AudioManager : MonoBehaviour
             Rigidbody rigidbody = newInstance.origin.GetComponent<Rigidbody>();
             RuntimeManager.AttachInstanceToGameObject(newInstance.instance, newInstance.origin.transform, rigidbody);
         }
+
+        if (instantDelete)
+        {
+            newInstance.instance.release();
+            audioManager.FMODInstances.Remove(newInstance);
+        }
+
     }
 
-    public static void stopInstance(string eventString, GameObject gameObject)
+    public static void stopInstance(string eventString, GameObject gameObject, bool fadeOut = true)
     {
-        getInstance(gameObject, eventString).stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        FMOD.Studio.EventInstance instanceToDelete = getInstance(gameObject, eventString);
+        for (int i = 0; i < audioManager.FMODInstances.Count; i++)
+        {
+            if (audioManager.FMODInstances[i].eventString == eventString && audioManager.FMODInstances[i].origin == gameObject)
+                audioManager.FMODInstances.RemoveAt(i);
+        }
+
+        if (fadeOut)
+        {
+            instanceToDelete.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+        else
+        {
+            instanceToDelete.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
     }
 
-    private static FMOD.Studio.EventInstance getInstance(GameObject gameObject, string eventName)
+    private static FMOD.Studio.EventInstance getInstance(GameObject gameObject, string eventString)
     {
         foreach (FMODInstance instance in audioManager.FMODInstances)
         {
-            if (instance.eventName == eventName && instance.origin == gameObject)
+            if (instance.eventString == eventString && instance.origin == gameObject)
             {
                 return instance.instance;
             }
@@ -87,5 +130,32 @@ public class AudioManager : MonoBehaviour
     public static void setVolume(string eventString, GameObject gameObject, float value)
     {
         getInstance(gameObject, eventString).setVolume(value);
+    }
+
+
+    public static void GoalScored(string team)
+    {
+        if (team == Teams.TEAM_A)
+        {
+            PlayOneShot(audioManager._crowdCheer, audioManager._redCrowd);
+            PlayOneShot(audioManager._crowdBoo, audioManager._blueCrowd);
+            SetCrowd(Teams.TEAM_A, 5f);
+            SetCrowd(Teams.TEAM_B, 0.5f);
+        }
+        else
+        {
+            PlayOneShot(audioManager._crowdCheer, audioManager._blueCrowd);
+            PlayOneShot(audioManager._crowdBoo, audioManager._redCrowd);
+            SetCrowd(Teams.TEAM_B, 5f);
+            SetCrowd(Teams.TEAM_A, 0.5f);
+        }
+    }
+
+    public static void SetCrowd(string team, float value)
+    {
+        if (team == Teams.TEAM_B)
+            audioManager._blueCrowd.GetComponent<Crowd>().cheering = value;
+        else
+            audioManager._redCrowd.GetComponent<Crowd>().cheering = value;
     }
 }

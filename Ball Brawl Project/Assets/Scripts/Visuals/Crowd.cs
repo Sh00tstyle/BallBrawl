@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crowd : MonoBehaviour {
+public class Crowd : MonoBehaviour
+{
+    public float cheering = 1f;
 
     [SerializeField]
     private List<CrowdIndividual> CrowdMass;
     [SerializeField]
     private float baseSpeed = 3f;
-    [SerializeField]
-    private float cheering = 1f;
     [SerializeField]
     private float MinSize = 0.5f;
     [SerializeField]
@@ -23,7 +23,8 @@ public class Crowd : MonoBehaviour {
         public float maxSpeed;
     }
 
-    void Start () {
+    void Start()
+    {
         for (int i = 0; i < transform.childCount; i++)
         {
             //Changing speeds with some offset to make it look more random
@@ -33,18 +34,16 @@ public class Crowd : MonoBehaviour {
             newCrowdIndividual.maxSpeed = baseSpeed + Random.Range(0f, 3f);
             CrowdMass.Add(newCrowdIndividual);
 
-            //Changing ssprite size
+            //Changing sprite size
             transform.GetChild(i).GetComponent<Renderer>().material.SetFloat("_Scale", Random.Range(MinSize, maxSize));
-
         }
-       
     }
 
-	void Update () {
+    void Update()
+    {
         for (int i = 0; i < CrowdMass.Count; i++)
         {
-            transform.GetChild(i).transform.position = new Vector3(CrowdMass[i].startPosition.x, CrowdMass[i].startPosition.y + (Mathf.Sin(Time.time * CrowdMass[i].maxSpeed * cheering)/ 2), CrowdMass[i].startPosition.z);
+            transform.GetChild(i).transform.position = new Vector3(CrowdMass[i].startPosition.x, CrowdMass[i].startPosition.y + (Mathf.Sin(Time.time * CrowdMass[i].maxSpeed * cheering) / 2), CrowdMass[i].startPosition.z);
         }
-        
     }
 }

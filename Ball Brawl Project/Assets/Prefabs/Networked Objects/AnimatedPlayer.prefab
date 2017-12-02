@@ -2486,6 +2486,7 @@ GameObject:
   - component: {fileID: 95039416877251364}
   - component: {fileID: 114001391685108296}
   - component: {fileID: 114121004754687306}
+  - component: {fileID: 114735053350334580}
   m_Layer: 0
   m_Name: AnimatedPlayer
   m_TagString: Player
@@ -5588,6 +5589,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b2457b8b5cd8d4897129b0278a34c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _footsteps: event:/Player/Footsteps
+  _dash: event:/Player/Dash
+  _jump: event:/Player/Fall
   speed: 10
   gravity: 10
   maxVelocityChange: 25
@@ -5613,6 +5617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fc8d221b23ad94a8f10cc1c3f8559a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chargeSound: event:/Objects/Ball/Charging
+  _catchSound: event:/Objects/Ball/Catch
+  _shootSound: event:/Objects/Ball/Shoot
   _playerCamera: {fileID: 1646875162603820}
   _localBall: {fileID: 1846305631665638}
   _visualBall: {fileID: 1381577786015602}
@@ -5746,6 +5753,18 @@ MonoBehaviour:
     i15: 211
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114735053350334580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1900157992051082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!114 &114818347052528056
 MonoBehaviour:
   m_ObjectHideFlags: 1

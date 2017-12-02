@@ -35,7 +35,7 @@ public class HudOverlayManager : MonoBehaviour {
     }
 
     public void UpdateRoundCountdown(float countdown) {
-        _hudTexts[(int)HUDText.RoundCountdown].text = "" + Mathf.RoundToInt(countdown);
+        _hudTexts[(int)HUDText.RoundCountdown].text = "" + Mathf.CeilToInt(countdown);
 
         if(countdown <= 0) {
             _hudTexts[(int)HUDText.RoundCountdown].enabled = false;

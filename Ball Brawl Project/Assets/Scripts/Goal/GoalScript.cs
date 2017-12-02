@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -7,6 +8,10 @@ public class GoalScript : NetworkBehaviour {
 
     [SerializeField]
     private Material _redGoalMaterial;
+
+    [SerializeField]
+    [EventRef]
+    private string _goalSound;
 
     [SerializeField]
     private GameObject _redGoalParticle;
@@ -39,9 +44,9 @@ public class GoalScript : NetworkBehaviour {
             CmdScorePoint();
 
             if (_assignedTeam == Teams.TEAM_A) {
+                AudioManager.GoalScored(Teams.TEAM_A);
                 HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamA, _goalsScored);
-
-                if(isServer) {
+                if (isServer) {
                     GameObject redParticle = Instantiate(_redGoalParticle, other.gameObject.transform.position, Quaternion.identity);
                     NetworkServer.Spawn(redParticle);
 
@@ -49,16 +54,17 @@ public class GoalScript : NetworkBehaviour {
                 }
                 
             } else {
+                AudioManager.GoalScored(Teams.TEAM_B);
                 HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamB, _goalsScored);
-
-                if(isServer) {
+                if (isServer) {
                     GameObject blueParticle = Instantiate(_blueGoalParticle, other.gameObject.transform.position, Quaternion.identity);
                     NetworkServer.Spawn(blueParticle);
 
                     Destroy(blueParticle, 2f);
                 }
             }
-
+            
+            AudioManager.PlayOneShot(_goalSound, other.gameObject);
             GameStateManager.Instance.CmdSetState(GameStates.STATE_SLOWDOWN); //Reset the round whenever a goal is scored
         }
     }

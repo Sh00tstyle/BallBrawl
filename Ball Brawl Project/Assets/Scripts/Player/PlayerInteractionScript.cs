@@ -1,9 +1,21 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class PlayerInteractionScript : NetworkBehaviour {
+
+
+    [SerializeField]
+    [EventRef]
+    private string _chargeSound;
+    [SerializeField]
+    [EventRef]
+    private string _catchSound;
+    [SerializeField]
+    [EventRef]
+    private string _shootSound;
 
     [SerializeField]
     private GameObject _playerCamera;
@@ -87,9 +99,11 @@ public class PlayerInteractionScript : NetworkBehaviour {
             Vector3 throwingDir = _playerCamera.transform.forward;
             throwingDir = Quaternion.Euler(new Vector3(Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor),
                 Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor), 0)) * throwingDir; //rotating randomly based on the holding time
-
+            AudioManager.stopInstance(_chargeSound, gameObject);
             CmdSetIsHolding(false);
             CmdThrowBall(throwingDir);
+            AudioManager.PlayEvent(_shootSound, gameObject, true);
+            
         } else if (_interactionRange.BallInRange) {
             if (Input.GetMouseButtonDown(0)) {
                 CmdPushBall();
@@ -99,6 +113,8 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
                 CmdSetIsHolding(true);
                 CmdCatchBall();
+                AudioManager.PlayEvent(_chargeSound, gameObject, true, false);
+                AudioManager.PlayOneShot(_catchSound, gameObject);
             }
         }
 

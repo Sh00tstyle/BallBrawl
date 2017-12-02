@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{5e4b7e5f-79e3-441b-925c-9069cf348d3b}">
         <property name="name">
-            <value>Gravel</value>
+            <value>Fall</value>
         </property>
         <property name="outputFormat">
             <value>2</value>
         </property>
         <relationship name="folder">
-            <destination>{51b0930f-122a-497a-bed1-06fd322d0043}</destination>
+            <destination>{f9359aab-2b6c-4035-bdb4-9d787dc9aa39}</destination>
         </relationship>
         <relationship name="mixer">
             <destination>{eb9ea69d-a88a-4835-b0b9-7647a3a495df}</destination>
@@ -99,6 +99,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{7a96cf2e-1a6b-441b-8a32-92afc0703b49}">
+        <property name="volume">
+            <value>-13.5</value>
+        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>

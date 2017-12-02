@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _redGoalMaterial: {fileID: 2100000, guid: ddf362bec3b15334ca61d106935fac80, type: 2}
+  _goalSound: event:/Multiplayer/Goal
   _redGoalParticle: {fileID: 1946953723399972, guid: d28b2bf30d9a22142ab18f21231d1ce1,
     type: 2}
   _blueGoalParticle: {fileID: 1881587948568528, guid: 1879d1c125e1b4b458c950fbf49f84af,

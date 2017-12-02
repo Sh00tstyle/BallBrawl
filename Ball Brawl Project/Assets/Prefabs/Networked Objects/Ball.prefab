@@ -447,6 +447,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c14968c76a22d4cbd38c0b7cdbdf90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _impactShield: event:/Objects/Ball/Impact_Shield
+  _ballLoop: event:/Objects/Ball/Loop
+  _ballShoot: event:/Objects/Ball/Shoot
   _ball2RedMat: {fileID: 2100000, guid: 27b7542e07843b34f98af3042b585f61, type: 2}
   _ball3RedMat: {fileID: 2100000, guid: 2f9c0f7a907a86746bb8b0e981bd8e7d, type: 2}
   _ballTrailRedMat: {fileID: 2100000, guid: a660614560ce58541bc2233e77c437e7, type: 2}
