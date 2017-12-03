@@ -5550,8 +5550,8 @@ MonoBehaviour:
   sensitivityY: 4
   minimumX: -360
   maximumX: 360
-  minimumY: -60
-  maximumY: 60
+  minimumY: -80
+  maximumY: 80
 --- !u!114 &114107918530755540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5591,7 +5591,7 @@ MonoBehaviour:
   _footsteps: event:/Player/Footsteps
   _dash: event:/Player/Dash
   _jump: event:/Player/Fall
-  speed: 10
+  speed: 13
   gravity: 10
   maxVelocityChange: 25
   dashStrength: 125

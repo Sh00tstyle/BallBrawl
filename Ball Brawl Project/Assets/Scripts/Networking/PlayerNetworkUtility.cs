@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
-using UnityEngine.Networking;
+using UnityEngine.UI;
 
-public class PlayerNetworkUtility : NetworkBehaviour {
+public class PlayerNetworkUtility : MonoBehaviour {
 
-	// Use this for initialization
+    private Text _text;
+
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        _text = GetComponent<Text>();
+
+        //Determine the IP Address of your ethernet port
         foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces()) {
-            if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet) {
-                print(ni.Name);
+            if (ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet) {
+                //print(ni.Name);
                 foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses) {
                     if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork) {
-                        print(ip.Address.ToString());
+                        _text.text = ip.Address.ToString();
                     }
                 }
             }
