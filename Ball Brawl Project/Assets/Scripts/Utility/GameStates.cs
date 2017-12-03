@@ -1,6 +1,8 @@
 ﻿public class GameStates {
     public const int STATE_PAUSE = 0;
-    public const int STATE_READYROUND = 1;
-    public const int STATE_INGAME = 2;
-    public const int STATE_SLOWDOWN = 3;
+    public const int STATE_IDLE = 1;
+    public const int STATE_READYROUND = 2;
+    public const int STATE_INGAME = 3;
+    public const int STATE_SLOWDOWN = 4;
+    public const int STATE_MATCHEND = 5;
 }

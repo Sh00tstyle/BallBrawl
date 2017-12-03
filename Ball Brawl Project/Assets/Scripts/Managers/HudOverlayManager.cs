@@ -46,6 +46,10 @@ public class HudOverlayManager : MonoBehaviour {
         _hudTexts[(int)HUDText.MatchTimer].text = minString + ":" + secString;
     }
 
+    public void UpdateMatchTimer(string message) {
+        _hudTexts[(int)HUDText.MatchTimer].text = message;
+    }
+
     public void UpdateRoundCountdown(float countdown) {
         _hudTexts[(int)HUDText.RoundCountdown].text = "" + Mathf.CeilToInt(countdown);
 

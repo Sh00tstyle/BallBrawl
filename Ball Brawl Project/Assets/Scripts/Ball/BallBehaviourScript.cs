@@ -122,11 +122,19 @@ public class BallBehaviourScript : NetworkBehaviour {
     }
 
     public void ResetBall(Vector3 position) {
+        //resets the ball to the given position
         transform.position = position;
         _ballRb.velocity = Vector3.zero;
 
-        SetLastPlayerID(0);
+        ActivateBallBehaviour();
+
         SetCurrentTeam(Teams.TEAM_NEUTRAL);
+        SetLastPlayerID(0);
+    }
+
+    public void ReleaseBall(float forceFactor) {
+        //Pushes the ball up
+        _ballRb.AddForce(new Vector3(0, 1f * forceFactor, 0), ForceMode.Impulse);
     }
 
     private void EnableBall() {

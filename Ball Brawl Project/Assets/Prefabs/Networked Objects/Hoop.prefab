@@ -11,6 +11,24 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1744458757995288}
   m_IsPrefabParent: 1
+--- !u!1 &1208396398576270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4808745915002214}
+  - component: {fileID: 33767138035729944}
+  - component: {fileID: 65975876511687170}
+  - component: {fileID: 114472348742451960}
+  m_Layer: 0
+  m_Name: GoalCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1307898194229138
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,7 +58,7 @@ GameObject:
   - component: {fileID: 23127752697676466}
   - component: {fileID: 114623907413601246}
   - component: {fileID: 114168875314786234}
-  - component: {fileID: 135082981737185226}
+  - component: {fileID: 64669671544996878}
   m_Layer: 0
   m_Name: Hoop
   m_TagString: Untagged
@@ -61,6 +79,19 @@ Transform:
   m_Father: {fileID: 4908731581723714}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4808745915002214
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208396398576270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4908731581723714}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4908731581723714
 Transform:
   m_ObjectHideFlags: 1
@@ -68,10 +99,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744458757995288}
   m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -9.345697, y: 64.7, z: -12.6}
+  m_LocalPosition: {x: 9.789427, y: 57.71492, z: -39.8686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4467891678743676}
+  - {fileID: 4808745915002214}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
@@ -109,6 +141,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!33 &33767138035729944
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208396398576270}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33884564383907986
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -116,6 +155,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744458757995288}
   m_Mesh: {fileID: 4300004, guid: dbb42923abb355745bd1aa16f41ba704, type: 3}
+--- !u!64 &64669671544996878
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1744458757995288}
+  m_Material: {fileID: 13400000, guid: 3907b0a5a338a994dba1c7e66c8c14c8, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: dbb42923abb355745bd1aa16f41ba704, type: 3}
+--- !u!65 &65975876511687170
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208396398576270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.29, y: 0.2, z: 6.71}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114168875314786234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +193,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _redGoalMaterial: {fileID: 2100000, guid: ddf362bec3b15334ca61d106935fac80, type: 2}
+--- !u!114 &114472348742451960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208396398576270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6323ab229d9044eafc83426d71bec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _goalSound: event:/Multiplayer/Goal
   _redGoalParticle: {fileID: 1946953723399972, guid: d28b2bf30d9a22142ab18f21231d1ce1,
     type: 2}
@@ -165,18 +241,6 @@ MonoBehaviour:
     i15: 240
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!135 &135082981737185226
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744458757995288}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.4903913
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198747787449112654
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -237,7 +301,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2049608385
+  randomSeed: 400624909
   InitialModule:
     serializedVersion: 3
     enabled: 1
