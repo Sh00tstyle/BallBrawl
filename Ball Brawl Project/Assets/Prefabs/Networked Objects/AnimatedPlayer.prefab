@@ -5619,8 +5619,6 @@ MonoBehaviour:
   _chargeSound: event:/Objects/Ball/Charging
   _catchSound: event:/Objects/Ball/Catch
   _shootSound: event:/Objects/Ball/Shoot
-  _fakeBallPrefab: {fileID: 1339230851986888, guid: 26384549e8089524fa723dffa4e0a9cf,
-    type: 2}
   _playerCamera: {fileID: 1646875162603820}
   _localBall: {fileID: 1846305631665638}
   _visualBall: {fileID: 1381577786015602}

@@ -31,8 +31,6 @@ public class PlayerCollisionScript : NetworkBehaviour {
     }
 
     public void Respawn() {
-        Debug.Log("Respawn called");
-
         //restoring original position and rotation
         transform.position = _spawnPos;
 

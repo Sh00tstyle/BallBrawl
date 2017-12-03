@@ -34,7 +34,7 @@ public class PlayerManager : NetworkBehaviour {
         _playerList.Add(playerObj);
 
         //Initialize the round, as soon as two players have been registered
-        if (PlayerCount >= 2) GameStateManager.Instance.CmdSetState(GameStates.STATE_READYROUND);
+        if (PlayerCount >= 2) GameStateManager.Instance.CmdResetMatch();
     }
 
     [Command]
@@ -42,6 +42,8 @@ public class PlayerManager : NetworkBehaviour {
         if (_playerList.Count < index + 1) return; //Prevent removing non existen objects
 
         _playerList.RemoveAt(index);
+
+        if (PlayerCount < 2) GameStateManager.Instance.CmdSetState(GameStates.STATE_IDLE); //The other client waits and then the match will be restarted
     }
 
     public PlayerObject GetPlayerAt(int index) {

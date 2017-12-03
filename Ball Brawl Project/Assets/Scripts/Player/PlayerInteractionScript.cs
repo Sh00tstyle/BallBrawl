@@ -6,19 +6,17 @@ using UnityEngine.Networking;
 
 public class PlayerInteractionScript : NetworkBehaviour {
 
-
     [SerializeField]
     [EventRef]
     private string _chargeSound;
+
     [SerializeField]
     [EventRef]
     private string _catchSound;
+
     [SerializeField]
     [EventRef]
     private string _shootSound;
-
-    [SerializeField]
-    private GameObject _fakeBallPrefab;
 
     [SerializeField]
     private GameObject _playerCamera;
@@ -51,7 +49,6 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private bool _isHolding;
 
     private InteractionRangeScript _interactionRange;
-    private BallBehaviourScript _ballBehaviour;
     private PlayerIdScript _playerId;
     private PlayerTeamScript _playerTeam;
 
@@ -66,7 +63,6 @@ public class PlayerInteractionScript : NetworkBehaviour {
     }
 
     private void Awake() {
-        _ballBehaviour = BallBehaviourScript.Instance;
         _playerId = GetComponent<PlayerIdScript>();
         _playerTeam = GetComponent<PlayerTeamScript>();
     }
@@ -99,14 +95,14 @@ public class PlayerInteractionScript : NetworkBehaviour {
             _localBall.SetActive(false);
 
             //Calculating the direction the ball gets push towards
-            Vector3 throwingDir = _playerCamera.transform.forward;
+            Vector3 throwingDir = _ballParent.transform.position - transform.position;
             throwingDir = Quaternion.Euler(new Vector3(Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor),
                 Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor), 0)) * throwingDir; //rotating randomly based on the holding time
+
             AudioManager.stopInstance(_chargeSound, gameObject);
             CmdSetIsHolding(false);
-            CmdThrowBall(throwingDir);
+            CmdThrowBall(throwingDir.normalized);
             AudioManager.PlayEvent(_shootSound, gameObject, true);
-            
         } else if (_interactionRange.BallInRange) {
             if (Input.GetMouseButtonDown(0)) {
                 CmdPushBall();
@@ -152,38 +148,33 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
     [Command(channel = 2)]
     private void CmdCatchBall() {
-        _ballBehaviour.DeactivateBallBehaviour(_playerId.ID);
-        _ballBehaviour.SetBallPosition(new Vector3(1000f, 1000f, 1000f)); //somewhere
+        BallBehaviourScript.Instance.DeactivateBallBehaviour(_playerId.ID);
+        BallBehaviourScript.Instance.SetBallPosition(new Vector3(1000f, 1000f, 1000f)); //somewhere
     }
 
     [Command(channel = 2)]
     private void CmdThrowBall(Vector3 throwingDir) {
-        GameObject fakeBall = Instantiate(_fakeBallPrefab);
-        fakeBall.transform.position = _ballParent.position;
-        fakeBall.GetComponent<Rigidbody>().AddForce(throwingDir * _throwingForce);
-        NetworkServer.Spawn(fakeBall);
-        Destroy(fakeBall, 0.5f);
+        BallBehaviourScript.Instance.ActivateBallBehaviour();
+        BallBehaviourScript.Instance.SetBallPosition(_ballParent);
 
-        _ballBehaviour.ActivateBallBehaviour();
-        _ballBehaviour.SetBallPosition(_ballParent);
-
-        _ballBehaviour.PushBall(throwingDir, _throwingForce, _playerTeam.AssignedTeam);
+        BallBehaviourScript.Instance.PushBall(throwingDir, _throwingForce, _playerTeam.AssignedTeam);
     }
 
     [Command(channel = 2)]
     private void CmdPushBall() {
-        _ballBehaviour.PushBall(_playerCamera.transform.forward, _throwingForce, _playerTeam.AssignedTeam);
+        BallBehaviourScript.Instance.PushBall(_playerCamera.transform.forward, _throwingForce, _playerTeam.AssignedTeam);
     }
 
     [Command(channel = 2)]
     public void CmdReleaseBall() {
         //Activating the ball and dropping it in front of the player
-        _ballBehaviour.ActivateBallBehaviour();
-        _ballBehaviour.SetBallPosition(_ballParent);
+        BallBehaviourScript.Instance.ActivateBallBehaviour();
+        BallBehaviourScript.Instance.SetBallPosition(_ballParent);
     }
 
     public void ResetCooldowns() {
         _abilityCooldownTimer = 0f;
+        _catchCooldownTimer = 2f;
     }
 
     public bool IsHolding {

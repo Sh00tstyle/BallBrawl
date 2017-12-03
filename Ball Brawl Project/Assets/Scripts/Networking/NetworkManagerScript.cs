@@ -42,8 +42,6 @@ public class NetworkManagerScript : NetworkManager {
 
     //Called when a client connects
     public override void OnServerConnect(NetworkConnection conn) {
-        Debug.Log("OnServerConnect is called");
-
         IncreaseConnectionCount();
 
         if (_connectedPlayers >= 3) {
@@ -59,8 +57,6 @@ public class NetworkManagerScript : NetworkManager {
     //Called when a player is removed from a client
     public override void OnServerRemovePlayer(NetworkConnection conn, PlayerController player) {
         base.OnServerRemovePlayer(conn, player);
-
-        Debug.Log("OnServerRemovePlayer is called");
     }
 
     //Called when a client disconnects
