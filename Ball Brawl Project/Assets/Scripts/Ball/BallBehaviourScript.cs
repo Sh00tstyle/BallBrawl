@@ -134,6 +134,7 @@ public class BallBehaviourScript : NetworkBehaviour {
 
     public void ReleaseBall(float forceFactor) {
         //Pushes the ball up
+        _ballRb.velocity = Vector3.zero;
         _ballRb.AddForce(new Vector3(0, 1f * forceFactor, 0), ForceMode.Impulse);
     }
 

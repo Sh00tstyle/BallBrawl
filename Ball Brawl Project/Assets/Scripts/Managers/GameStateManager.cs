@@ -46,10 +46,13 @@ public class GameStateManager : NetworkBehaviour {
         if(_instance == null) {
             _instance = this;
         }
+
+        if(HudOverlayManager.Instance != null && _currentState == GameStates.STATE_READYROUND) HudOverlayManager.Instance.UpdateRoundCountdown(_matchStartTimer);
     }
 
     public void Start() {
         if (_currentState == GameStates.STATE_IDLE) HudOverlayManager.Instance.UpdateMatchTimer("Waiting...");
+        else if (_currentState == GameStates.STATE_READYROUND) HudOverlayManager.Instance.UpdateRoundCountdown(_matchStartTimer);
     }
 
     public void Update() {
@@ -83,6 +86,8 @@ public class GameStateManager : NetworkBehaviour {
                     AudioManager.SetCrowd(Teams.TEAM_RED, 0.5f);
                     AudioManager.SetCrowd(Teams.TEAM_BLUE, 0.5f);
                 }
+
+                HudOverlayManager.Instance.UpdateMatchTimer(_matchTimer);
                 break;
 
             case GameStates.STATE_INGAME:
@@ -163,6 +168,7 @@ public class GameStateManager : NetworkBehaviour {
         _matchTimer = 300f;
         GoalSpawnerScript.Instance.ResetGoals();
 
+        HudOverlayManager.Instance.UpdateMatchTimer(_matchTimer);
         CmdSetState(GameStates.STATE_READYROUND);
     }
 

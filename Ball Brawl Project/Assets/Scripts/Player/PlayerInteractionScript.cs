@@ -95,14 +95,14 @@ public class PlayerInteractionScript : NetworkBehaviour {
             _localBall.SetActive(false);
 
             //Calculating the direction the ball gets push towards
-            Vector3 throwingDir = _playerCamera.transform.forward;
+            Vector3 throwingDir = _ballParent.transform.position - transform.position;
             throwingDir = Quaternion.Euler(new Vector3(Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor),
                 Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor), 0)) * throwingDir; //rotating randomly based on the holding time
+
             AudioManager.stopInstance(_chargeSound, gameObject);
             CmdSetIsHolding(false);
-            CmdThrowBall(throwingDir);
+            CmdThrowBall(throwingDir.normalized);
             AudioManager.PlayEvent(_shootSound, gameObject, true);
-            
         } else if (_interactionRange.BallInRange) {
             if (Input.GetMouseButtonDown(0)) {
                 CmdPushBall();
