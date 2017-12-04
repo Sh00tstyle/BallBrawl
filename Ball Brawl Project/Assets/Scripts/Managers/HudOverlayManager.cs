@@ -5,8 +5,13 @@ using UnityEngine.UI;
 
 public class HudOverlayManager : MonoBehaviour {
 
-	public enum HUDText { SimpleCrosshair, CaptionTeamA, CaptionTeamB, CounterTeamA, CounterTeamB, MatchTimer, RoundCountdown }
-    public enum HUDImage { HoldingBarEmpty, HoldingBarFilled, TeamBackground }
+	public enum HUDText { CounterTeamRed, CounterTeamBlue, MatchTimer, RoundCountdown, SimpleCrossHair, CooldownText_PlayerPush, CooldownText_Dash, CooldownText_CatchBall }
+    public enum HUDImage {
+        ScoreboardBackground, BarEmpty, BarFilledRed, BarFilledBlue, Background_PlayerPush, BackgroundInverted_PlayerPush, CooldownFill_PlayerPush, Icon_PlayerPush, IconInverted_PlayerPush,
+        KeyQ_PlayerPush, Background_Dash, BackgroundInverted_Dash, CooldownFill_Dash, Icon_Dash, IconInverted_Dash, KeyLShift_Dash, Background_Jetpack, Icon_Jetpack, Icon_Descend, KeySpace_Jetpack,
+        KeyLCtrl_Descend, FuelBackground_Jetpack, FuelFill_Jetpack, Background_PushBall, BackgroundInverted_PushBall, CooldownFill_PushBall, Icon_PushBall, IconInverted_PushBall, LeftClick_PushBall,
+        Background_CatchBall, BackgroundInverted_CatchBall, CooldownFill_CatchBall, Icon_CatchBall, IconInverted_CatchBall, LeftClick_CatchBall
+    }
 
     private static HudOverlayManager _instance;
 
@@ -27,7 +32,7 @@ public class HudOverlayManager : MonoBehaviour {
     }
 
     public void UpdateHoldingBar(float fillAmount) {
-        _hudImages[(int)HUDImage.HoldingBarFilled].fillAmount = fillAmount;
+        _hudImages[(int)HUDImage.BarFilledRed].fillAmount = fillAmount;
     }
 
     public void UpdateMatchTimer(float time) {

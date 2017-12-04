@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ball Brawl Project", "Ball Brawl Project.csproj", "{6968E52F-AC9C-90CA-6E58-373AE746E254}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ball Brawl Project.Plugins", "Ball Brawl Project.Plugins.csproj", "{AA598749-4FC0-41E7-2EC1-C997012EA339}"

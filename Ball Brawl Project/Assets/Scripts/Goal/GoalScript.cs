@@ -29,8 +29,8 @@ public class GoalScript : NetworkBehaviour {
     }
 
     public void Start() {
-        if (_assignedTeam == Teams.TEAM_RED)HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamA, _goalsScored);
-        else if (_assignedTeam == Teams.TEAM_BLUE) HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamB, _goalsScored);
+        if (_assignedTeam == Teams.TEAM_RED)HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamRed, _goalsScored);
+        else if (_assignedTeam == Teams.TEAM_BLUE) HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamBlue, _goalsScored);
     }
 
     [Command]

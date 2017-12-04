@@ -43,8 +43,8 @@ public class GoalSpawnerScript : NetworkBehaviour {
         _goalTeamRed.CmdReset();
         _goalTeamBlue.CmdReset();
 
-        HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamA, 0);
-        HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamB, 0);
+        HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamRed, 0);
+        HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamBlue, 0);
     }
 
     public static GoalSpawnerScript Instance {
