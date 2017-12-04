@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4931134422513532}
-  - component: {fileID: 114011637772744616}
   - component: {fileID: 114625249194316214}
   - component: {fileID: 114842125348673984}
   m_Layer: 0
@@ -42,30 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114011637772744616
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1908064448657824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61cebf2c8e1e29439fcf4bb092c44e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Host: {fileID: 2800000, guid: a5d3954ea0816b84c85e4cd6833b0297, type: 3}
-  HostHover: {fileID: 2800000, guid: 13ab122c181574a438d28a7294d04d8a, type: 3}
-  Join: {fileID: 2800000, guid: 82304367ee7f1a249b226b8d54a63954, type: 3}
-  JoinHover: {fileID: 2800000, guid: fdffabb56e5085a44b0783d8c612b2d7, type: 3}
-  Server: {fileID: 2800000, guid: f4dbb1b230927ca4882ccaf55a0e1e97, type: 3}
-  ServerHover: {fileID: 2800000, guid: 24fa02b38491b2f499dacca1cfe5997c, type: 3}
-  MenuSkin: {fileID: 11400000, guid: c638d810b64393a45aca981409c802ad, type: 2}
-  IngameUI: {fileID: 0}
-  CinematicCamera: {fileID: 0}
-  CameraOrigin: {fileID: 0}
-  CameraHeightOffset: 60
-  CameraDistanceOffset: -70
-  CameraRotationSpeed: 7
 --- !u!114 &114625249194316214
 MonoBehaviour:
   m_ObjectHideFlags: 1
