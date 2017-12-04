@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _impactShield: event:/Objects/Ball/Impact_Shield
+  _impactFloor: event:/Objects/Ball/impact_floor
   _ballLoop: event:/Objects/Ball/Loop
   _ball2RedMat: {fileID: 2100000, guid: 27b7542e07843b34f98af3042b585f61, type: 2}
   _ball3RedMat: {fileID: 2100000, guid: 2f9c0f7a907a86746bb8b0e981bd8e7d, type: 2}

@@ -61,7 +61,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
         _interactionRange = GetComponentInChildren<InteractionRangeScript>();
 
-        _playerCamera.GetComponent<StudioListener>().ListenerNumber = NetworkManagerScript.Instance.SpawnedPlayers; //1 for the server, 0 for the client 
+        GetComponent<StudioListener>().ListenerNumber = NetworkManagerScript.Instance.SpawnedPlayers - 1; //1 for the server, 0 for the client 
     }
 
     private void Awake() {

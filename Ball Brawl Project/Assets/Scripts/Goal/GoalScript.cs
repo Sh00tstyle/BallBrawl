@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class GoalScript : NetworkBehaviour {
-
+    [SerializeField]
+    [EventRef]
+    private string _goalImpact;
     [SerializeField]
     private Material _redGoalMaterial;
 
@@ -26,6 +29,15 @@ public class GoalScript : NetworkBehaviour {
         } else if (_assignedTeam == Teams.TEAM_BLUE) {
             renderer.material.color = Color.blue;
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag == Tags.BALL)
+        {
+            AudioManager.PlayOneShot(_goalImpact, gameObject);
+            AudioManager.CrowdMiss(_assignedTeam);
+        }
+        
     }
 
     public void Start() {

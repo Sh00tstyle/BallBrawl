@@ -151,6 +151,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public static void CrowdMiss(string team)
+    {
+        if (team == Teams.TEAM_RED)
+        {
+            PlayOneShot(audioManager._crowdMiss, audioManager._redCrowd);
+        }
+        else
+        {
+            PlayOneShot(audioManager._crowdMiss, audioManager._blueCrowd);
+        }
+    }
+
     public static void SetCrowd(string team, float value)
     {
         if (team == Teams.TEAM_BLUE)

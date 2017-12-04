@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class BallBehaviourScript : NetworkBehaviour {
+public class BallBehaviourScript : NetworkBehaviour
+{
 
     private Rigidbody _ballRb;
     private Collider _ballCollider;
@@ -14,6 +15,9 @@ public class BallBehaviourScript : NetworkBehaviour {
     [SerializeField]
     [EventRef]
     public string _impactShield;
+    [SerializeField]
+    [EventRef]
+    public string _impactFloor;
     [SerializeField]
     [EventRef]
     public string _ballLoop;
@@ -56,7 +60,8 @@ public class BallBehaviourScript : NetworkBehaviour {
 
     private static BallBehaviourScript _instance;
 
-    public void Awake() {
+    public void Awake()
+    {
 
         _ballRb = GetComponent<Rigidbody>();
         _ballCollider = GetComponent<Collider>();
@@ -67,61 +72,85 @@ public class BallBehaviourScript : NetworkBehaviour {
         SetLastPlayerID(0); //Nothing
         ActivateBallBehaviour();
 
-        if(_instance == null) {
+        if (_instance == null)
+        {
             _instance = this;
         }
     }
 
-    public void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag != Tags.PLAYER) {
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != Tags.PLAYER)
+        {
             SetLastPlayerID(0);
         }
-        AudioManager.PlayOneShot(_impactShield, gameObject);
+        if (collision.transform.tag == Tags.WALL)
+        {
+            AudioManager.PlayOneShot(_impactShield, gameObject);
+        }
+        else
+        {
+            AudioManager.PlayOneShot(_impactFloor, gameObject);
+        }
     }
 
-    public void Update() {
-        if(transform.position.y < 53f) {
+    public void Update()
+    {
+        if (transform.position.y < 53f)
+        {
             transform.position = new Vector3(transform.position.x, 53f, transform.position.z);
         }
     }
 
-    private void AdjustBallColor(string newValue) {
-        if(newValue == Teams.TEAM_RED) {
+    private void AdjustBallColor(string newValue)
+    {
+        if (newValue == Teams.TEAM_RED)
+        {
             _renderers[0].material = _ball2RedMat;
             _renderers[1].material = _ball3RedMat;
             _trailRenderer.material = _ballTrailRedMat;
-        } else if(newValue == Teams.TEAM_BLUE) {
+        }
+        else if (newValue == Teams.TEAM_BLUE)
+        {
             _renderers[0].material = _ball2BlueMat;
             _renderers[1].material = _ball3BlueMat;
             _trailRenderer.material = _ballTrailBlueMat;
-        } else {
+        }
+        else
+        {
             _renderers[0].material = _ball2WhiteMat;
             _renderers[1].material = _ball3WhiteMat;
             _trailRenderer.material = _ballTrailWhiteMat;
         }
     }
 
-    private void SetLastPlayerID(int playerID) {
+    private void SetLastPlayerID(int playerID)
+    {
         _lastPlayerID = playerID;
     }
 
-    private void SetCurrentTeam(string team) {
+    private void SetCurrentTeam(string team)
+    {
         _currentTeam = team;
     }
 
-    private void SetIsActive(bool isActive) {
+    private void SetIsActive(bool isActive)
+    {
         _isActive = isActive;
     }
 
-    public void SetBallPosition(Transform newPos) {
+    public void SetBallPosition(Transform newPos)
+    {
         transform.position = newPos.position;
     }
 
-    public void SetBallPosition(Vector3 newPos) {
+    public void SetBallPosition(Vector3 newPos)
+    {
         transform.position = newPos;
     }
 
-    public void ResetBall(Vector3 position) {
+    public void ResetBall(Vector3 position)
+    {
         //resets the ball to the given position
         transform.position = position;
         _ballRb.velocity = Vector3.zero;
@@ -132,14 +161,17 @@ public class BallBehaviourScript : NetworkBehaviour {
         SetLastPlayerID(0);
     }
 
-    public void ReleaseBall(float forceFactor) {
+    public void ReleaseBall(float forceFactor)
+    {
         //Pushes the ball up
         _ballRb.velocity = Vector3.zero;
         _ballRb.AddForce(new Vector3(0, 1f * forceFactor, 0), ForceMode.Impulse);
     }
 
-    private void EnableBall() {
-        for(int i = 0; i < _renderers.Length; i++) {
+    private void EnableBall()
+    {
+        for (int i = 0; i < _renderers.Length; i++)
+        {
             _renderers[i].enabled = true;
         }
 
@@ -151,8 +183,10 @@ public class BallBehaviourScript : NetworkBehaviour {
         _ballCollider.enabled = true;
     }
 
-    private void DisableBall() {
-        for (int i = 0; i < _renderers.Length; i++) {
+    private void DisableBall()
+    {
+        for (int i = 0; i < _renderers.Length; i++)
+        {
             _renderers[i].enabled = false;
         }
 
@@ -164,7 +198,8 @@ public class BallBehaviourScript : NetworkBehaviour {
         _ballCollider.enabled = false;
     }
 
-    public void ActivateBallBehaviour() {
+    public void ActivateBallBehaviour()
+    {
         SetIsActive(true);
 
         EnableBall();
@@ -172,7 +207,8 @@ public class BallBehaviourScript : NetworkBehaviour {
         _ballRb.velocity = Vector3.zero;
     }
 
-    public void DeactivateBallBehaviour(int playerID) {
+    public void DeactivateBallBehaviour(int playerID)
+    {
         SetIsActive(false);
 
         SetLastPlayerID(playerID);
@@ -182,21 +218,25 @@ public class BallBehaviourScript : NetworkBehaviour {
         _ballRb.velocity = Vector3.zero;
     }
 
-    public void PushBall(Vector3 direction, float strength, string playerTeam) {
+    public void PushBall(Vector3 direction, float strength, string playerTeam)
+    {
         _ballRb.velocity = Vector3.zero;
         _ballRb.AddForce(direction * strength);
         SetCurrentTeam(playerTeam);
     }
 
-    public bool IsActive {
+    public bool IsActive
+    {
         get { return _isActive; }
     }
 
-    public int LastPlayerID {
+    public int LastPlayerID
+    {
         get { return _lastPlayerID; }
     }
 
-    public static BallBehaviourScript Instance {
+    public static BallBehaviourScript Instance
+    {
         get { return _instance; }
     }
 }

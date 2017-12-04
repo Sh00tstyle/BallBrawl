@@ -1820,7 +1820,6 @@ GameObject:
   - component: {fileID: 124843643796712876}
   - component: {fileID: 114089809218098368}
   - component: {fileID: 114600351123932404}
-  - component: {fileID: 114067377190156916}
   m_Layer: 2
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -2486,6 +2485,7 @@ GameObject:
   - component: {fileID: 114001391685108296}
   - component: {fileID: 114121004754687306}
   - component: {fileID: 114781957192764010}
+  - component: {fileID: 114994499882600984}
   m_Layer: 2
   m_Name: AnimatedPlayer
   m_TagString: Player
@@ -3446,7 +3446,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1900157992051082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8346004, y: 52.224525, z: 13.02745}
+  m_LocalPosition: {x: -20.029022, y: 53.07, z: -26.1445}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4015407851504228}
@@ -5516,18 +5516,6 @@ MonoBehaviour:
   param3: 
   param4: 
   param5: 
---- !u!114 &114067377190156916
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1646875162603820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ListenerNumber: 0
 --- !u!114 &114086383349346456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5595,7 +5583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _footsteps: event:/Player/Footsteps
   _dash: event:/Player/Dash
-  _jump: event:/Player/Fall
+  _jetpackStart: event:/Player/jetpack_start
+  _jetpackLoop: 
   speed: 13
   gravity: 10
   maxVelocityChange: 25
@@ -5792,6 +5781,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0.6
+--- !u!114 &114994499882600984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1900157992051082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!124 &124843643796712876
 Behaviour:
   m_ObjectHideFlags: 1

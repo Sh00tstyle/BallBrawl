@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{ce57fc6f-55ec-427a-99c9-846a37b3656c}">
+        <property name="assetPath">
+            <value>Footstep_Metal_Robot3.ogg</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.75637188208616779</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{31f42e85-b128-4cd7-9c72-012eda132e80}</destination>
+        </relationship>
+    </object>
+</objects>

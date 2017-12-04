@@ -18,7 +18,10 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     private string _dash;
     [SerializeField]
     [EventRef]
-    private string _jump;
+    private string _jetpackStart;
+    [SerializeField]
+    [EventRef]
+    private string _jetpackLoop;
 
 
     [Header("General Movement")]
@@ -193,6 +196,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         //If we are ... well ... grounded
         if(_grounded) {
             if(Input.GetKey(KeyCode.Space)) {
+                    AudioManager.PlayEvent(_jetpackStart, gameObject, true);
                 _rigidbody.AddRelativeForce(transform.up * jumpForce, ForceMode.Impulse);
                 _grounded = false;
             }
@@ -204,11 +208,12 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
 
             //If wanna jump and can jump
             if (Input.GetKey(KeyCode.Space) && _currentFlightCharge > 0f && _jetpackActivationTimer > jetpackActivationDelay) {
-                //Substract the rate from our charge
+                //Substract the rate from our charge\
                 _currentFlightCharge -= flightChargeDepletionRatePerSecond * Time.deltaTime;
                 if (_currentFlightCharge < 0) _currentFlightCharge = 0;
                 //Apply force
                 if (_currentFlightCharge > 0.5f) _rigidbody.AddRelativeForce(transform.up * flightUpwardsForceMultiplier * Time.deltaTime, ForceMode.Impulse);
+                
             }
 
             if (Input.GetKey(KeyCode.LeftControl)) _currentGravity *= gravityMultiplierOnPress;
@@ -254,8 +259,6 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
 
     private void PlayerSounds(string name)
     {
-        if(name == "jump")
-            AudioManager.PlayEvent(_jump, gameObject);
         if (name == "footstep")
             AudioManager.PlayEvent(_footsteps, gameObject);
     }
