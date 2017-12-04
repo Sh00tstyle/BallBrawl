@@ -1,0 +1,1735 @@
+[LOG] System::create                           : Header version = 1.10.01. Current version = 1.10.01.
+[LOG] SystemI::setOutputInternal               : Setting output to type 0
+[LOG] Manager::init                            : maxchannels = 1024 studioflags = 00000009 flags 00000000 extradriverdata 0000000000000000.
+[LOG] SystemI::init                            : FMOD Studio Version: 00011001 (91339)
+[LOG] SystemI::init                            : maxchannels = 1024, flags = 00030000, extradriverdata = 0000000000000000
+[LOG] SystemI::setOutputInternal               : Setting output to type 8
+[LOG] SystemI::setOutputInternal               : Setting output to type 8
+[LOG] SystemI::setOutputInternal               : Setting output to type 8
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
+[LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
+[LOG] SystemI::init                            : Create master channel group and master sound group.
+[LOG] SystemI::init                            : Set up emulated output.  1024 channels
+[LOG] SystemI::init                            : create the channel pool
+[LOG] SystemI::init                            : create the stream thread
+[LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
+[LOG] AsyncManager::init                       : manager 0000000076A9A5A8 isAsync 1 updatePeriod 0.02
+[LOG] Thread::initThread                       : Init FMOD Studio update thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
+[LOG] AsyncManager::init                       : done
+[LOG] PlaybackSystem::init                     : 
+[LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
+[LOG] PlaybackSystem::init                     : done
+[LOG] LiveUpdate::init                         : 
+[LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
+[LOG] Manager::init                            : done.
+[LOG] Profile::init                            : Profiler listening on port: 9264
+[LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 99)
+[LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 99)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000076C77D48
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 228631 samples, lengthbytes 63648
+[LOG] SystemI::createSample                    : channels = 2
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 228631, lengthbytes 63648, channels 2, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000076C77D48
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 48060 samples, lengthbytes 6880
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 48060, lengthbytes 6880, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000076C77D48
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 49534 samples, lengthbytes 9664
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 49534, lengthbytes 9664, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[LOG] SystemI::createSound                     : filename = Assets\FMOD\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] Thread::initThread                       : Init FMOD nonblocking thread (0). Priority: 1, Stack Size: 81920, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
+[LOG] SystemI::createSound                     : setdata soundi = 00000000131391A8 : node = 000000007046B6F0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000000076ABAA98.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000131391A8
+[LOG] SystemI::createSoundInternal             :     filename = Assets\FMOD\Build\Desktop/Master Bank.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000007046B808
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESTREAM
+[LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
+[LOG] SystemI::createSample                    :     mode 02010082 length 19200 samples, lengthbytes 118016
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0000000076C46668
+[LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 118016, channels 2, format 2, freq 48000, mode 0201008a
+[LOG] System::createSoundInternal              :     1 subsounds detected.
+[LOG] System::createSoundInternal              :     Seek stream to start
+[LOG] System::createSoundInternal              :     flush stream buffer
+[LOG] System::createSoundInternal              :     flush successful.
+[LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
+[LOG] Thread::initThread                       :         Init FMOD file thread. Priority: 1, Stack Size: 16384, Semaphore: No, Sleep Time: 10, Looping: Yes.
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000131391A8
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[LOG] SoundI::getSubSound                      : sound 00000000131391A8.  Subsound index 0 / 1
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000083923968
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 66789 samples, lengthbytes 16352
+[LOG] SystemI::createSample                    : channels = 2
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 66789, lengthbytes 16352, channels 2, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[LOG] SoundI::release                          : Countdown 10sec effects (00000000131391A8)
+[LOG] SoundI::release                          : remove stream samples. (00000000131391A8)
+[LOG] SoundI::release                          :     Countdown 10sec effects (0000000076ABBB28)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release subsounds. (00000000131391A8)
+[LOG] SoundI::release                          :     Countdown 10sec effects (0000000076C24708)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (00000000131391A8)
+[LOG] SoundI::release                          : done
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000083925FD8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 37333 samples, lengthbytes 6656
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 37333, lengthbytes 6656, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000083925FD8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 36834 samples, lengthbytes 6720
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 36834, lengthbytes 6720, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000083925FD8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 45258 samples, lengthbytes 7808
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 45258, lengthbytes 7808, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000083925FD8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 43200 samples, lengthbytes 7872
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 43200, lengthbytes 7872, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000083925FD8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 48892 samples, lengthbytes 8544
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 48892, lengthbytes 8544, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000083925FD8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 39946 samples, lengthbytes 6880
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 39946, lengthbytes 6880, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000835FC2D8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 20906 samples, lengthbytes 3616
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 20906, lengthbytes 3616, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000835FC2D8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 21224 samples, lengthbytes 3616
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 21224, lengthbytes 3616, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2727520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 44608
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000BC0FF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF86BC557A0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF86BC55770
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF86BC55870
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF86BC55920
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000835FC2D8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 21381 samples, lengthbytes 3648
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0000000076C46668
+[LOG] OutputSoftware::createSample             : lengthpcm 21381, lengthbytes 3648, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[ERR] assert                                   : assertion: 'listener >= 0 && listener < numlisteners' failed
+[LOG] SoundI::release                          :  (0000000076C76DC8)
+[LOG] SoundI::release                          : release subsounds. (0000000076C76DC8)
+[LOG] SoundI::release                          :     Whistle (0000000076ABA2C8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C76DC8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C75C88)
+[LOG] SoundI::release                          : release subsounds. (0000000076C75C88)
+[LOG] SoundI::release                          :     A_Skill_Assault_Grapple_Whoosh_A1_V2_Omni (0000000070DCFBC8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C75C88)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C75DF8)
+[LOG] SoundI::release                          : release subsounds. (0000000076C75DF8)
+[LOG] SoundI::release                          :     A_Skill_Assault_Grapple_Whoosh_A2_V2_Omni (0000000070DCDB48)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C75DF8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C77218)
+[LOG] SoundI::release                          : release subsounds. (0000000076C77218)
+[LOG] SoundI::release                          :     A_Skill_Assault_Grapple_Whoosh_A3_V2_Omni (0000000070DCF3A8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C77218)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C76F38)
+[LOG] SoundI::release                          : release subsounds. (0000000076C76F38)
+[LOG] SoundI::release                          :     fst_player_grass_sprint_04 (0000000076ABB988)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C76F38)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C76978)
+[LOG] SoundI::release                          : release subsounds. (0000000076C76978)
+[LOG] SoundI::release                          :     fst_player_grass_sprint_05 (0000000076ABCEA8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C76978)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C76698)
+[LOG] SoundI::release                          : release subsounds. (0000000076C76698)
+[LOG] SoundI::release                          :     fst_player_grass_sprint_06 (0000000076ABB7E8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C76698)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C77668)
+[LOG] SoundI::release                          : release subsounds. (0000000076C77668)
+[LOG] SoundI::release                          :     fst_player_grass_sprint_01 (0000000076ABB648)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C77668)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C76248)
+[LOG] SoundI::release                          : release subsounds. (0000000076C76248)
+[LOG] SoundI::release                          :     fst_player_grass_sprint_02 (0000000076ABBB28)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C76248)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C770A8)
+[LOG] SoundI::release                          : release subsounds. (0000000076C770A8)
+[LOG] SoundI::release                          :     fst_player_grass_sprint_03 (0000000076ABBE68)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C770A8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C75B18)
+[LOG] SoundI::release                          : release subsounds. (0000000076C75B18)
+[LOG] SoundI::release                          :     Assassin_Cloak_Disrupt_Omni (0000000076ABCD08)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C75B18)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C76C58)
+[LOG] SoundI::release                          : release subsounds. (0000000076C76C58)
+[LOG] SoundI::release                          :     Boss_Laser_Projectile_loop (0000000076ABA7A8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C76C58)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0000000076C77388)
+[LOG] SoundI::release                          : release subsounds. (0000000076C77388)
+[LOG] SoundI::release                          :     amb_arenacrowdcheerloud_lp (0000000076ABB168)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0000000076C77388)
+[LOG] SoundI::release                          : done
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] SystemI::close                           : 
+[LOG] SystemI::close                           : Stop all sounds
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] SystemI::close                           : Stream thread destroyed
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Free master channel group.
+[LOG] SystemI::close                           : Remove 'master' sound group.
+[LOG] SystemI::close                           : Free software output.
+[LOG] SystemI::close                           : Free emulated output.
+[LOG] SystemI::close                           : Free channel pool.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
+[LOG] SystemI::close                           : done.
+

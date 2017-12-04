@@ -45,7 +45,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
     [SerializeField]
     private float _precisionReductionFactor;
 
-    [SyncVar]
+    [SyncVar(hook = "AdjustChargeSound")]
     private bool _isHolding;
 
     private InteractionRangeScript _interactionRange;
@@ -60,6 +60,8 @@ public class PlayerInteractionScript : NetworkBehaviour {
         _playerCamera.SetActive(true);
 
         _interactionRange = GetComponentInChildren<InteractionRangeScript>();
+
+        _playerCamera.GetComponent<StudioListener>().ListenerNumber = NetworkManagerScript.Instance.SpawnedPlayers; //1 for the server, 0 for the client 
     }
 
     private void Awake() {
@@ -99,10 +101,10 @@ public class PlayerInteractionScript : NetworkBehaviour {
             throwingDir = Quaternion.Euler(new Vector3(Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor),
                 Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor), 0)) * throwingDir; //rotating randomly based on the holding time
 
-            AudioManager.stopInstance(_chargeSound, gameObject);
+            //AudioManager.stopInstance(_chargeSound, gameObject);
             CmdSetIsHolding(false);
             CmdThrowBall(throwingDir.normalized);
-            AudioManager.PlayEvent(_shootSound, gameObject, true);
+            //AudioManager.PlayEvent(_shootSound, gameObject, true);
         } else if (_interactionRange.BallInRange) {
             if (Input.GetMouseButtonDown(0)) {
                 CmdPushBall();
@@ -112,6 +114,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
                 CmdSetIsHolding(true);
                 CmdCatchBall();
+
                 AudioManager.PlayEvent(_chargeSound, gameObject, true, false);
                 AudioManager.PlayOneShot(_catchSound, gameObject);
             }
@@ -170,6 +173,13 @@ public class PlayerInteractionScript : NetworkBehaviour {
         //Activating the ball and dropping it in front of the player
         BallBehaviourScript.Instance.ActivateBallBehaviour();
         BallBehaviourScript.Instance.SetBallPosition(_ballParent);
+    }
+
+    private void AdjustChargeSound(bool newValue) {
+        if(!newValue) {
+            AudioManager.stopInstance(_chargeSound, gameObject);
+            AudioManager.PlayEvent(_shootSound, gameObject, true);
+        }
     }
 
     public void ResetCooldowns() {
