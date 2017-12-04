@@ -78,11 +78,11 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         targetVelocity = transform.TransformDirection(targetVelocity);
         targetVelocity *= speed;
 
-        //Testing, if it solves a collision issue
-        //targetVelocity = PreventBoundaryStuck(targetVelocity);
-
         //If we are flying apply a movement penalty so we ensure that we dont manouver quite as fast midair
         if (!_grounded) targetVelocity /= flightMovementPenalty;
+        
+        //Testing, if it solves a collision issue
+        //targetVelocity = PreventBoundaryStuck(targetVelocity);
 
         GroundMovement(targetVelocity);
 
@@ -107,9 +107,11 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         _grounded = false;
     }
 
-    void OnCollisionStay() {
-        _grounded = true;
-        _jetpackActivationTimer = 0;
+    void OnCollisionStay(Collision collision) {
+        if (collision.collider.tag == Tags.GROUND) {
+            _grounded = true;
+            _jetpackActivationTimer = 0;
+        }
     }
 
     //Ensure that we rotate the player itself so we use the rotation stuff here
@@ -235,14 +237,19 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         RaycastHit hit;
 
         // Check if the body's current velocity will result in a collision
-        if (_rigidbody.SweepTest(move, out hit, distance)) {
-            // If so, stop the movement
-            _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
-            return new Vector3(0, targetVelocity.y, 0);
+        if (Physics.Raycast(new Ray(transform.position, move), out hit, move.magnitude)) {
+            if (hit.collider.tag == Tags.WALL) {
+                // If so, stop the movement
+                //_rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
+                //gravity = 20;
+                return new Vector3(targetVelocity.normalized.x * 0.5f, 0, targetVelocity.normalized.z * 0.5f);
+            }
+            else {
+                //gravity = 10;
+                return targetVelocity;
+            }
         }
-        else {
-            return targetVelocity;
-        }
+        return targetVelocity;
     }
 
     private void PlayerSounds(string name)
