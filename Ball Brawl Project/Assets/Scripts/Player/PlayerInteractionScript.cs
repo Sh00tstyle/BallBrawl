@@ -77,12 +77,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
         if (PauseManagerScript.Instance.IsPaused || PauseManagerScript.Instance.BlockInput) return;
 
         ProcessMouseInput();
-
-        if(_isHolding) {
-            HudOverlayManager.Instance.UpdateHoldingBar(_holdingTimer / _maxHoldingTime);
-        } else {
-            HudOverlayManager.Instance.UpdateHoldingBar(0f);
-        }
+        UpdateUI();
 
         _holdingTimer += Time.deltaTime;
         _catchCooldownTimer += Time.deltaTime;
@@ -138,6 +133,26 @@ public class PlayerInteractionScript : NetworkBehaviour {
         }
     }
 
+    private void UpdateUI() {
+        if (_isHolding) {
+            HudOverlayManager.Instance.UpdateHoldingBar(_holdingTimer / _maxHoldingTime);
+        } else {
+            HudOverlayManager.Instance.UpdateHoldingBar(0f);
+        }
+
+        if(_abilityCooldownTimer <= _abilityCooldown) {
+            HudOverlayManager.Instance.SetPlayerPushOnCooldown(_abilityCooldownTimer / _abilityCooldown, _abilityCooldown - _abilityCooldownTimer);
+        } else {
+            HudOverlayManager.Instance.SetPlayerPushOffCooldown();
+        }
+
+        if(_catchCooldownTimer >= 2f) {
+            HudOverlayManager.Instance.SetCatchOffCooldown();
+        } else {
+            HudOverlayManager.Instance.SetCatchOnCooldown(_catchCooldownTimer / 2f, 2f - _catchCooldownTimer);
+        }
+    }
+
     [Command(channel = 2)]
     private void CmdPushPlayer (GameObject pTarget, Vector3 direction, float force) {
         //Requests the target to push itself into the target direction
@@ -183,8 +198,11 @@ public class PlayerInteractionScript : NetworkBehaviour {
     }
 
     public void ResetCooldowns() {
-        _abilityCooldownTimer = 0f;
+        _abilityCooldownTimer = _abilityCooldown;
         _catchCooldownTimer = 2f;
+
+        HudOverlayManager.Instance.SetPlayerPushOffCooldown();
+        HudOverlayManager.Instance.SetCatchOffCooldown();
     }
 
     public bool IsHolding {

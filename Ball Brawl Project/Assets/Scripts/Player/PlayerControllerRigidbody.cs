@@ -90,6 +90,14 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
 
         Dash(targetVelocity);
 
+        if(_grounded) {
+            HudOverlayManager.Instance.SetJetpackActive();
+        } else {
+            HudOverlayManager.Instance.SetDescendActive();
+        }
+
+        HudOverlayManager.Instance.UpdateFuel(_currentFlightCharge / maxFlightCharge);
+
         //Unlock the Cursor when the user press escape
         if (Input.GetKey(KeyCode.Escape)) {
             Cursor.lockState = CursorLockMode.None;
@@ -140,6 +148,9 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     public void ResetCooldowns() {
         _dashCooldownTimer = 0f;
         _currentFlightCharge = maxFlightCharge;
+
+        HudOverlayManager.Instance.SetDashOffCooldown();
+        HudOverlayManager.Instance.SetJetpackActive();
     }
 
     public static float ClampAngle(float angle, float min, float max) {
@@ -181,9 +192,15 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
             _dashCooldownTimer = dashCooldown;
         }
 
-        if(_dashCooldownTimer > 0) {
+        if (_dashCooldownTimer > 0) {
             _dashCooldownTimer -= Time.deltaTime;
-            if (_dashCooldownTimer < 0) _dashCooldownTimer = 0;
+
+            if (_dashCooldownTimer < 0) {
+                _dashCooldownTimer = 0;
+                HudOverlayManager.Instance.SetDashOffCooldown();
+            } else {
+                HudOverlayManager.Instance.SetDashOnCooldown(1 - _dashCooldownTimer / dashCooldown, _dashCooldownTimer);
+            }
         }
     }
 

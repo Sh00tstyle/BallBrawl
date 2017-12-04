@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class HudOverlayManager : MonoBehaviour {
 
-	public enum HUDText { CounterTeamRed, CounterTeamBlue, MatchTimer, RoundCountdown, SimpleCrossHair, CooldownText_PlayerPush, CooldownText_Dash, CooldownText_CatchBall }
+    public enum HUDText { CounterTeamRed, CounterTeamBlue, MatchTimer, RoundCountdown, SimpleCrossHair, CooldownText_PlayerPush, CooldownText_Dash, CooldownText_CatchBall }
     public enum HUDImage {
-        ScoreboardBackground, BarEmpty, BarFilledRed, BarFilledBlue, Background_PlayerPush, BackgroundInverted_PlayerPush, CooldownFill_PlayerPush, Icon_PlayerPush, IconInverted_PlayerPush,
-        KeyQ_PlayerPush, Background_Dash, BackgroundInverted_Dash, CooldownFill_Dash, Icon_Dash, IconInverted_Dash, KeyLShift_Dash, Background_Jetpack, Icon_Jetpack, Icon_Descend, KeySpace_Jetpack,
-        KeyLCtrl_Descend, FuelBackground_Jetpack, FuelFill_Jetpack, Background_PushBall, BackgroundInverted_PushBall, CooldownFill_PushBall, Icon_PushBall, IconInverted_PushBall, LeftClick_PushBall,
-        Background_CatchBall, BackgroundInverted_CatchBall, CooldownFill_CatchBall, Icon_CatchBall, IconInverted_CatchBall, LeftClick_CatchBall
+        ScoreboardBackground, BarEmpty, BarFilledRed, BarFilledBlue, Background_PlayerPush, BackgroundInverted_PlayerPush, Icon_PlayerPush, IconInverted_PlayerPush, CooldownFill_PlayerPush,
+        KeyQ_PlayerPush, Background_Dash, BackgroundInverted_Dash, Icon_Dash, IconInverted_Dash, CooldownFill_Dash, KeyLShift_Dash, Background_Jetpack, Icon_Jetpack, Icon_Descend, KeySpace_Jetpack,
+        KeyLCtrl_Descend, FuelBackground_Jetpack, FuelFill_Jetpack, Background_PushBall, BackgroundInverted_PushBall, Icon_PushBall, IconInverted_PushBall, LeftClick_PushBall,
+        Background_CatchBall, BackgroundInverted_CatchBall, Icon_CatchBall, IconInverted_CatchBall, CooldownFill_CatchBall, LeftClick_CatchBall
     }
 
     private static HudOverlayManager _instance;
@@ -19,12 +19,14 @@ public class HudOverlayManager : MonoBehaviour {
     private Image[] _hudImages;
 
     public void Awake() {
-        if(_instance == null) {
+        if (_instance == null) {
             _instance = this;
         }
 
         _hudTexts = GetComponentsInChildren<Text>();
         _hudImages = GetComponentsInChildren<Image>();
+
+        ResetAllCooldowns();
     }
 
     public void UpdateGoalCount(HUDText hudText, int goals) {
@@ -42,9 +44,9 @@ public class HudOverlayManager : MonoBehaviour {
         string secString = "" + sec;
 
         //Some formatting
-        if(sec < 10) {
+        if (sec < 10) {
             secString = "0" + sec;
-        } else if(sec == 0) {
+        } else if (sec == 0) {
             secString = "00";
         }
 
@@ -58,11 +60,119 @@ public class HudOverlayManager : MonoBehaviour {
     public void UpdateRoundCountdown(float countdown) {
         _hudTexts[(int)HUDText.RoundCountdown].text = "" + Mathf.CeilToInt(countdown);
 
-        if(countdown <= 0) {
+        if (countdown <= 0) {
             _hudTexts[(int)HUDText.RoundCountdown].enabled = false;
         } else {
             _hudTexts[(int)HUDText.RoundCountdown].enabled = true;
         }
+    }
+
+    public void ResetAllCooldowns() {
+        SetPlayerPushOffCooldown();
+        SetDashOffCooldown();
+        SetCatchOffCooldown();
+        SetJetpackActive();
+        UpdateFuel(1f);
+    }
+
+    public void SetPlayerPushOnCooldown(float fillAmount, float time) {
+        if (!_hudImages[(int)HUDImage.Background_PlayerPush].enabled) {
+            _hudImages[(int)HUDImage.Background_PlayerPush].enabled = true;
+            _hudImages[(int)HUDImage.Icon_PlayerPush].enabled = true;
+
+            _hudImages[(int)HUDImage.BackgroundInverted_PlayerPush].enabled = false;
+            _hudImages[(int)HUDImage.IconInverted_PlayerPush].enabled = false;
+        }
+
+        _hudImages[(int)HUDImage.CooldownFill_PlayerPush].fillAmount = fillAmount;
+        _hudTexts[(int)HUDText.CooldownText_PlayerPush].text = Mathf.CeilToInt(time) + "s";
+    }
+
+    public void SetPlayerPushOffCooldown() {
+        if (_hudImages[(int)HUDImage.Background_PlayerPush].enabled) {
+            _hudImages[(int)HUDImage.Background_PlayerPush].enabled = false;
+            _hudImages[(int)HUDImage.Icon_PlayerPush].enabled = false;
+
+            _hudImages[(int)HUDImage.BackgroundInverted_PlayerPush].enabled = true;
+            _hudImages[(int)HUDImage.IconInverted_PlayerPush].enabled = true;
+        }
+
+        _hudImages[(int)HUDImage.CooldownFill_PlayerPush].fillAmount = 0f;
+        _hudTexts[(int)HUDText.CooldownText_PlayerPush].text = "";
+    }
+
+    public void SetDashOnCooldown(float fillAmount, float time) {
+        if (!_hudImages[(int)HUDImage.Background_Dash].enabled) {
+            _hudImages[(int)HUDImage.Background_Dash].enabled = true;
+            _hudImages[(int)HUDImage.Icon_Dash].enabled = true;
+
+            _hudImages[(int)HUDImage.BackgroundInverted_Dash].enabled = false;
+            _hudImages[(int)HUDImage.IconInverted_Dash].enabled = false;
+        }
+
+        _hudImages[(int)HUDImage.CooldownFill_Dash].fillAmount = fillAmount;
+        _hudTexts[(int)HUDText.CooldownText_Dash].text = Mathf.Round(time) + "s";
+    }
+
+    public void SetDashOffCooldown() {
+        if (_hudImages[(int)HUDImage.Background_Dash].enabled) {
+            _hudImages[(int)HUDImage.Background_Dash].enabled = false;
+            _hudImages[(int)HUDImage.Icon_Dash].enabled = false;
+
+            _hudImages[(int)HUDImage.BackgroundInverted_Dash].enabled = true;
+            _hudImages[(int)HUDImage.IconInverted_Dash].enabled = true;
+        }
+
+        _hudImages[(int)HUDImage.CooldownFill_Dash].fillAmount = 0f;
+        _hudTexts[(int)HUDText.CooldownText_Dash].text = "";
+    }
+
+    public void SetJetpackActive() {
+        _hudImages[(int)HUDImage.Background_Jetpack].enabled = true;
+
+        _hudImages[(int)HUDImage.Icon_Jetpack].enabled = true;
+        _hudImages[(int)HUDImage.KeySpace_Jetpack].enabled = true;
+
+        _hudImages[(int)HUDImage.Icon_Descend].enabled = false;
+        _hudImages[(int)HUDImage.KeyLCtrl_Descend].enabled = false;
+    }
+
+    public void SetDescendActive() {
+        _hudImages[(int)HUDImage.Icon_Jetpack].enabled = false;
+        _hudImages[(int)HUDImage.KeySpace_Jetpack].enabled = false;
+
+        _hudImages[(int)HUDImage.Icon_Descend].enabled = true;
+        _hudImages[(int)HUDImage.KeyLCtrl_Descend].enabled = true;
+    }
+
+    public void UpdateFuel(float fill) {
+        _hudImages[(int)HUDImage.FuelFill_Jetpack].fillAmount = fill;
+    }
+
+    public void SetCatchOnCooldown(float fillAmount, float time) {
+        if (!_hudImages[(int)HUDImage.Background_CatchBall].enabled) {
+            _hudImages[(int)HUDImage.Background_CatchBall].enabled = true;
+            _hudImages[(int)HUDImage.Icon_CatchBall].enabled = true;
+
+            _hudImages[(int)HUDImage.BackgroundInverted_CatchBall].enabled = false;
+            _hudImages[(int)HUDImage.IconInverted_CatchBall].enabled = false;
+        }
+
+        _hudImages[(int)HUDImage.CooldownFill_CatchBall].fillAmount = fillAmount;
+        _hudTexts[(int)HUDText.CooldownText_CatchBall].text = Mathf.Round(time) + "s";
+    }
+
+    public void SetCatchOffCooldown() {
+        if (_hudImages[(int)HUDImage.Background_CatchBall].enabled) {
+            _hudImages[(int)HUDImage.Background_CatchBall].enabled = false;
+            _hudImages[(int)HUDImage.Icon_CatchBall].enabled = false;
+
+            _hudImages[(int)HUDImage.BackgroundInverted_CatchBall].enabled = true;
+            _hudImages[(int)HUDImage.IconInverted_CatchBall].enabled = true;
+        }
+
+        _hudImages[(int)HUDImage.CooldownFill_CatchBall].fillAmount = 0f;
+        _hudTexts[(int)HUDText.CooldownText_CatchBall].text = "";
     }
 
     public static HudOverlayManager Instance {
