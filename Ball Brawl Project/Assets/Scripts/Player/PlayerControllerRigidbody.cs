@@ -51,6 +51,12 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
 
     private Rigidbody _rigidbody;
     private AnimationsPlayer _anim;
+    private AnimationsHands _animHands;
+
+    private Vector3 targetVelocity;
+
+    private bool _jetpackInput;
+    private bool _dashInput;
 
     void Awake() {
         _originalRotation = transform.localRotation;
@@ -60,21 +66,43 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.freezeRotation = true;
         _rigidbody.useGravity = false;
-        _anim = GetComponentInChildren<AnimationsPlayer>();
+       
+        targetVelocity = Vector3.zero;
     }
 
     private void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        _animHands = GetComponentInChildren<AnimationsHands>();
+        _anim = GetComponentInChildren<AnimationsPlayer>();
+    }
+
+    private void Update() {
+        //Get intput
+        targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        if (Input.GetKey(KeyCode.LeftShift)) _dashInput = true;
+        else _dashInput = false;
+
+        if (Input.GetKey(KeyCode.Space)) _jetpackInput = true;
+        else _jetpackInput = false;
+
+        //Unlock the Cursor when the user press escape
+        if (Input.GetKey(KeyCode.Escape)) {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        if (Input.GetKey(KeyCode.O)) {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     void FixedUpdate() {
         if (!isLocalPlayer) return;
         if (PauseManagerScript.Instance.IsPaused || PauseManagerScript.Instance.BlockInput) return;
-
-        // Calculate how fast we should be moving
-        Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        //Put it into WorldSpace
+        
+        //Put input it into WorldSpace
         targetVelocity = transform.TransformDirection(targetVelocity);
         targetVelocity *= speed;
 
@@ -86,27 +114,17 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
 
         GroundMovement(targetVelocity);
 
-        AirMovement();
+        AirMovement(_jetpackInput);
 
-        Dash(targetVelocity);
+        Dash(targetVelocity, _dashInput);
 
-        if(_grounded) {
+        if (_grounded) {
             HudOverlayManager.Instance.SetJetpackActive();
         } else {
             HudOverlayManager.Instance.SetDescendActive();
         }
 
         HudOverlayManager.Instance.UpdateFuel(_currentFlightCharge / maxFlightCharge);
-
-        //Unlock the Cursor when the user press escape
-        if (Input.GetKey(KeyCode.Escape)) {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        if(Input.GetKey(KeyCode.O)) {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
 
         DoRotation();
 
@@ -178,8 +196,8 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
-    private void Dash (Vector3 velocity) {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && _dashCooldownTimer == 0) {
+    private void Dash (Vector3 velocity, bool UserInput) {
+        if (UserInput && _dashCooldownTimer == 0) {
             if (velocity.magnitude == 0) {
                 _rigidbody.AddForce(transform.forward * dashStrength, ForceMode.Impulse);
                 //print("No velocity, dash forward");
@@ -188,6 +206,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
                 _rigidbody.AddForce(velocity.normalized * dashStrength, ForceMode.Impulse);
                 //print("Dash into velocity direction: " + velocity); 
             }
+            _animHands.TriggerDashAnimation();
             AudioManager.PlayEvent(_dash, gameObject, true);
             _dashCooldownTimer = dashCooldown;
         }
@@ -204,12 +223,12 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         }
     }
 
-    private void AirMovement() {
+    private void AirMovement(bool UserInput) {
         float _currentGravity = gravity;
 
         //If we are ... well ... grounded
         if(_grounded) {
-            if(Input.GetKey(KeyCode.Space)) {
+            if(UserInput) {
                 _rigidbody.AddRelativeForce(transform.up * jumpForce, ForceMode.Impulse);
                 _grounded = false;
             }
@@ -220,7 +239,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
             _jetpackActivationTimer += Time.deltaTime;
 
             //If wanna jump and can jump
-            if (Input.GetKey(KeyCode.Space) && _currentFlightCharge > 0f && _jetpackActivationTimer > jetpackActivationDelay) {
+            if (UserInput && _currentFlightCharge > 0f && _jetpackActivationTimer > jetpackActivationDelay) {
                 //Substract the rate from our charge
                 _currentFlightCharge -= flightChargeDepletionRatePerSecond * Time.deltaTime;
                 if (_currentFlightCharge < 0) _currentFlightCharge = 0;
@@ -233,7 +252,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         }
         
         //Otherwise recharge
-        if(!Input.GetKey(KeyCode.Space) || _currentFlightCharge == 0) {
+        if(!UserInput || _currentFlightCharge == 0) {
             if(_currentFlightCharge < maxFlightCharge) _currentFlightCharge += flightChargeRechargeRatePerSecond * Time.deltaTime;
             if (_currentFlightCharge > maxFlightCharge) _currentFlightCharge = maxFlightCharge;
         }

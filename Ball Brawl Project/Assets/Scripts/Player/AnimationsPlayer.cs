@@ -45,4 +45,8 @@ public class AnimationsPlayer : NetworkBehaviour {
             _animator.speed = 1;
         }
     }
+
+    public void TriggerPushAnimation() {
+        _animator.SetTrigger("isThrowing");
+    }
 }
