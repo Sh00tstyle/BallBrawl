@@ -87,7 +87,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private void ProcessMouseInput() {
         if (_isHolding && (Input.GetMouseButtonUp(1) || _holdingTimer > _maxHoldingTime)) {
             _catchCooldownTimer = 0f;
-            HudOverlayManager.Instance.UpdateHoldingBar(0f);
+            HudOverlayManager.Instance.UpdateCrosshair(0f);
 
             _localBall.SetActive(false);
 
@@ -96,10 +96,8 @@ public class PlayerInteractionScript : NetworkBehaviour {
             throwingDir = Quaternion.Euler(new Vector3(Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor),
                 Random.Range(-_holdingTimer * _precisionReductionFactor, _holdingTimer * _precisionReductionFactor), 0)) * throwingDir; //rotating randomly based on the holding time
 
-            //AudioManager.stopInstance(_chargeSound, gameObject);
             CmdSetIsHolding(false);
             CmdThrowBall(throwingDir.normalized);
-            //AudioManager.PlayEvent(_shootSound, gameObject, true);
         } else if (_interactionRange.BallInRange) {
             if (Input.GetMouseButtonDown(0)) {
                 CmdPushBall();
@@ -135,9 +133,9 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
     private void UpdateUI() {
         if (_isHolding) {
-            HudOverlayManager.Instance.UpdateHoldingBar(_holdingTimer / _maxHoldingTime);
+            HudOverlayManager.Instance.UpdateCrosshair(_holdingTimer / _maxHoldingTime);
         } else {
-            HudOverlayManager.Instance.UpdateHoldingBar(0f);
+            HudOverlayManager.Instance.ResetCrosshair();
         }
 
         if(_abilityCooldownTimer <= _abilityCooldown) {
