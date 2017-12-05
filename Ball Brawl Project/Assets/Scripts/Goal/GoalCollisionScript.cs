@@ -28,6 +28,7 @@ public class GoalCollisionScript : NetworkBehaviour {
 
             if (_goalScript.AssignedTeam == Teams.TEAM_RED) {
                 HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamBlue, _goalScript.GoalsScored);
+                AudioManager.GoalScored(Teams.TEAM_BLUE);
                 if (_goalScript.isServer) {
                     GameObject redParticle = Instantiate(_redGoalParticle, other.gameObject.transform.position, Quaternion.identity);
                     NetworkServer.Spawn(redParticle);
@@ -36,8 +37,8 @@ public class GoalCollisionScript : NetworkBehaviour {
                 }
 
             } else {
-                AudioManager.GoalScored(Teams.TEAM_BLUE);
                 HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamRed, _goalScript.GoalsScored);
+                AudioManager.GoalScored(Teams.TEAM_RED);
                 if (_goalScript.isServer) {
                     GameObject blueParticle = Instantiate(_blueGoalParticle, other.gameObject.transform.position, Quaternion.identity);
                     NetworkServer.Spawn(blueParticle);

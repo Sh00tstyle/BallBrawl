@@ -8,6 +8,9 @@ using UnityEngine.Networking;
 [AddComponentMenu("Network/NetworkCustomHUD")]
 public class NetworkHUD : MonoBehaviour {
 
+    [EventRef]
+    public string _menuMusic;
+
     public GameObject ManagerObject;
     private NetworkManagerScript _manager;
 
@@ -27,6 +30,7 @@ public class NetworkHUD : MonoBehaviour {
         _manager = ManagerObject.GetComponent<NetworkManagerScript>();
         IngameUI.SetActive(false);
         CinematicCamera.transform.position = new Vector3(CameraOrigin.transform.position.x + CameraDistanceOffset, CameraOrigin.transform.position.y + CameraHeightOffset, 0);
+        AudioManager.PlayEvent(_menuMusic, gameObject, false, false);
     }
 
     void Update() {
@@ -74,6 +78,7 @@ public class NetworkHUD : MonoBehaviour {
     public void OnClickHost() {
         OnSelect();
         _manager.StartHost();
+        AudioManager.setParameter(_menuMusic, gameObject, "Volume", 0f);
     }
 
     public void OnClickJoin() {
@@ -84,6 +89,7 @@ public class NetworkHUD : MonoBehaviour {
         //If the user Input is empty, take the default predetermined IP Address aka. localhost
         if (IP == null) IP = DefaultText.GetComponent<Text>().text;
         _manager.networkAddress = IP;
+        AudioManager.setParameter(_menuMusic, gameObject, "Volume", 0f);
     }
 
     public void OnClickQuit() {

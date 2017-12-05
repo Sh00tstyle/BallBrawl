@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _impactShield: event:/Objects/Ball/Impact_Shield
+  _impactFloor: event:/Objects/Ball/impact_floor
   _ballLoop: event:/Objects/Ball/Loop
   _shieldImpact: {fileID: 1774201208730044, guid: 6ec32b04f45453b4d8c8b7267c9fb525,
     type: 2}

@@ -5868,7 +5868,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _footsteps: event:/Player/Footsteps
   _dash: event:/Player/Dash
-  _jump: event:/Player/Fall
+  _jetpackStart: event:/Player/jetpack_start
+  _jetpackLoop: event:/Player/jetpack_start
+  _land: 
   speed: 13
   gravity: 10
   maxVelocityChange: 25

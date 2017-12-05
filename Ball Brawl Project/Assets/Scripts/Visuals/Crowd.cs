@@ -7,6 +7,9 @@ public class Crowd : MonoBehaviour
     public float cheering = 1f;
 
     [SerializeField]
+    private List<Texture> _crowdTextures;
+
+    [SerializeField]
     private List<CrowdIndividual> CrowdMass;
     [SerializeField]
     private float baseSpeed = 3f;
@@ -36,6 +39,7 @@ public class Crowd : MonoBehaviour
 
             //Changing sprite size
             transform.GetChild(i).GetComponent<Renderer>().material.SetFloat("_Scale", Random.Range(MinSize, maxSize));
+            transform.GetChild(i).GetComponent<Renderer>().material.mainTexture = _crowdTextures[Random.Range(0, _crowdTextures.Count)];
         }
     }
 
