@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class HudOverlayManager : MonoBehaviour {
 
-    public enum HUDText { CounterTeamRed, CounterTeamBlue, MatchTimer, RoundCountdown, SimpleCrossHair, CooldownText_PlayerPush, CooldownText_Dash, CooldownText_CatchBall }
+    public enum HUDText { CounterTeamRed, CounterTeamBlue, MatchTimer, RoundCountdown, CooldownText_PlayerPush, CooldownText_Dash, CooldownText_CatchBall }
     public enum HUDImage {
-        ScoreboardBackground, BarEmpty, BarFilledRed, BarFilledBlue, Background_PlayerPush, BackgroundInverted_PlayerPush, Icon_PlayerPush, IconInverted_PlayerPush, CooldownFill_PlayerPush,
+        ScoreboardBackground, CrosshairBase, CrosshairOutline, CrosshairMaxRange, Background_PlayerPush, BackgroundInverted_PlayerPush, Icon_PlayerPush, IconInverted_PlayerPush, CooldownFill_PlayerPush,
         KeyQ_PlayerPush, Background_Dash, BackgroundInverted_Dash, Icon_Dash, IconInverted_Dash, CooldownFill_Dash, KeyLShift_Dash, Background_Jetpack, Icon_Jetpack, Icon_Descend, KeySpace_Jetpack,
         KeyLCtrl_Descend, FuelBackground_Jetpack, FuelFill_Jetpack, Background_PushBall, BackgroundInverted_PushBall, Icon_PushBall, IconInverted_PushBall, LeftClick_PushBall,
         Background_CatchBall, BackgroundInverted_CatchBall, Icon_CatchBall, IconInverted_CatchBall, CooldownFill_CatchBall, LeftClick_CatchBall
@@ -18,6 +18,9 @@ public class HudOverlayManager : MonoBehaviour {
     private Text[] _hudTexts;
     private Image[] _hudImages;
 
+    private float _crosshairDefaultScale;
+    private float _crosshairTargetScale;
+
     public void Awake() {
         if (_instance == null) {
             _instance = this;
@@ -26,15 +29,36 @@ public class HudOverlayManager : MonoBehaviour {
         _hudTexts = GetComponentsInChildren<Text>();
         _hudImages = GetComponentsInChildren<Image>();
 
+        _crosshairDefaultScale = _hudImages[(int)HUDImage.CrosshairBase].rectTransform.localScale.x;
+        _crosshairTargetScale = _hudImages[(int)HUDImage.CrosshairMaxRange].rectTransform.localScale.x;
+
         ResetAllCooldowns();
     }
+
+    public void ResetAllCooldowns() {
+        SetPlayerPushOffCooldown();
+        SetDashOffCooldown();
+        SetCatchOffCooldown();
+        SetJetpackActive();
+        UpdateFuel(1f);
+        ResetCrosshair();
+    }
+
 
     public void UpdateGoalCount(HUDText hudText, int goals) {
         _hudTexts[(int)hudText].text = "" + goals;
     }
 
-    public void UpdateHoldingBar(float fillAmount) {
-        _hudImages[(int)HUDImage.BarFilledRed].fillAmount = fillAmount;
+    public void UpdateCrosshair(float holdingPercentage) {
+        _hudImages[(int)HUDImage.CrosshairMaxRange].enabled = true;
+        _hudImages[(int)HUDImage.CrosshairOutline].enabled = false;
+        _hudImages[(int)HUDImage.CrosshairBase].rectTransform.localScale = new Vector3(_crosshairDefaultScale + (_crosshairTargetScale - _crosshairDefaultScale) * holdingPercentage, _crosshairDefaultScale + (_crosshairTargetScale - _crosshairDefaultScale) * holdingPercentage, 1f);
+    }
+
+    public void ResetCrosshair() {
+        _hudImages[(int)HUDImage.CrosshairMaxRange].enabled = false;
+        _hudImages[(int)HUDImage.CrosshairOutline].enabled = true;
+        _hudImages[(int)HUDImage.CrosshairBase].rectTransform.localScale = new Vector3(_crosshairDefaultScale, _crosshairDefaultScale, 1f);
     }
 
     public void UpdateMatchTimer(float time) {
@@ -65,14 +89,6 @@ public class HudOverlayManager : MonoBehaviour {
         } else {
             _hudTexts[(int)HUDText.RoundCountdown].enabled = true;
         }
-    }
-
-    public void ResetAllCooldowns() {
-        SetPlayerPushOffCooldown();
-        SetDashOffCooldown();
-        SetCatchOffCooldown();
-        SetJetpackActive();
-        UpdateFuel(1f);
     }
 
     public void SetPlayerPushOnCooldown(float fillAmount, float time) {
