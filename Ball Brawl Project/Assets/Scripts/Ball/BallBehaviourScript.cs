@@ -19,6 +19,9 @@ public class BallBehaviourScript : NetworkBehaviour {
     public string _ballLoop;
 
     [SerializeField]
+    private GameObject _shieldImpact; 
+
+    [SerializeField]
     private Material _ball2RedMat;
 
     [SerializeField]
@@ -76,13 +79,16 @@ public class BallBehaviourScript : NetworkBehaviour {
         if(collision.gameObject.tag != Tags.PLAYER) {
             SetLastPlayerID(0);
         }
-        AudioManager.PlayOneShot(_impactShield, gameObject);
+        if (collision.gameObject.tag == Tags.WALL) {
+            GameObject impactParticles = Instantiate(_shieldImpact, collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal, transform.up));
+            NetworkServer.Spawn(impactParticles);
+            Destroy(impactParticles, 1f);
+            AudioManager.PlayOneShot(_impactShield, gameObject);
+        }
     }
 
     public void Update() {
-        if(transform.position.y < 53f) {
-            transform.position = new Vector3(transform.position.x, 53f, transform.position.z);
-        }
+       
     }
 
     private void AdjustBallColor(string newValue) {

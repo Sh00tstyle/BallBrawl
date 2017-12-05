@@ -52,6 +52,9 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private PlayerIdScript _playerId;
     private PlayerTeamScript _playerTeam;
 
+    private AnimationsPlayer _anim;
+    private AnimationsHands _animHands;
+
     private float _holdingTimer;
     private float _catchCooldownTimer;
     private float _abilityCooldownTimer;
@@ -67,6 +70,11 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private void Awake() {
         _playerId = GetComponent<PlayerIdScript>();
         _playerTeam = GetComponent<PlayerTeamScript>();
+    }
+
+    private void Start() {
+        _anim = GetComponentInChildren<AnimationsPlayer>();
+        _animHands = GetComponentInChildren<AnimationsHands>();
     }
 
     public void Update() {
@@ -105,9 +113,12 @@ public class PlayerInteractionScript : NetworkBehaviour {
             CmdSetIsHolding(false);
             CmdThrowBall(throwingDir.normalized);
             //AudioManager.PlayEvent(_shootSound, gameObject, true);
+            _animHands.SetHoldAnimation(false);
         } else if (_interactionRange.BallInRange) {
             if (Input.GetMouseButtonDown(0)) {
                 CmdPushBall();
+                _anim.TriggerPushAnimation();
+                _animHands.TriggerPushAnimation();
             } else if(Input.GetMouseButton(1) && !_isHolding && _catchCooldownTimer >= 2f) {
                 _holdingTimer = 0f;
                 _localBall.SetActive(true);
@@ -117,6 +128,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
                 AudioManager.PlayEvent(_chargeSound, gameObject, true, false);
                 AudioManager.PlayOneShot(_catchSound, gameObject);
+                _animHands.SetHoldAnimation(true);
             }
         }
 

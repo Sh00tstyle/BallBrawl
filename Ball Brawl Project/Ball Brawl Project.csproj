@@ -288,6 +288,7 @@
     <Compile Include="Assets\Scripts\Networking\NetworkManagerScript.cs" />
     <Compile Include="Assets\Scripts\Networking\NetworkTransformScript.cs" />
     <Compile Include="Assets\Scripts\Networking\PlayerNetworkUtility.cs" />
+    <Compile Include="Assets\Scripts\Player\AnimationsHands.cs" />
     <Compile Include="Assets\Scripts\Player\AnimationsPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\InteractionRangeScript.cs" />

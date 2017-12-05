@@ -86,8 +86,8 @@ public class NetworkHUD : MonoBehaviour {
         _manager.networkAddress = IP;
     }
 
-    public void OnClickServer() {
+    public void OnClickQuit() {
         OnSelect();
-        _manager.StartServer();
+        Application.Quit();
     }
 }
