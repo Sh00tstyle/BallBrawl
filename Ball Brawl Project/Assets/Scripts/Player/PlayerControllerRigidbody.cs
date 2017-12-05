@@ -49,6 +49,8 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     private float _rotationX;
     private Quaternion _originalRotation;
 
+    private PlayerInteractionScript _playerInteraction;
+
     private Rigidbody _rigidbody;
     private AnimationsPlayer _anim;
 
@@ -56,6 +58,8 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         _originalRotation = transform.localRotation;
         _currentFlightCharge = maxFlightCharge;
         _jetpackActivationTimer = 0;
+
+        _playerInteraction = GetComponent<PlayerInteractionScript>();
 
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.freezeRotation = true;
@@ -138,6 +142,11 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     [ClientRpc]
     public void RpcReceivePush(Vector3 direction, float force) {
         _rigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
+
+        if (_playerInteraction.IsHolding) {
+            _playerInteraction.CmdReleaseBall();
+            _playerInteraction.CmdSetIsHolding(false);
+        }
     }
 
     [ClientRpc]

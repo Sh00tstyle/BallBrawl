@@ -45,7 +45,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
     [SerializeField]
     private float _precisionReductionFactor;
 
-    [SyncVar(hook = "AdjustChargeSound")]
+    [SyncVar]
     private bool _isHolding;
 
     private InteractionRangeScript _interactionRange;
@@ -61,7 +61,15 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
         _interactionRange = GetComponentInChildren<InteractionRangeScript>();
 
-        _playerCamera.GetComponent<StudioListener>().ListenerNumber = NetworkManagerScript.Instance.SpawnedPlayers; //1 for the server, 0 for the client 
+        StudioListener studioListener = _playerCamera.GetComponent<StudioListener>();
+
+        if(isServer) {
+            studioListener.ListenerNumber = 0;
+        } else {
+            studioListener.ListenerNumber = 1;
+        }
+        
+        ResetCooldowns();
     }
 
     private void Awake() {
@@ -98,6 +106,9 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
             CmdSetIsHolding(false);
             CmdThrowBall(throwingDir.normalized);
+
+            AudioManager.stopInstance(_chargeSound, gameObject);
+            AudioManager.PlayEvent(_shootSound, gameObject, true);
         } else if (_interactionRange.BallInRange) {
             if (Input.GetMouseButtonDown(0)) {
                 CmdPushBall();
@@ -114,15 +125,6 @@ public class PlayerInteractionScript : NetworkBehaviour {
         }
 
         if(Input.GetKeyDown(KeyCode.Q) && _interactionRange.PlayerInRange && _abilityCooldownTimer >= _abilityCooldown) {
-            Debug.Log("Pushing player");
-
-            //Pushed player releases the ball if he holds it
-            PlayerInteractionScript playerInteraction = _interactionRange.PlayerObject.GetComponent<PlayerInteractionScript>();
-            if (playerInteraction.IsHolding) {
-                playerInteraction.CmdReleaseBall();
-                playerInteraction.CmdSetIsHolding(false);
-            }
-
             Vector3 deltaVec = _interactionRange.PlayerObject.transform.position - transform.position;
 
             CmdPushPlayer(_interactionRange.PlayerObject, deltaVec.normalized, _pushForce);
@@ -158,7 +160,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
     }
 
     [Command(channel = 2)]
-    private void CmdSetIsHolding(bool state) {
+    public void CmdSetIsHolding(bool state) {
         _isHolding = state;
     }
 
@@ -186,13 +188,6 @@ public class PlayerInteractionScript : NetworkBehaviour {
         //Activating the ball and dropping it in front of the player
         BallBehaviourScript.Instance.ActivateBallBehaviour();
         BallBehaviourScript.Instance.SetBallPosition(_ballParent);
-    }
-
-    private void AdjustChargeSound(bool newValue) {
-        if(!newValue) {
-            AudioManager.stopInstance(_chargeSound, gameObject);
-            AudioManager.PlayEvent(_shootSound, gameObject, true);
-        }
     }
 
     public void ResetCooldowns() {
