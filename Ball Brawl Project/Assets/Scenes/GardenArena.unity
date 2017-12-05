@@ -26,14 +26,14 @@ RenderSettings:
   m_AmbientIntensity: 2.25
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: fb3b9b55c01d2194c816b2d469854e16, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 860a66ca4259b384f9ec01b687f71c3c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 1024
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
@@ -168,12 +168,12 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -200,13 +200,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 95261529}
-  m_LocalRotation: {x: 0.13346626, y: 0.5536094, z: -0.8193752, w: -0.06578499}
+  m_LocalRotation: {x: 0.061843805, y: 0.59757185, z: -0.7973247, w: -0.057935875}
   m_LocalPosition: {x: 0, y: 108.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 62.831, y: 320.318, z: 145.962}
+  m_LocalEulerAnglesHint: {x: 71.041, y: 328.891, z: 149.212}
 --- !u!1001 &181964378
 Prefab:
   m_ObjectHideFlags: 0
@@ -217,12 +217,12 @@ Prefab:
     - target: {fileID: 224168184765157340, guid: 119b23c66fbaf7f42a2e10cc90cca6bd,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 553
+      value: 562.5
       objectReference: {fileID: 0}
     - target: {fileID: 224168184765157340, guid: 119b23c66fbaf7f42a2e10cc90cca6bd,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 311
+      value: 316.5
       objectReference: {fileID: 0}
     - target: {fileID: 224168184765157340, guid: 119b23c66fbaf7f42a2e10cc90cca6bd,
         type: 2}
@@ -461,7 +461,7 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 55.56, y: 96.2, z: 145.23}
+  m_BoxSize: {x: 67.9, y: 50, z: 145.23}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
   m_FarClip: 1000
@@ -486,7 +486,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 281013389}
   m_LocalRotation: {x: 0.13346626, y: 0.5536094, z: -0.8193752, w: -0.06578499}
-  m_LocalPosition: {x: 0, y: 47.2, z: 0}
+  m_LocalPosition: {x: -6.5, y: 78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -802,8 +802,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 989690618}
-  m_LocalRotation: {x: 0.015582783, y: 0.98347056, z: 0.10397302, w: -0.14741938}
-  m_LocalPosition: {x: 4.1354394, y: -58.60982, z: -15.29731}
+  m_LocalRotation: {x: -0.04997837, y: 0.7568196, z: 0.058267172, w: 0.64910036}
+  m_LocalPosition: {x: -119.97258, y: -117.403534, z: 3.456438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -894,6 +894,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114075152480712478, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: _crowdTextures.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114889558443000310, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: _crowdTextures.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4988090298042760, guid: c59de704220078a4983cc77b2ccc8010, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -926,7 +936,118 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 23675303590429704, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 47dabb059cd9d7d47abf044e1a62fc8b, type: 2}
+    - target: {fileID: 23133826222550996, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83c89011ea9f7734687b40caa49a4fa7, type: 2}
+    - target: {fileID: 23674706469142484, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83c89011ea9f7734687b40caa49a4fa7, type: 2}
+    - target: {fileID: 23171548869953196, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83c89011ea9f7734687b40caa49a4fa7, type: 2}
+    - target: {fileID: 23697481679609294, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83c89011ea9f7734687b40caa49a4fa7, type: 2}
+    - target: {fileID: 23816135898253210, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83c89011ea9f7734687b40caa49a4fa7, type: 2}
+    - target: {fileID: 23652893982087958, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0176dc0aec13085458ab00acf5060edf, type: 2}
+    - target: {fileID: 23673351739957124, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0176dc0aec13085458ab00acf5060edf, type: 2}
+    - target: {fileID: 23623909498679118, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0176dc0aec13085458ab00acf5060edf, type: 2}
+    - target: {fileID: 23300159752844116, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0176dc0aec13085458ab00acf5060edf, type: 2}
+    - target: {fileID: 23643667116109926, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 098e16909f14b21438664f5fc7f38ab0, type: 2}
+    - target: {fileID: 114075152480712478, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: MinSize
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075152480712478, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: maxSize
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075152480712478, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: _crowdTextures.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: da3642ea89f48c64d9728aef69f41dc6, type: 3}
+    - target: {fileID: 114075152480712478, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: _crowdTextures.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: a7d208ba3f19e9c4a884e1042c5fb292, type: 3}
+    - target: {fileID: 114075152480712478, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: _crowdTextures.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: 916c05115543c664b849aea43064ced7, type: 3}
+    - target: {fileID: 114075152480712478, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: _crowdTextures.Array.data[3]
+      value: 
+      objectReference: {fileID: 2800000, guid: 15290f2482998d747a66d55c1f8f0ec7, type: 3}
+    - target: {fileID: 114889558443000310, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: maxSize
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114889558443000310, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: _crowdTextures.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: da3642ea89f48c64d9728aef69f41dc6, type: 3}
+    - target: {fileID: 114889558443000310, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: _crowdTextures.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: a7d208ba3f19e9c4a884e1042c5fb292, type: 3}
+    - target: {fileID: 114889558443000310, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: _crowdTextures.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: 916c05115543c664b849aea43064ced7, type: 3}
+    - target: {fileID: 114889558443000310, guid: c59de704220078a4983cc77b2ccc8010,
+        type: 2}
+      propertyPath: _crowdTextures.Array.data[3]
+      value: 
+      objectReference: {fileID: 2800000, guid: 15290f2482998d747a66d55c1f8f0ec7, type: 3}
+    m_RemovedComponents:
+    - {fileID: 114889558443000310, guid: c59de704220078a4983cc77b2ccc8010, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c59de704220078a4983cc77b2ccc8010, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1278207742
@@ -1160,6 +1281,27 @@ GameObject:
   m_PrefabParentObject: {fileID: 1155895141356528, guid: c59de704220078a4983cc77b2ccc8010,
     type: 2}
   m_PrefabInternal: {fileID: 1187858465}
+--- !u!114 &1652421139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1652421138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b2f2fe454ca2341ae5e443314a1cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheering: 1
+  _crowdTextures:
+  - {fileID: 2800000, guid: da3642ea89f48c64d9728aef69f41dc6, type: 3}
+  - {fileID: 2800000, guid: a7d208ba3f19e9c4a884e1042c5fb292, type: 3}
+  - {fileID: 2800000, guid: 916c05115543c664b849aea43064ced7, type: 3}
+  - {fileID: 2800000, guid: 15290f2482998d747a66d55c1f8f0ec7, type: 3}
+  CrowdMass: []
+  baseSpeed: 3
+  MinSize: 0.6
+  maxSize: 0.9
 --- !u!1 &1733440915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,8 +1429,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1855651143}
-  m_LocalRotation: {x: 0.022778217, y: 0.050969183, z: 0.0011626454, w: -0.9984398}
-  m_LocalPosition: {x: 599.1763, y: -333.28458, z: -314.3304}
+  m_LocalRotation: {x: -0.19765621, y: 0.22158864, z: 0.04591677, w: 0.9537936}
+  m_LocalPosition: {x: 89.87474, y: -65.760544, z: 15.15448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

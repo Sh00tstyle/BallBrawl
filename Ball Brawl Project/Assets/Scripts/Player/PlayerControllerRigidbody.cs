@@ -22,6 +22,9 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     [SerializeField]
     [EventRef]
     private string _jetpackLoop;
+    [SerializeField]
+    [EventRef]
+    private string _land;
 
 
     [Header("General Movement")]
@@ -111,9 +114,10 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     }
 
     void OnCollisionStay(Collision collision) {
-        if (collision.collider.tag == Tags.GROUND) {
+        if (collision.collider.tag == Tags.GROUND || collision.collider.name == "Hoop(Clone)") {
             _grounded = true;
             _jetpackActivationTimer = 0;
+            AudioManager.stopInstance(_jetpackLoop, gameObject);
         }
     }
 
@@ -197,6 +201,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         if(_grounded) {
             if(Input.GetKey(KeyCode.Space)) {
                     AudioManager.PlayEvent(_jetpackStart, gameObject, true);
+                    AudioManager.PlayEvent(_jetpackLoop, gameObject, true, false);
                 _rigidbody.AddRelativeForce(transform.up * jumpForce, ForceMode.Impulse);
                 _grounded = false;
             }
@@ -205,10 +210,11 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         //If we are airborn
         else {
             _jetpackActivationTimer += Time.deltaTime;
-
+            AudioManager.setParameter(_jetpackLoop, gameObject, "Velocity", _rigidbody.velocity.y / 10f);
             //If wanna jump and can jump
             if (Input.GetKey(KeyCode.Space) && _currentFlightCharge > 0f && _jetpackActivationTimer > jetpackActivationDelay) {
                 //Substract the rate from our charge\
+                Debug.Log(_rigidbody.velocity.y / 16f);
                 _currentFlightCharge -= flightChargeDepletionRatePerSecond * Time.deltaTime;
                 if (_currentFlightCharge < 0) _currentFlightCharge = 0;
                 //Apply force
