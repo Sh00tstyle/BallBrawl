@@ -180,7 +180,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
     [Command(channel = 2)]
     private void CmdCatchBall() {
-        BallBehaviourScript.Instance.DeactivateBallBehaviour(_playerId.ID);
+        BallBehaviourScript.Instance.DeactivateBallBehaviour();
         BallBehaviourScript.Instance.SetBallPosition(new Vector3(1000f, 1000f, 1000f)); //somewhere
     }
 

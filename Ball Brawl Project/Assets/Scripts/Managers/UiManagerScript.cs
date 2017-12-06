@@ -13,6 +13,8 @@ public class UiManagerScript : MonoBehaviour {
         if(_instance == null) {
             _instance = this;
         }
+
+        QualitySettings.vSyncCount = 0; //No vsync
     }
 
     public void ActivatePauseMenu() {

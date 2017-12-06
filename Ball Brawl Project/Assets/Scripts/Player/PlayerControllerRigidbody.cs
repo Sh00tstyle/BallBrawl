@@ -177,6 +177,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour
     [ClientRpc]
     public void RpcReceivePush(Vector3 direction, float force)
     {
+        _rigidbody.velocity = Vector3.zero; //resetting velocity, so you wont be pushed so hard
         _rigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
 
         if (_playerInteraction.IsHolding)
