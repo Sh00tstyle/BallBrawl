@@ -10,6 +10,10 @@ public class PlayerManager : NetworkBehaviour {
     //Automatically sync the list over the network
     private PlayerSyncList _playerList;
 
+    public override void OnStartServer() {
+        _playerList.Clear();
+    }
+
     public void Awake() {
         if(_instance == null) {
             _instance = this;
@@ -44,6 +48,18 @@ public class PlayerManager : NetworkBehaviour {
         _playerList.RemoveAt(index);
 
         if (PlayerCount < 2) GameStateManager.Instance.CmdSetState(GameStates.STATE_IDLE); //The other client waits and then the match will be restarted
+    }
+
+    [Command]
+    public void CmdCleanList() {
+        if (PlayerCount == 0) return;
+
+        //going backwards through the list to prevent removal errors
+        for(int i = PlayerCount - 1; i <= 0; i--) {
+            if (GetPlayerAt(i).playerObject == null) CmdUnregisterPlayer(i);
+        }
+
+        Debug.Log("Cleaned");
     }
 
     public PlayerObject GetPlayerAt(int index) {

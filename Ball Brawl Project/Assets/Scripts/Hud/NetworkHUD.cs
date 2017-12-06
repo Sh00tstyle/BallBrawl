@@ -49,12 +49,12 @@ public class NetworkHUD : MonoBehaviour {
                 _manager.StartClient();
             }
         }
-        if (NetworkServer.active && NetworkClient.active) {
+        //if (NetworkServer.active && NetworkClient.active) {
             if (Input.GetKeyDown(KeyCode.X)) {
                 OnEnterMenu();
                 _manager.StopHost();
             }
-        }
+        //}
 
         //Spin the camera around the origin
         CinematicCamera.transform.RotateAround(CameraOrigin.transform.position, transform.up, Time.deltaTime * CameraRotationSpeed);
