@@ -66,7 +66,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
         _interactionRange = GetComponentInChildren<InteractionRangeScript>();
         
-        ResetCooldowns();
+        RpcResetCooldowns();
     }
 
     private void Awake() {
@@ -204,9 +204,10 @@ public class PlayerInteractionScript : NetworkBehaviour {
         BallBehaviourScript.Instance.SetBallPosition(_ballParent);
     }
 
-    public void ResetCooldowns() {
+    [ClientRpc]
+    public void RpcResetCooldowns() {
         _abilityCooldownTimer = _abilityCooldown;
-        _catchCooldownTimer = 2f;
+        _catchCooldownTimer = 0f;
 
         HudOverlayManager.Instance.SetPlayerPushOffCooldown();
         HudOverlayManager.Instance.SetCatchOffCooldown();

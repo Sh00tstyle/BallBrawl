@@ -182,11 +182,11 @@ public class GameStateManager : NetworkBehaviour {
             //Respawn each player
             PlayerObject playerObj = PlayerManager.Instance.GetPlayerAt(i);
             playerObj.playerObject.GetComponent<PlayerCollisionScript>().RpcRespawn();
-            playerObj.playerObject.GetComponent<PlayerInteractionScript>().ResetCooldowns();  
+            playerObj.playerObject.GetComponent<PlayerInteractionScript>().RpcResetCooldowns();  
 
             PlayerControllerRigidbody playerController = playerObj.playerObject.GetComponent<PlayerControllerRigidbody>();
             playerController.RpcResetVelocity();
-            playerController.ResetCooldowns();
+            playerController.RpcResetCooldowns();
         }
     } 
 

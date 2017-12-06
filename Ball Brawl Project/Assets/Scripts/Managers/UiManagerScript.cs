@@ -31,6 +31,22 @@ public class UiManagerScript : MonoBehaviour {
         Time.timeScale = 1f;
     }
 
+    public void HidePauseMenu() {
+        DeactivatePauseMenu();
+
+        PauseHandlerScript[] pauseHelper = FindObjectsOfType<PauseHandlerScript>();
+
+        for(int i = 0; i < pauseHelper.Length; i++) {
+            try {
+                pauseHelper[i].CmdSetPause(false);
+            } catch { }
+        }
+
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public static UiManagerScript Instance {
         get { return _instance; }
     }

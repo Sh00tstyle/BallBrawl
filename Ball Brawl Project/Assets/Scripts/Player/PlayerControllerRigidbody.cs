@@ -193,7 +193,8 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         _rigidbody.velocity = Vector3.zero;
     }
 
-    public void ResetCooldowns()
+    [ClientRpc]
+    public void RpcResetCooldowns()
     {
         _dashCooldownTimer = 0f;
         _currentFlightCharge = maxFlightCharge;

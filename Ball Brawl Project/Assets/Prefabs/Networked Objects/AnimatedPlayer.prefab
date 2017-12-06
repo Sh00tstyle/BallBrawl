@@ -2561,13 +2561,13 @@ GameObject:
   - component: {fileID: 114232757960640896}
   - component: {fileID: 114620566317349628}
   - component: {fileID: 114107918530755540}
-  - component: {fileID: 114783764468012404}
   - component: {fileID: 114818347052528056}
   - component: {fileID: 95039416877251364}
   - component: {fileID: 114001391685108296}
   - component: {fileID: 114121004754687306}
   - component: {fileID: 114781957192764010}
   - component: {fileID: 114692206861060964}
+  - component: {fileID: 114564165109322260}
   m_Layer: 2
   m_Name: AnimatedPlayer
   m_TagString: Player
@@ -5931,6 +5931,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0.3
+--- !u!114 &114564165109322260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1900157992051082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb45205f5bd3e6a449ceb0441a749ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114590880011313056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6043,17 +6054,6 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
---- !u!114 &114783764468012404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900157992051082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6de1c6d3bf82a244da66bf01b0a8b2e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114818347052528056
 MonoBehaviour:
   m_ObjectHideFlags: 1
