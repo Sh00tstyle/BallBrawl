@@ -14,6 +14,10 @@ namespace FMODUnity
 
         void OnEnable()
         {
+            ApplyListenerIndex();
+        }
+
+        public void ApplyListenerIndex() {
             RuntimeUtils.EnforceLibraryOrder();
             rigidBody = gameObject.GetComponent<Rigidbody>();
             rigidBody2D = gameObject.GetComponent<Rigidbody2D>();

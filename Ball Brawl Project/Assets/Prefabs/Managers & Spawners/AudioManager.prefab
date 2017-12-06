@@ -113,8 +113,8 @@ MonoBehaviour:
   _blueCrowd: {fileID: 0}
   _redCrowdOrigin: {fileID: 1953112206862234}
   _blueCrowdOrigin: {fileID: 1962672926013358}
-  _crowdBoo: event:/Ambient/Crowd/Boo
-  _crowdCheer: event:/Ambient/Crowd/Cheer
-  _crowdMiss: event:/Ambient/Crowd/Miss
-  _crowdLoop: event:/Ambient/Crowd/Loop
+  _crowdBoo: event:/Crowd/Boo
+  _crowdCheer: event:/Crowd/Cheer
+  _crowdMiss: event:/Crowd/Miss
+  _crowdLoop: event:/Crowd/Loop
   FMODInstances: []
