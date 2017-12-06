@@ -9,6 +9,7 @@ public class PlayerCollisionScript : NetworkBehaviour {
 
     private PlayerIdScript _playerId;
     private PlayerControllerRigidbody _playerController;
+    private PlayerInteractionScript _playerInteraction;
     private PlayerTeamScript _playerTeam;
     private CameraController _cameraController;
 
@@ -19,6 +20,7 @@ public class PlayerCollisionScript : NetworkBehaviour {
     public void Awake() {
         _playerId = GetComponent<PlayerIdScript>();
         _playerController = GetComponent<PlayerControllerRigidbody>();
+        _playerInteraction = GetComponent<PlayerInteractionScript>();
         _playerTeam = GetComponent<PlayerTeamScript>();
     }
 
@@ -26,7 +28,10 @@ public class PlayerCollisionScript : NetworkBehaviour {
         if(collision.gameObject.tag == Tags.BALL) {
             BallBehaviourScript ballBehaviour = collision.gameObject.GetComponent<BallBehaviourScript>();
 
-            if(ballBehaviour.LastPlayerID != _playerId.ID) Respawn();
+            if (ballBehaviour.LastPlayerID != _playerId.ID) {
+                _playerInteraction.CmdReleaseBall(); //Dropping the ball when you get killed
+                Respawn();
+            }
         }
     }
 

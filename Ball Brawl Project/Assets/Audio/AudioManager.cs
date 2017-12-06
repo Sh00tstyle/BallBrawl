@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using FMODUnity;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : NetworkBehaviour
 {
     [SerializeField]
     private GameObject _redCrowd;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114794068413695770}
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   EditorEvents:
   - {fileID: 114543464389847904}
   - {fileID: 114321298985703122}
@@ -36,9 +36,9 @@ MonoBehaviour:
   - {fileID: 114882504773161770}
   - {fileID: 114406850416218606}
   - {fileID: 114320691584421218}
-  MasterBankRef: {fileID: 114148303032463552}
+  MasterBankRef: {fileID: 114264677673681794}
   StringsBankRef: {fileID: 114794068413695770}
-  stringsBankWriteTime: 636480855780433134
+  stringsBankWriteTime: 636481562984146643
   cacheVersion: 2
 --- !u!114 &114047794556724128
 MonoBehaviour:
@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: event:/Multiplayer/Goal
   guid: 9a1f973e80d44045bc4fcbd445636151
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -91,7 +91,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/impact_floor
   guid: 33327c464787554aa111f8bf3f9d6ac2
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -132,7 +132,7 @@ MonoBehaviour:
   Path: event:/Crowd/Cheer
   guid: 9916e5e82dfd9b44a3f910e6797dac6d
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -140,6 +140,25 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 600
   Length: 8949
+--- !u!114 &114264677673681794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\Nico\OneDrive\Dokumente\Quarter 2.2\2.2 Project Indie Game\Overcharged\Ball
+    Brawl Project\Assets\FMOD\Build\Desktop\Master Bank.bank
+  lastModified: 636481562984126459
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 2929280
+  Exists: 1
 --- !u!114 &114301015816093874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +173,7 @@ MonoBehaviour:
   Path: event:/Multiplayer/Roundstart
   guid: a41542996e0f0244a23e419ea59a4c01
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -176,7 +195,7 @@ MonoBehaviour:
   Path: event:/Crowd/Miss
   guid: f9efa00240022148aec541d3e6f5dd9b
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -198,7 +217,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/Shoot
   guid: 2ae74b4e02674143ad00fac02cb9089c
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -220,12 +239,12 @@ MonoBehaviour:
   Path: event:/Player/jetpack_loop
   guid: 7d7b9f31505c6e4a8d42dd5f0c5700c1
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114964150207865206}
+  - {fileID: 114983011036334430}
   MinDistance: 1
   MaxDistance: 20
   Length: 1392
@@ -243,7 +262,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/Catch
   guid: 5c48015750a5dd4ab79dcb467f1bd3a4
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -280,7 +299,7 @@ MonoBehaviour:
   Path: event:/Player/Footsteps
   guid: f419d5b4503d7149adac2dbb259eefed
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -288,6 +307,21 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 9.8
   Length: 413
+--- !u!114 &114465167374138576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &114507900571158448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +336,7 @@ MonoBehaviour:
   Path: event:/Player/jetpack_start
   guid: b58527b662049a42a1c12334dca30c4d
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -324,7 +358,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/Charging
   guid: 5768a8d6c0f0fd40b4994d146bc2f7d1
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -346,7 +380,7 @@ MonoBehaviour:
   Path: event:/Multiplayer/Countdown
   guid: 0305edf3fae16c44a80505e69456a9ad
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -383,7 +417,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/Loop
   guid: 8e75ef1978c697438e29c283b3d5a87c
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -405,7 +439,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/impact_goal
   guid: 35c4aff334434848a41d3245291ab8e1
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -427,12 +461,12 @@ MonoBehaviour:
   Path: event:/Music/Main Menu
   guid: 3555d14a666a0d4b878a1b7349b9e9d0
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114403175350283548}
+  - {fileID: 114465167374138576}
   MinDistance: 0
   MaxDistance: 0
   Length: 118925
@@ -448,7 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\FMOD\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636480855780433134
+  lastModified: 636481562984146643
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -468,7 +502,7 @@ MonoBehaviour:
   Path: event:/Multiplayer/Respawn
   guid: 2b672528fc89c24d87273b2af6f75ea1
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -490,7 +524,7 @@ MonoBehaviour:
   Path: event:/Crowd/Boo
   guid: 9a30bd6dd99ce94782df9774932b6a71
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -512,7 +546,7 @@ MonoBehaviour:
   Path: event:/Objects/Ball/impact_shield
   guid: c825bc7205cbfc43a1590b14e46b3db2
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -534,7 +568,7 @@ MonoBehaviour:
   Path: event:/Player/Dash
   guid: dfad1a9b39ec8b468a1d92be18a1090a
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -556,7 +590,7 @@ MonoBehaviour:
   Path: event:/Crowd/Loop
   guid: 378338162402a84daac1e2816f249f54
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -593,7 +627,7 @@ MonoBehaviour:
   Path: event:/Crowd/Chants
   guid: 71e6d56878e8994494394586269b0b85
   Banks:
-  - {fileID: 114148303032463552}
+  - {fileID: 114264677673681794}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -601,3 +635,18 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 600
   Length: 5400
+--- !u!114 &114983011036334430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Velocity
+  Min: 0
+  Max: 1
+  Default: 0

@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class PauseManagerScript : NetworkBehaviour {
 
-    [SyncVar(hook = "AdjustTimeScale")]
+    [SyncVar]
     private bool _isPaused;
 
     [SyncVar]
@@ -24,13 +24,8 @@ public class PauseManagerScript : NetworkBehaviour {
         }
     }
 
-    private void AdjustTimeScale(bool newValue) {
-        if (newValue) Time.timeScale = 0f;
-        else Time.timeScale = 1f;
-    }
-
-    [Command]
-    public void CmdSetPause(bool state) {
+    [ClientRpc]
+    public void RpcSetPause(bool state) {
         _isPaused = state;
         _blockInput = state;
     }

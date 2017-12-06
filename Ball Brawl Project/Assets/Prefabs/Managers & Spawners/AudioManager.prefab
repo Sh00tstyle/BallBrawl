@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4359289687120322}
   - component: {fileID: 114324861562809650}
+  - component: {fileID: 114976581701029412}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -113,8 +114,40 @@ MonoBehaviour:
   _blueCrowd: {fileID: 0}
   _redCrowdOrigin: {fileID: 1953112206862234}
   _blueCrowdOrigin: {fileID: 1962672926013358}
-  _crowdBoo: event:/Ambient/Crowd/Boo
-  _crowdCheer: event:/Ambient/Crowd/Cheer
-  _crowdMiss: event:/Ambient/Crowd/Miss
-  _crowdLoop: event:/Ambient/Crowd/Loop
+  _crowdBoo: event:/Crowd/Boo
+  _crowdCheer: event:/Crowd/Cheer
+  _crowdMiss: event:/Crowd/Miss
+  _crowdLoop: event:/Crowd/Loop
   FMODInstances: []
+--- !u!114 &114976581701029412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745337818718426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 155
+    i1: 90
+    i2: 111
+    i3: 160
+    i4: 161
+    i5: 196
+    i6: 254
+    i7: 36
+    i8: 251
+    i9: 189
+    i10: 149
+    i11: 236
+    i12: 8
+    i13: 222
+    i14: 136
+    i15: 75
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

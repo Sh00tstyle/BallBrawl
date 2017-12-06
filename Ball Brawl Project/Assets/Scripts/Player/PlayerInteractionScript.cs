@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 
 public class PlayerInteractionScript : NetworkBehaviour {
 
+    private static int NEXT_LISTENERNUM = 0;
+
     [SerializeField]
     [EventRef]
     private string _chargeSound;
@@ -63,14 +65,6 @@ public class PlayerInteractionScript : NetworkBehaviour {
         _playerCamera.SetActive(true);
 
         _interactionRange = GetComponentInChildren<InteractionRangeScript>();
-
-        StudioListener studioListener = _playerCamera.GetComponent<StudioListener>();
-
-        if(isServer) {
-            studioListener.ListenerNumber = 0;
-        } else {
-            studioListener.ListenerNumber = 1;
-        }
         
         ResetCooldowns();
     }
@@ -78,6 +72,13 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private void Awake() {
         _playerId = GetComponent<PlayerIdScript>();
         _playerTeam = GetComponent<PlayerTeamScript>();
+
+        StudioListener studioListener = GetComponent<StudioListener>();
+
+        studioListener.ListenerNumber = NEXT_LISTENERNUM; //dirty, might run out of listener indexes
+        NEXT_LISTENERNUM++;
+
+        studioListener.ApplyListenerIndex();
     }
 
     private void Start() {
