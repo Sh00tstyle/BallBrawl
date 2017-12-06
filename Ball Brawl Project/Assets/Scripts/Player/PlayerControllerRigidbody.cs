@@ -23,10 +23,6 @@ public class PlayerControllerRigidbody : NetworkBehaviour
     [SerializeField]
     [EventRef]
     private string _jetpackLoop;
-    [SerializeField]
-    [EventRef]
-    private string _land;
-
 
     [Header("General Movement")]
     public float speed = 10.0f;
@@ -157,6 +153,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour
     {
         if (collision.collider.tag == Tags.GROUND)
         {
+            AudioManager.stopInstance(_jetpackLoop, gameObject);
             _grounded = true;
             _jetpackActivationTimer = 0;
         }
