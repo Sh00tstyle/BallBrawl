@@ -6,8 +6,9 @@ public class Crowd : MonoBehaviour
 {
     public float cheering = 1f;
 
+
     [SerializeField]
-    private List<Texture> _crowdTextures;
+    private List<Color> _crowdColor;
 
     [SerializeField]
     private List<CrowdIndividual> CrowdMass;
@@ -38,12 +39,12 @@ public class Crowd : MonoBehaviour
             CrowdMass.Add(newCrowdIndividual);
 
             //Changing sprite size
+            transform.GetChild(i).GetComponent<Renderer>().material.SetColor("_Color", _crowdColor[Random.Range(0, _crowdColor.Count)]);
             transform.GetChild(i).GetComponent<Renderer>().material.SetFloat("_Scale", Random.Range(MinSize, maxSize));
-            transform.GetChild(i).GetComponent<Renderer>().material.mainTexture = _crowdTextures[Random.Range(0, _crowdTextures.Count)];
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         for (int i = 0; i < CrowdMass.Count; i++)
         {
