@@ -18,6 +18,9 @@ public class GameStateManager : NetworkBehaviour {
     private string _roundStart;
 
     [SerializeField]
+    private GameObject _roundCountdownPrefab;
+
+    [SerializeField]
     private Transform _ballSpawnPos;
 
     [SerializeField]
@@ -126,7 +129,15 @@ public class GameStateManager : NetworkBehaviour {
 
             case GameStates.STATE_READYROUND:
                 _timeScale = 1f;
+
                 AudioManager.PlayOneShot(_roundTimer, gameObject);
+
+                if (isServer) {
+                    GameObject goalImpact = Instantiate(_roundCountdownPrefab, transform.position, Quaternion.identity);
+                    NetworkServer.Spawn(goalImpact);
+                    Destroy(goalImpact, 4f);
+                }
+
                 PauseManagerScript.Instance.CmdSetBlockInput(true);
                 CmdResetBall();
                 CmdResetPlayers();
@@ -137,7 +148,6 @@ public class GameStateManager : NetworkBehaviour {
                 break;
 
             case GameStates.STATE_INGAME:
-                AudioManager.PlayOneShot(_roundStart, gameObject);
                 CmdReleaseBall();
 
                 PauseManagerScript.Instance.RpcSetPause(false); //Disables both pause and input blocking

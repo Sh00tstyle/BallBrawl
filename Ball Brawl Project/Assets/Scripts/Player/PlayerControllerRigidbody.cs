@@ -7,8 +7,7 @@ using FMODUnity;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 
-public class PlayerControllerRigidbody : NetworkBehaviour
-{
+public class PlayerControllerRigidbody : NetworkBehaviour {
 
     [Header("Sounds")]
     [SerializeField]
@@ -63,8 +62,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour
     private bool _jetpackInput;
     private bool _dashInput;
 
-    void Awake()
-    {
+    void Awake() {
         _originalRotation = transform.localRotation;
         _currentFlightCharge = maxFlightCharge;
         _jetpackActivationTimer = 0;
@@ -78,16 +76,17 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         targetVelocity = Vector3.zero;
     }
 
-    private void Start()
-    {
+    private void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _animHands = GetComponentInChildren<AnimationsHands>();
         _anim = GetComponentInChildren<AnimationsPlayer>();
     }
 
-    private void Update()
-    {
+    private void Update() {
+        if (!isLocalPlayer) return;
+        if (PauseManagerScript.Instance.IsPaused || PauseManagerScript.Instance.BlockInput) return;
+
         //Get intput
         targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
@@ -97,21 +96,20 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         if (Input.GetKey(KeyCode.Space)) _jetpackInput = true;
         else _jetpackInput = false;
 
+        DoRotation();
+
         //Unlock the Cursor when the user press escape
-        if (Input.GetKey(KeyCode.Escape))
-        {
+        if (Input.GetKey(KeyCode.Escape)) {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        if (Input.GetKey(KeyCode.O))
-        {
+        if (Input.GetKey(KeyCode.O)) {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         if (!isLocalPlayer) return;
         if (PauseManagerScript.Instance.IsPaused || PauseManagerScript.Instance.BlockInput) return;
 
@@ -131,28 +129,23 @@ public class PlayerControllerRigidbody : NetworkBehaviour
 
         Dash(targetVelocity, _dashInput);
 
-        if (_grounded)
-        {
+        if (_grounded) {
             HudOverlayManager.Instance.SetJetpackActive();
-        }
-        else
-        {
+        } else {
             HudOverlayManager.Instance.SetDescendActive();
         }
 
         HudOverlayManager.Instance.UpdateFuel(_currentFlightCharge / maxFlightCharge);
 
-        DoRotation();
+        //DoRotation();
 
         if (_anim != null) _anim.UpdateAnimator(transform.InverseTransformDirection(targetVelocity), _grounded);
 
         _grounded = false;
     }
 
-    void OnCollisionStay(Collision collision)
-    {
-        if (collision.collider.tag == Tags.GROUND)
-        {
+    void OnCollisionStay(Collision collision) {
+        if (collision.collider.tag == Tags.GROUND) {
             AudioManager.stopInstance(_jetpackLoop, gameObject);
             _grounded = true;
             _jetpackActivationTimer = 0;
@@ -160,42 +153,36 @@ public class PlayerControllerRigidbody : NetworkBehaviour
     }
 
     //Ensure that we rotate the player itself so we use the rotation stuff here
-    private void DoRotation()
-    {
+    private void DoRotation() {
         _rotationX += Input.GetAxis("Mouse X") * rotationSensitivity;
         _rotationX = ClampAngle(_rotationX, -360, 360);
         Quaternion xQuaternion = Quaternion.AngleAxis(_rotationX, Vector3.up);
         transform.localRotation = _originalRotation * xQuaternion;
     }
 
-    public void SetRotationPlayer(float newRotation)
-    {
+    public void SetRotationPlayer(float newRotation) {
         _rotationX = newRotation;
         DoRotation(); //applying the rotation
     }
 
     [ClientRpc]
-    public void RpcReceivePush(Vector3 direction, float force)
-    {
+    public void RpcReceivePush(Vector3 direction, float force) {
         _rigidbody.velocity = Vector3.zero; //resetting velocity, so you wont be pushed so hard
         _rigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
 
-        if (_playerInteraction.IsHolding)
-        {
+        if (_playerInteraction.IsHolding) {
             _playerInteraction.CmdReleaseBall();
             _playerInteraction.CmdSetIsHolding(false);
         }
     }
 
     [ClientRpc]
-    public void RpcResetVelocity()
-    {
+    public void RpcResetVelocity() {
         _rigidbody.velocity = Vector3.zero;
     }
 
     [ClientRpc]
-    public void RpcResetCooldowns()
-    {
+    public void RpcResetCooldowns() {
         _dashCooldownTimer = 0f;
         _currentFlightCharge = maxFlightCharge;
 
@@ -203,25 +190,20 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         HudOverlayManager.Instance.SetJetpackActive();
     }
 
-    public static float ClampAngle(float angle, float min, float max)
-    {
+    public static float ClampAngle(float angle, float min, float max) {
         angle = angle % 360;
-        if ((angle >= -360F) && (angle <= 360F))
-        {
-            if (angle < -360F)
-            {
+        if ((angle >= -360F) && (angle <= 360F)) {
+            if (angle < -360F) {
                 angle += 360F;
             }
-            if (angle > 360F)
-            {
+            if (angle > 360F) {
                 angle -= 360F;
             }
         }
         return Mathf.Clamp(angle, min, max);
     }
 
-    private void GroundMovement(Vector3 targetVelocity)
-    {
+    private void GroundMovement(Vector3 targetVelocity) {
         // Apply a force that attempts to reach our target velocity
         Vector3 velocity = _rigidbody.velocity;
         Vector3 velocityChange = (targetVelocity - velocity);
@@ -233,17 +215,12 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
-    private void Dash(Vector3 velocity, bool UserInput)
-    {
-        if (UserInput && _dashCooldownTimer == 0)
-        {
-            if (velocity.magnitude == 0)
-            {
+    private void Dash(Vector3 velocity, bool UserInput) {
+        if (UserInput && _dashCooldownTimer == 0) {
+            if (velocity.magnitude == 0) {
                 _rigidbody.AddForce(transform.forward * dashStrength, ForceMode.Impulse);
                 //print("No velocity, dash forward");
-            }
-            else
-            {
+            } else {
                 _rigidbody.AddForce(velocity.normalized * dashStrength, ForceMode.Impulse);
                 //print("Dash into velocity direction: " + velocity); 
             }
@@ -253,33 +230,27 @@ public class PlayerControllerRigidbody : NetworkBehaviour
             _dashCooldownTimer = dashCooldown;
         }
 
-        if (_dashCooldownTimer > 0)
-        {
+        if (_dashCooldownTimer > 0) {
             _dashCooldownTimer -= Time.deltaTime;
 
             if (_dashCooldownTimer < 0) {
                 _dashCooldownTimer = 0;
 
                 HudOverlayManager.Instance.SetDashOffCooldown();
-            }
-            else if (_dashCooldownTimer < dashCooldown * 0.75f) {
+            } else if (_dashCooldownTimer < dashCooldown * 0.75f) {
                 _anim.SetDashing(false);
-            }
-            else {
+            } else {
                 HudOverlayManager.Instance.SetDashOnCooldown(1 - _dashCooldownTimer / dashCooldown, _dashCooldownTimer);
             }
         }
     }
 
-    private void AirMovement(bool UserInput)
-    {
+    private void AirMovement(bool UserInput) {
         float _currentGravity = gravity;
 
         //If we are ... well ... grounded
-        if (_grounded)
-        {
-            if (UserInput)
-            {
+        if (_grounded) {
+            if (UserInput) {
                 AudioManager.PlayEvent(_jetpackStart, gameObject, true);
                 AudioManager.PlayEvent(_jetpackLoop, gameObject, true, false);
                 _rigidbody.AddRelativeForce(transform.up * jumpForce, ForceMode.Impulse);
@@ -288,13 +259,11 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         }
 
         //If we are airborn
-        else
-        {
+        else {
             _jetpackActivationTimer += Time.deltaTime;
             AudioManager.setParameter(_jetpackLoop, gameObject, "Velocity", _rigidbody.velocity.y / 10f);
             //If wanna jump and can jump
-            if (UserInput && _currentFlightCharge > 0f && _jetpackActivationTimer > jetpackActivationDelay)
-            {
+            if (UserInput && _currentFlightCharge > 0f && _jetpackActivationTimer > jetpackActivationDelay) {
                 //Substract the rate from our charge
                 _currentFlightCharge -= flightChargeDepletionRatePerSecond * Time.deltaTime;
                 if (_currentFlightCharge < 0) _currentFlightCharge = 0;
@@ -302,13 +271,12 @@ public class PlayerControllerRigidbody : NetworkBehaviour
                 if (_currentFlightCharge > 0.5f) _rigidbody.AddRelativeForce(transform.up * flightUpwardsForceMultiplier * Time.deltaTime, ForceMode.Impulse);
             }
 
-            if (Input.GetKey(KeyCode.LeftControl)) _currentGravity *= gravityMultiplierOnPress;
+            if (Input.GetKey(KeyCode.LeftControl) && !Input.GetKey(KeyCode.Space)) _currentGravity *= gravityMultiplierOnPress;
             _grounded = false;
         }
 
         //Otherwise recharge
-        if (!UserInput || _currentFlightCharge == 0)
-        {
+        if (!UserInput || _currentFlightCharge == 0) {
             if (_currentFlightCharge < maxFlightCharge) _currentFlightCharge += flightChargeRechargeRatePerSecond * Time.deltaTime;
             if (_currentFlightCharge > maxFlightCharge) _currentFlightCharge = maxFlightCharge;
         }
@@ -317,8 +285,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         _rigidbody.AddRelativeForce(new Vector3(0, -_currentGravity * _rigidbody.mass, 0));
     }
 
-    private Vector3 PreventBoundaryStuck(Vector3 targetVelocity)
-    {
+    private Vector3 PreventBoundaryStuck(Vector3 targetVelocity) {
         Vector3 move = targetVelocity;
 
         // Don't use the vertical velocity
@@ -330,17 +297,13 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         RaycastHit hit;
 
         // Check if the body's current velocity will result in a collision
-        if (Physics.Raycast(new Ray(transform.position, move), out hit, move.magnitude))
-        {
-            if (hit.collider.tag == Tags.WALL)
-            {
+        if (Physics.Raycast(new Ray(transform.position, move), out hit, move.magnitude)) {
+            if (hit.collider.tag == Tags.WALL) {
                 // If so, stop the movement
                 //_rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
                 //gravity = 20;
                 return new Vector3(targetVelocity.normalized.x * 0.5f, 0, targetVelocity.normalized.z * 0.5f);
-            }
-            else
-            {
+            } else {
                 //gravity = 10;
                 return targetVelocity;
             }
@@ -348,8 +311,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         return targetVelocity;
     }
 
-    private void PlayerSounds(string name)
-    {
+    private void PlayerSounds(string name) {
         if (name == "footstep")
             AudioManager.PlayEvent(_footsteps, gameObject);
     }
