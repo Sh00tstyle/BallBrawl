@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4891972707869022}
   - component: {fileID: 114466516075085688}
+  - component: {fileID: 114379844300403368}
   m_Layer: 0
   m_Name: ShieldImpact
   m_TagString: Untagged
@@ -71,6 +72,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114379844300403368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774201208730044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c4f95df1369424ca68379889715aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound: event:/Objects/Ball/impact_shield
 --- !u!114 &114466516075085688
 MonoBehaviour:
   m_ObjectHideFlags: 1

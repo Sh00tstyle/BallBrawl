@@ -125,6 +125,8 @@ public class PlayerInteractionScript : NetworkBehaviour {
                 CmdPushBall();
                 _anim.TriggerPushAnimation();
                 _animHands.TriggerPushAnimation();
+
+                AudioManager.PlayOneShot(_shootSound, gameObject);
             } else if(Input.GetMouseButton(1) && !_isHolding && _catchCooldownTimer >= 2f) {
                 _holdingTimer = 0f;
                 _localBall.SetActive(true);
@@ -132,7 +134,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
                 CmdSetIsHolding(true);
                 CmdCatchBall();
 
-                AudioManager.PlayEvent(_chargeSound, gameObject, true, false);
+                AudioManager.PlayEvent(_chargeSound, gameObject, true, false, false);
                 AudioManager.PlayOneShot(_catchSound, gameObject);
                 _animHands.SetHoldAnimation(true);
             }
