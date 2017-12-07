@@ -61,8 +61,6 @@ public class NetworkManagerScript : NetworkManager {
 
     //Called when a client disconnects
     public override void OnServerDisconnect(NetworkConnection conn) {
-        Debug.Log("OnServerDisconnect is called");
-
         base.OnServerDisconnect(conn);
 
         //Unregister player from our list

@@ -21,7 +21,6 @@ public class PauseHandlerScript : NetworkBehaviour {
         if (!isLocalPlayer) return;
 
         if (Input.GetKeyDown(KeyCode.P) && GameStateManager.Instance.CurrentState == GameStates.STATE_INGAME && !PauseManagerScript.Instance.IsPaused) {
-            Debug.Log("pause");
             CmdSetPause(true);
 
             Cursor.lockState = CursorLockMode.None;

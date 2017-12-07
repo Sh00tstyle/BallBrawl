@@ -56,6 +56,7 @@ public class NetworkHUD : MonoBehaviour {
     public void OnClickHost() {
         OnSelect();
         _manager.StartHost();
+
         AudioManager.setParameter(_menuMusic, gameObject, "Volume", 0f);
     }
 
@@ -71,7 +72,8 @@ public class NetworkHUD : MonoBehaviour {
         _manager.networkAddress = IP;
         _manager.networkPort = 7777; //default port we are using
 
-        _manager.StartClient();
+        NetworkClient newClient = _manager.StartClient();
+        //TODO: Add 5s connection timeout and then return to the menu
 
         AudioManager.setParameter(_menuMusic, gameObject, "Volume", 0f);
     }
@@ -79,6 +81,7 @@ public class NetworkHUD : MonoBehaviour {
     public void OnDisconnect() {
         OnEnterMenu();
 
+        AudioManager.setParameter(_menuMusic, gameObject, "Volume", 1f);
         _manager.StopHost();
     }
 

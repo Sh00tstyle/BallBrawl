@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - Body
   - Hood
+  - Hand
+  - Bracelet
   layers:
   - Default
   - TransparentFX

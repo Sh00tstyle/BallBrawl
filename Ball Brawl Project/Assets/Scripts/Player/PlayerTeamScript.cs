@@ -12,6 +12,9 @@ public class PlayerTeamScript : NetworkBehaviour {
     private GameObject _teamMeshHolder;
 
     [SerializeField]
+    private GameObject _rightHand;
+
+    [SerializeField]
     private Material _ball2BlueMat;
 
     [SerializeField]
@@ -22,6 +25,12 @@ public class PlayerTeamScript : NetworkBehaviour {
 
     [SerializeField]
     private Material _redTeamHoodMat;
+
+    [SerializeField]
+    private Material _redHandMat;
+
+    [SerializeField]
+    private Material _redBraceletMat;
 
     [SyncVar]
     private string _assignedTeam;
@@ -44,11 +53,19 @@ public class PlayerTeamScript : NetworkBehaviour {
 
         if (_assignedTeam == Teams.TEAM_RED) {
 
-            Transform[] allChildren = _teamMeshHolder.GetComponentsInChildren<Transform>();
-            foreach(Transform t in allChildren) {
+            Transform[] bodyChildren = _teamMeshHolder.GetComponentsInChildren<Transform>();
+            foreach(Transform t in bodyChildren) {
                 if (t.gameObject.GetComponent<SkinnedMeshRenderer>()) {
                     if(t.gameObject.tag == Tags.BODY) t.gameObject.GetComponent<SkinnedMeshRenderer>().material = _redTeamBodyMat;
                     if(t.gameObject.tag == Tags.HOOD) t.gameObject.GetComponent<SkinnedMeshRenderer>().material = _redTeamHoodMat;
+                }
+            }
+
+            Transform[] handChildren = _rightHand.GetComponentsInChildren<Transform>();
+            foreach (Transform t in handChildren) {
+                if (t.gameObject.GetComponent<SkinnedMeshRenderer>()) {
+                    if (t.gameObject.tag == Tags.HAND) t.gameObject.GetComponent<SkinnedMeshRenderer>().material = _redHandMat;
+                    if (t.gameObject.tag == Tags.BRACELET) t.gameObject.GetComponent<SkinnedMeshRenderer>().material = _redBraceletMat;
                 }
             }
 

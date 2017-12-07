@@ -57,6 +57,8 @@ public class PlayerInteractionScript : NetworkBehaviour {
     private AnimationsPlayer _anim;
     private AnimationsHands _animHands;
 
+    private bool _kickoff;
+
     private float _holdingTimer;
     private float _catchCooldownTimer;
     private float _abilityCooldownTimer;
@@ -97,13 +99,13 @@ public class PlayerInteractionScript : NetworkBehaviour {
         UpdateUI();
 
         _holdingTimer += Time.deltaTime;
-        _catchCooldownTimer += Time.deltaTime;
+        _catchCooldownTimer -= Time.deltaTime;
         _abilityCooldownTimer += Time.deltaTime;
     }
 
     private void ProcessMouseInput() {
         if (_isHolding && (Input.GetMouseButtonUp(1) || _holdingTimer > _maxHoldingTime)) {
-            _catchCooldownTimer = 0f;
+            _catchCooldownTimer = 2f;
             HudOverlayManager.Instance.UpdateCrosshair(0f);
 
             _localBall.SetActive(false);
@@ -127,7 +129,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
                 _animHands.TriggerPushAnimation();
 
                 AudioManager.PlayOneShot(_shootSound, gameObject);
-            } else if(Input.GetMouseButton(1) && !_isHolding && _catchCooldownTimer >= 2f) {
+            } else if(Input.GetMouseButton(1) && !_isHolding && _catchCooldownTimer <= 0f) {
                 _holdingTimer = 0f;
                 _localBall.SetActive(true);
 
@@ -162,10 +164,13 @@ public class PlayerInteractionScript : NetworkBehaviour {
             HudOverlayManager.Instance.SetPlayerPushOffCooldown();
         }
 
-        if(_catchCooldownTimer >= 2f) {
+        if(_catchCooldownTimer <= 0f) {
             HudOverlayManager.Instance.SetCatchOffCooldown();
+            _kickoff = false;
+        } else if (_kickoff) {
+            HudOverlayManager.Instance.SetCatchOnCooldown(_catchCooldownTimer / 10f, _catchCooldownTimer);
         } else {
-            HudOverlayManager.Instance.SetCatchOnCooldown(_catchCooldownTimer / 2f, 2f - _catchCooldownTimer);
+            HudOverlayManager.Instance.SetCatchOnCooldown(_catchCooldownTimer / 2f, _catchCooldownTimer);
         }
     }
 
@@ -204,12 +209,17 @@ public class PlayerInteractionScript : NetworkBehaviour {
         //Activating the ball and dropping it in front of the player
         BallBehaviourScript.Instance.ActivateBallBehaviour();
         BallBehaviourScript.Instance.SetBallPosition(_ballParent);
+
+        CmdSetIsHolding(false);
+        _catchCooldownTimer = 2f; //so that you cannot pick it up right away
     }
 
     [ClientRpc]
     public void RpcResetCooldowns() {
         _abilityCooldownTimer = _abilityCooldown;
-        _catchCooldownTimer = 0f;
+        _catchCooldownTimer = 10f; //disable the ctaching for a certain time at the beginning of each round
+
+        _kickoff = true;
 
         HudOverlayManager.Instance.SetPlayerPushOffCooldown();
         HudOverlayManager.Instance.SetCatchOffCooldown();

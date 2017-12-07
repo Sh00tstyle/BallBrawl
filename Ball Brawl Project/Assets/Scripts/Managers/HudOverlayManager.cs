@@ -44,7 +44,6 @@ public class HudOverlayManager : MonoBehaviour {
         ResetCrosshair();
     }
 
-
     public void UpdateGoalCount(HUDText hudText, int goals) {
         _hudTexts[(int)hudText].text = "" + goals;
     }
@@ -101,7 +100,7 @@ public class HudOverlayManager : MonoBehaviour {
         }
 
         _hudImages[(int)HUDImage.CooldownFill_PlayerPush].fillAmount = fillAmount;
-        _hudTexts[(int)HUDText.CooldownText_PlayerPush].text = Mathf.CeilToInt(time) + "s";
+        _hudTexts[(int)HUDText.CooldownText_PlayerPush].text = Mathf.CeilToInt(time) + "";
     }
 
     public void SetPlayerPushOffCooldown() {
@@ -127,7 +126,7 @@ public class HudOverlayManager : MonoBehaviour {
         }
 
         _hudImages[(int)HUDImage.CooldownFill_Dash].fillAmount = fillAmount;
-        _hudTexts[(int)HUDText.CooldownText_Dash].text = Mathf.Round(time) + "s";
+        _hudTexts[(int)HUDText.CooldownText_Dash].text = Mathf.Round(time) + "";
     }
 
     public void SetDashOffCooldown() {
@@ -175,7 +174,7 @@ public class HudOverlayManager : MonoBehaviour {
         }
 
         _hudImages[(int)HUDImage.CooldownFill_CatchBall].fillAmount = fillAmount;
-        _hudTexts[(int)HUDText.CooldownText_CatchBall].text = Mathf.Round(time) + "s";
+        _hudTexts[(int)HUDText.CooldownText_CatchBall].text = Mathf.Round(time) + "";
     }
 
     public void SetCatchOffCooldown() {

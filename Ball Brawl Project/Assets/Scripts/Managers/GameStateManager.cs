@@ -10,14 +10,6 @@ public class GameStateManager : NetworkBehaviour {
     private static GameStateManager _instance;
 
     [SerializeField]
-    [EventRef]
-    private string _roundTimer;
-
-    [SerializeField]
-    [EventRef]
-    private string _roundStart;
-
-    [SerializeField]
     private GameObject _roundCountdownPrefab;
 
     [SerializeField]
@@ -38,7 +30,12 @@ public class GameStateManager : NetworkBehaviour {
     [SyncVar]
     private float _matchStartTimer;
 
+    [SyncVar]
+    private bool _matchEnded;
+
     private float _slowdownTimer;
+
+    private float _gameResetTimer;
 
     public override void OnStartServer() {
         _currentState = GameStates.STATE_IDLE;
@@ -64,6 +61,10 @@ public class GameStateManager : NetworkBehaviour {
             CmdResetMatch();
         }
 
+        if(Input.GetKeyDown(KeyCode.T)) {
+            _matchTimer = 5f;
+        }
+
         UpdateState();
 
         if (PauseManagerScript.Instance.IsPaused) return;
@@ -72,6 +73,7 @@ public class GameStateManager : NetworkBehaviour {
 
         _matchStartTimer -= Time.deltaTime;
         _slowdownTimer -= Time.deltaTime;
+        _gameResetTimer -= Time.deltaTime;
 
         HudOverlayManager.Instance.UpdateRoundCountdown(_matchStartTimer);
     }
@@ -107,6 +109,12 @@ public class GameStateManager : NetworkBehaviour {
                 break;
 
             case GameStates.STATE_MATCHEND:
+                _matchTimer = 0f;
+                HudOverlayManager.Instance.UpdateMatchTimer(_matchTimer);
+
+                if (_gameResetTimer <= 0f) {
+                    CmdResetMatch();
+                }
                 break;
 
             default:
@@ -129,8 +137,6 @@ public class GameStateManager : NetworkBehaviour {
 
             case GameStates.STATE_READYROUND:
                 _timeScale = 1f;
-
-                AudioManager.PlayOneShot(_roundTimer, gameObject);
 
                 if (isServer) {
                     GameObject goalImpact = Instantiate(_roundCountdownPrefab, transform.position, Quaternion.identity);
@@ -158,8 +164,9 @@ public class GameStateManager : NetworkBehaviour {
                 break;
 
             case GameStates.STATE_MATCHEND:
-                //TODO: Evaluate who won and display stuff accordingly
-                Debug.Log("Match ended");
+                PauseManagerScript.Instance.CmdSetBlockInput(true);
+                _matchEnded = true;
+                _gameResetTimer = 5f;
                 break;
 
             default:
@@ -170,6 +177,7 @@ public class GameStateManager : NetworkBehaviour {
     [Command]
     public void CmdResetMatch() {
         _matchTimer = 300f;
+        _matchEnded = false;
         GoalSpawnerScript.Instance.ResetGoals();
 
         HudOverlayManager.Instance.UpdateMatchTimer(_matchTimer);
@@ -202,6 +210,10 @@ public class GameStateManager : NetworkBehaviour {
 
     public int CurrentState {
         get { return _currentState; }
+    }
+
+    public bool MatchEnded {
+        get { return _matchEnded; }
     }
 
     public static GameStateManager Instance {

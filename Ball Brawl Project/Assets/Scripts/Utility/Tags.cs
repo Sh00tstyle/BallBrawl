@@ -6,4 +6,6 @@
     public const string GROUND = "Ground";
     public const string BODY = "Body";
     public const string HOOD = "Hood";
+    public const string HAND = "Hand";
+    public const string BRACELET = "Bracelet";
 }
