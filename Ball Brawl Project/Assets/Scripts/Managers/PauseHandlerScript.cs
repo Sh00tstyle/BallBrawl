@@ -26,6 +26,15 @@ public class PauseHandlerScript : NetworkBehaviour {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        if (GameStateManager.Instance.MatchEnded) {
+            ResolutionScreenManager.Instance.DisplayResolutionText(GameStateManager.Instance.Winner);
+            HudOverlayManager.Instance.UpdateMatchTimer(0f);
+            HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamRed, 0);
+            HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamBlue, 0);
+        } else {
+            ResolutionScreenManager.Instance.DisableResolutionTexts();
+        }
     }
 
     public void Resume() {

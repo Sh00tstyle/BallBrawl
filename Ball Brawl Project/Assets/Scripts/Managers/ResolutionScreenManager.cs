@@ -12,34 +12,27 @@ public class ResolutionScreenManager : MonoBehaviour {
     private Text[] _resolutionTexts;
 
     public void Awake() {
+        if(_instance == null) {
+            _instance = this;
+        }
+
         _resolutionTexts = GetComponentsInChildren<Text>();
     }
 
-    public void Update() {
-        if(GameStateManager.Instance.MatchEnded) {
-            DisplayResolutionText();
-        } else {
-            DisableResolutionTexts();
-        }
-    }
-
-    public void DisplayResolutionText() {
-        int goalsRed = GoalSpawnerScript.Instance.GoalsTeamRed;
-        int goalsBlue = GoalSpawnerScript.Instance.GoalsTeamBlue;
-
+    public void DisplayResolutionText(string winningTeam) {
         DisableResolutionTexts();
 
         //it's reversed here
-        if(goalsRed < goalsBlue) {
+        if(winningTeam == Teams.TEAM_RED) {
             _resolutionTexts[(int)ResolutionText.TeamRedWon].enabled = true;
-        } else if(goalsRed > goalsBlue) {
+        } else if(winningTeam == Teams.TEAM_BLUE) {
             _resolutionTexts[(int)ResolutionText.TeamBlueWon].enabled = true;
         } else {
             _resolutionTexts[(int)ResolutionText.Draw].enabled = true;
         }
     }
 
-    private void DisableResolutionTexts() {
+    public void DisableResolutionTexts() {
         _resolutionTexts[(int)ResolutionText.TeamRedWon].enabled = false;
         _resolutionTexts[(int)ResolutionText.TeamBlueWon].enabled = false;
         _resolutionTexts[(int)ResolutionText.Draw].enabled = false;

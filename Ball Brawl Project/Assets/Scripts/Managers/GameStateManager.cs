@@ -33,6 +33,9 @@ public class GameStateManager : NetworkBehaviour {
     [SyncVar]
     private bool _matchEnded;
 
+    [SyncVar]
+    private string _winner;
+
     private float _slowdownTimer;
 
     private float _gameResetTimer;
@@ -43,11 +46,11 @@ public class GameStateManager : NetworkBehaviour {
     }
 
     public void Awake() {
-        if(_instance == null) {
+        if (_instance == null) {
             _instance = this;
         }
 
-        if(HudOverlayManager.Instance != null && _currentState == GameStates.STATE_READYROUND) HudOverlayManager.Instance.UpdateRoundCountdown(_matchStartTimer);
+        if (HudOverlayManager.Instance != null && _currentState == GameStates.STATE_READYROUND) HudOverlayManager.Instance.UpdateRoundCountdown(_matchStartTimer);
     }
 
     public void Start() {
@@ -56,14 +59,14 @@ public class GameStateManager : NetworkBehaviour {
     }
 
     public void Update() {
-        if (Input.GetKeyDown(KeyCode.M)) {
+        /*if (Input.GetKeyDown(KeyCode.M)) {
             //DEBUG: Initializes the round countdown
             CmdResetMatch();
         }
 
-        if(Input.GetKeyDown(KeyCode.T)) {
+        if (Input.GetKeyDown(KeyCode.T)) {
             _matchTimer = 5f;
-        }
+        }*/
 
         UpdateState();
 
@@ -97,7 +100,8 @@ public class GameStateManager : NetworkBehaviour {
                 _matchTimer -= Time.deltaTime;
                 HudOverlayManager.Instance.UpdateMatchTimer(_matchTimer);
 
-                if(_matchTimer <= 0f) {
+                if (_matchTimer <= 0f) {
+                    _matchTimer = 0f;
                     CmdSetState(GameStates.STATE_MATCHEND);
                 }
                 break;
@@ -105,11 +109,10 @@ public class GameStateManager : NetworkBehaviour {
             case GameStates.STATE_SLOWDOWN:
                 if (_timeScale > 0.5f) _timeScale -= Time.deltaTime;
 
-                if(_slowdownTimer <= 0) CmdSetState(GameStates.STATE_READYROUND);
+                if (_slowdownTimer <= 0) CmdSetState(GameStates.STATE_READYROUND);
                 break;
 
             case GameStates.STATE_MATCHEND:
-                _matchTimer = 0f;
                 HudOverlayManager.Instance.UpdateMatchTimer(_matchTimer);
 
                 if (_gameResetTimer <= 0f) {
@@ -165,8 +168,17 @@ public class GameStateManager : NetworkBehaviour {
 
             case GameStates.STATE_MATCHEND:
                 PauseManagerScript.Instance.CmdSetBlockInput(true);
-                _matchEnded = true;
                 _gameResetTimer = 5f;
+
+                if (GoalSpawnerScript.Instance.GoalsTeamRed > GoalSpawnerScript.Instance.GoalsTeamBlue) {
+                    _winner = Teams.TEAM_BLUE;
+                } else if (GoalSpawnerScript.Instance.GoalsTeamRed < GoalSpawnerScript.Instance.GoalsTeamBlue) {
+                    _winner = Teams.TEAM_RED;
+                } else {
+                    _winner = Teams.TEAM_NEUTRAL;
+                }
+
+                _matchEnded = true;
                 break;
 
             default:
@@ -178,9 +190,10 @@ public class GameStateManager : NetworkBehaviour {
     public void CmdResetMatch() {
         _matchTimer = 300f;
         _matchEnded = false;
-        GoalSpawnerScript.Instance.ResetGoals();
+        _winner = Teams.TEAM_NEUTRAL;
 
-        HudOverlayManager.Instance.UpdateMatchTimer(_matchTimer);
+        GoalSpawnerScript.Instance.CmdResetGoals();
+
         CmdSetState(GameStates.STATE_READYROUND);
     }
 
@@ -200,13 +213,14 @@ public class GameStateManager : NetworkBehaviour {
             //Respawn each player
             PlayerObject playerObj = PlayerManager.Instance.GetPlayerAt(i);
             playerObj.playerObject.GetComponent<PlayerCollisionScript>().RpcRespawn();
-            playerObj.playerObject.GetComponent<PlayerInteractionScript>().RpcResetCooldowns();  
+            playerObj.playerObject.GetComponent<PlayerInteractionScript>().RpcResetCooldowns();
+            playerObj.playerObject.GetComponent<PlayerInteractionScript>().ResetCooldowns();
 
             PlayerControllerRigidbody playerController = playerObj.playerObject.GetComponent<PlayerControllerRigidbody>();
             playerController.RpcResetVelocity();
             playerController.RpcResetCooldowns();
         }
-    } 
+    }
 
     public int CurrentState {
         get { return _currentState; }
@@ -214,6 +228,10 @@ public class GameStateManager : NetworkBehaviour {
 
     public bool MatchEnded {
         get { return _matchEnded; }
+    }
+
+    public string Winner {
+        get { return _winner; }
     }
 
     public static GameStateManager Instance {

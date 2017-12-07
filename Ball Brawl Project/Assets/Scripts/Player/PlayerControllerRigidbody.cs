@@ -169,11 +169,14 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
     [ClientRpc]
     public void RpcReceivePush(Vector3 direction, float force) {
         _rigidbody.velocity = Vector3.zero; //resetting velocity, so you wont be pushed so hard
-        _rigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
+
+        if(!_grounded) _rigidbody.AddForce(direction.normalized * (force / 8f), ForceMode.Impulse);
+        else _rigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
 
         if (_playerInteraction.IsHolding) {
             _playerInteraction.CmdReleaseBall();
             _playerInteraction.CmdSetIsHolding(false);
+            _playerInteraction.IsHolding = false;
         }
     }
 

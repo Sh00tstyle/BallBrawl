@@ -14,6 +14,9 @@ public class GoalSpawnerScript : NetworkBehaviour {
     [SerializeField]
     private Transform _goalPosTeamB;
 
+    [SyncVar]
+    private bool _reset;
+
     private static GoalSpawnerScript _instance;
 
     private GoalScript _goalTeamRed;
@@ -39,12 +42,23 @@ public class GoalSpawnerScript : NetworkBehaviour {
         NetworkServer.Spawn(goalB);
     }
 
-    public void ResetGoals() {
+    public void Update() {
+        if (_reset) Reset();
+    }
+
+    private void Reset() {
         _goalTeamRed.CmdReset();
         _goalTeamBlue.CmdReset();
 
         HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamRed, 0);
         HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamBlue, 0);
+
+        _reset = false;
+    }
+
+    [Command]
+    public void CmdResetGoals() {
+        _reset = true;
     }
 
     public int GoalsTeamRed {

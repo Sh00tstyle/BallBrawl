@@ -68,7 +68,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
         _interactionRange = GetComponentInChildren<InteractionRangeScript>();
         
-        RpcResetCooldowns();
+        ResetCooldowns();
     }
 
     private void Awake() {
@@ -93,10 +93,18 @@ public class PlayerInteractionScript : NetworkBehaviour {
         else if (!isLocalPlayer && !_isHolding) _visualBall.SetActive(false);
 
         if(!isLocalPlayer) return;
+
+        UpdateUI();
+
         if (PauseManagerScript.Instance.IsPaused || PauseManagerScript.Instance.BlockInput) return;
 
+        //hopefully fixes the animation bug
+        if (!_isHolding) {
+            _localBall.SetActive(false);
+            _animHands.SetHoldAnimation(false);
+        }
+
         ProcessMouseInput();
-        UpdateUI();
 
         _holdingTimer += Time.deltaTime;
         _catchCooldownTimer -= Time.deltaTime;
@@ -158,7 +166,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
             HudOverlayManager.Instance.ResetCrosshair();
         }
 
-        if(_abilityCooldownTimer <= _abilityCooldown) {
+        if(_abilityCooldownTimer < _abilityCooldown) {
             HudOverlayManager.Instance.SetPlayerPushOnCooldown(_abilityCooldownTimer / _abilityCooldown, _abilityCooldown - _abilityCooldownTimer);
         } else {
             HudOverlayManager.Instance.SetPlayerPushOffCooldown();
@@ -211,11 +219,11 @@ public class PlayerInteractionScript : NetworkBehaviour {
         BallBehaviourScript.Instance.SetBallPosition(_ballParent);
 
         CmdSetIsHolding(false);
+        _isHolding = false;
         _catchCooldownTimer = 2f; //so that you cannot pick it up right away
     }
 
-    [ClientRpc]
-    public void RpcResetCooldowns() {
+    public void ResetCooldowns() {
         _abilityCooldownTimer = _abilityCooldown;
         _catchCooldownTimer = 10f; //disable the ctaching for a certain time at the beginning of each round
 
@@ -225,8 +233,14 @@ public class PlayerInteractionScript : NetworkBehaviour {
         HudOverlayManager.Instance.SetCatchOffCooldown();
     }
 
+    [ClientRpc]
+    public void RpcResetCooldowns() {
+        ResetCooldowns();
+    }
+
     public bool IsHolding {
         get { return _isHolding; }
+        set { _isHolding = value; }
     }
 
     public float AbilityCooldownTimer {
