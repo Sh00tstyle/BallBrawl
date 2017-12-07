@@ -86,5 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _roundTimer: event:/Multiplayer/Countdown
   _roundStart: event:/Multiplayer/Roundstart
+  _roundCountdownPrefab: {fileID: 1445418386636802, guid: 283312d9ee8d8a94aa010c45ae968855,
+    type: 2}
   _ballSpawnPos: {fileID: 0}
   _slowdownDuration: 1

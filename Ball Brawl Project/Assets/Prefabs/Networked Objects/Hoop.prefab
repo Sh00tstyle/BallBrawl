@@ -99,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744458757995288}
   m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 4.855296, y: 58.56039, z: 29.840445}
+  m_LocalPosition: {x: 16.236881, y: 58.56039, z: -32.018806}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4467891678743676}
@@ -193,6 +193,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _goalImpact: event:/Objects/Ball/impact_goal
+  _goalMissPrefab: {fileID: 1445418386636802, guid: bac93c9e734b52f4eb758307b01843d3,
+    type: 2}
+  _goalImpactPrefab: {fileID: 1445418386636802, guid: 695d7dbe6469eb04a8773838c4665582,
+    type: 2}
   _redGoalMaterial: {fileID: 2100000, guid: ddf362bec3b15334ca61d106935fac80, type: 2}
 --- !u!114 &114472348742451960
 MonoBehaviour:

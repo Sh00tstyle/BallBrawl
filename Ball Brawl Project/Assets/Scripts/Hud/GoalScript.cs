@@ -8,6 +8,13 @@ public class GoalScript : NetworkBehaviour {
     [SerializeField]
     [EventRef]
     private string _goalImpact;
+
+    [SerializeField]
+    private GameObject _goalMissPrefab;
+
+    [SerializeField]
+    private GameObject _goalImpactPrefab;
+
     [SerializeField]
     private Material _redGoalMaterial;
 
@@ -32,12 +39,19 @@ public class GoalScript : NetworkBehaviour {
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == Tags.BALL)
+        if(collision.transform.tag == Tags.BALL && isServer)
         {
-            AudioManager.PlayOneShot(_goalImpact, gameObject);
-            AudioManager.CrowdMiss(_assignedTeam);
+            GameObject goalMiss = Instantiate(_goalMissPrefab, transform.position, Quaternion.LookRotation(collision.contacts[0].normal, transform.up));
+            SoundPlayerScript soundPlayer = goalMiss.GetComponent<SoundPlayerScript>();
+            soundPlayer.team = _assignedTeam;
+
+            NetworkServer.Spawn(goalMiss);
+            Destroy(goalMiss, 0.5f);
+
+            GameObject goalImpact = Instantiate(_goalImpactPrefab, transform.position, Quaternion.LookRotation(collision.contacts[0].normal, transform.up));
+            NetworkServer.Spawn(goalImpact);
+            Destroy(goalImpact, 0.5f);
         }
-        
     }
 
     public void Start() {
