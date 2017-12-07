@@ -137,7 +137,6 @@ public class GameStateManager : NetworkBehaviour {
                 break;
 
             case GameStates.STATE_INGAME:
-                AudioManager.PlayOneShot(_roundStart, gameObject);
                 CmdReleaseBall();
 
                 PauseManagerScript.Instance.RpcSetPause(false); //Disables both pause and input blocking

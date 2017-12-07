@@ -3683,7 +3683,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1900157992051082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.036077, y: 54.94, z: 60.827877}
+  m_LocalPosition: {x: -6.4215584, y: 53.07, z: 13.235841}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4015407851504228}
@@ -5477,7 +5477,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!20 &20809689348572402
@@ -5953,7 +5953,7 @@ MonoBehaviour:
   _footsteps: event:/Player/Footsteps
   _dash: event:/Player/Dash
   _jetpackStart: event:/Player/jetpack_start
-  _jetpackLoop: event:/Player/jetpack_start
+  _jetpackLoop: event:/Player/jetpack_loop
   speed: 13
   gravity: 10
   maxVelocityChange: 25

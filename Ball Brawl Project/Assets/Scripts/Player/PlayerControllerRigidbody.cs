@@ -281,7 +281,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour
             if (UserInput)
             {
                 AudioManager.PlayEvent(_jetpackStart, gameObject, true);
-                AudioManager.PlayEvent(_jetpackLoop, gameObject, true, false);
+                AudioManager.PlayEvent(_jetpackLoop, gameObject, true, false, false);
                 _rigidbody.AddRelativeForce(transform.up * jumpForce, ForceMode.Impulse);
                 _grounded = false;
             }
