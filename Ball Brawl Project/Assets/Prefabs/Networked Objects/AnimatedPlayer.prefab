@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 137668901749254324}
   m_Layer: 8
   m_Name: Bracelet
-  m_TagString: Untagged
+  m_TagString: Bracelet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1583,7 +1583,7 @@ GameObject:
   - component: {fileID: 137891875508638692}
   m_Layer: 8
   m_Name: RIGHT_FPS_HAND
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3683,7 +3683,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1900157992051082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6269703, y: 54.28, z: 6.1348104}
+  m_LocalPosition: {x: -7.3363266, y: 54.35, z: -16.072578}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4015407851504228}
@@ -5924,10 +5924,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMeshHolder: {fileID: 1131212589299086}
   _teamMeshHolder: {fileID: 1218208129295246}
+  _rightHand: {fileID: 1645026453400272}
   _ball2BlueMat: {fileID: 2100000, guid: 8d45bbd70dc4fa84cacdc1b73cb3d96c, type: 2}
   _ball3BlueMat: {fileID: 2100000, guid: 5407b461c81a3bd4084b2884bb4e9e6a, type: 2}
   _redTeamBodyMat: {fileID: 2100000, guid: f75e72ce69a23234a96345920407ec84, type: 2}
   _redTeamHoodMat: {fileID: 2100000, guid: 3c4531d8bd86f954a9d90d01b6448ca5, type: 2}
+  _redHandMat: {fileID: 2100000, guid: 07910ec2673cde144a1d8296b5a93fd2, type: 2}
+  _redBraceletMat: {fileID: 2100000, guid: 2c1def950da4c7f4d9f5f1c2b40116ce, type: 2}
 --- !u!114 &114121004754687306
 MonoBehaviour:
   m_ObjectHideFlags: 1
