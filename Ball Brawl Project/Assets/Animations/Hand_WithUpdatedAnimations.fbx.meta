@@ -1,0 +1,346 @@
+fileFormatVersion: 2
+guid: 9079f118433822e4b8c8c95d529fc758
+timeCreated: 1512575989
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bracelet
+    100002: Bracelet_Left
+    100004: Bracelet_Middle
+    100006: Bracelet_Right
+    100008: CHEST
+    100010: CTRL_Chest
+    100012: CTRL_MASTER
+    100014: //RootNode
+    100016: L_Elbow1
+    100018: L_FPS_Elbow2
+    100020: L_FPS_Forearm1
+    100022: L_FPS_Forearm2
+    100024: L_FPS_Forearm3
+    100026: L_FPS_Index1
+    100028: L_FPS_Index2
+    100030: L_FPS_Index3
+    100032: L_FPS_Index4
+    100034: L_FPS_Middle1
+    100036: L_FPS_Middle2
+    100038: L_FPS_Middle3
+    100040: L_FPS_Middle4
+    100042: L_FPS_Pinky1
+    100044: L_FPS_Pinky2
+    100046: L_FPS_Pinky3
+    100048: L_FPS_Pinky4
+    100050: L_FPS_Ring1
+    100052: L_FPS_Ring2
+    100054: L_FPS_Ring3
+    100056: L_FPS_Ring4
+    100058: L_FPS_Shoulder
+    100060: L_FPS_Thumb1
+    100062: L_FPS_Thumb2
+    100064: L_FPS_Thumb3
+    100066: L_FPS_Thumb4
+    100068: L_FPS_Wrist
+    100070: L_UpperArm
+    100072: LEFT_FPS_HAND
+    100074: R_Elbow1
+    100076: R_FPS_Elbow2
+    100078: R_FPS_Forearm1
+    100080: R_FPS_Forearm2
+    100082: R_FPS_Forearm3
+    100084: R_FPS_Index1
+    100086: R_FPS_Index2
+    100088: R_FPS_Index3
+    100090: R_FPS_Index4
+    100092: R_FPS_Middle1
+    100094: R_FPS_Middle2
+    100096: R_FPS_Middle3
+    100098: R_FPS_Middle4
+    100100: R_FPS_Pinky1
+    100102: R_FPS_Pinky2
+    100104: R_FPS_Pinky3
+    100106: R_FPS_Pinky4
+    100108: R_FPS_Ring1
+    100110: R_FPS_Ring2
+    100112: R_FPS_Ring3
+    100114: R_FPS_Ring4
+    100116: R_FPS_Shoulder
+    100118: R_FPS_Thumb1
+    100120: R_FPS_Thumb2
+    100122: R_FPS_Thumb3
+    100124: R_FPS_Thumb4
+    100126: R_FPS_Wrist
+    100128: R_UpperArm
+    100130: RIGHT_FPS_HAND
+    100132: Right_Hand
+    100134: Tube
+    100136: Weapon
+    400000: Bracelet
+    400002: Bracelet_Left
+    400004: Bracelet_Middle
+    400006: Bracelet_Right
+    400008: CHEST
+    400010: CTRL_Chest
+    400012: CTRL_MASTER
+    400014: //RootNode
+    400016: L_Elbow1
+    400018: L_FPS_Elbow2
+    400020: L_FPS_Forearm1
+    400022: L_FPS_Forearm2
+    400024: L_FPS_Forearm3
+    400026: L_FPS_Index1
+    400028: L_FPS_Index2
+    400030: L_FPS_Index3
+    400032: L_FPS_Index4
+    400034: L_FPS_Middle1
+    400036: L_FPS_Middle2
+    400038: L_FPS_Middle3
+    400040: L_FPS_Middle4
+    400042: L_FPS_Pinky1
+    400044: L_FPS_Pinky2
+    400046: L_FPS_Pinky3
+    400048: L_FPS_Pinky4
+    400050: L_FPS_Ring1
+    400052: L_FPS_Ring2
+    400054: L_FPS_Ring3
+    400056: L_FPS_Ring4
+    400058: L_FPS_Shoulder
+    400060: L_FPS_Thumb1
+    400062: L_FPS_Thumb2
+    400064: L_FPS_Thumb3
+    400066: L_FPS_Thumb4
+    400068: L_FPS_Wrist
+    400070: L_UpperArm
+    400072: LEFT_FPS_HAND
+    400074: R_Elbow1
+    400076: R_FPS_Elbow2
+    400078: R_FPS_Forearm1
+    400080: R_FPS_Forearm2
+    400082: R_FPS_Forearm3
+    400084: R_FPS_Index1
+    400086: R_FPS_Index2
+    400088: R_FPS_Index3
+    400090: R_FPS_Index4
+    400092: R_FPS_Middle1
+    400094: R_FPS_Middle2
+    400096: R_FPS_Middle3
+    400098: R_FPS_Middle4
+    400100: R_FPS_Pinky1
+    400102: R_FPS_Pinky2
+    400104: R_FPS_Pinky3
+    400106: R_FPS_Pinky4
+    400108: R_FPS_Ring1
+    400110: R_FPS_Ring2
+    400112: R_FPS_Ring3
+    400114: R_FPS_Ring4
+    400116: R_FPS_Shoulder
+    400118: R_FPS_Thumb1
+    400120: R_FPS_Thumb2
+    400122: R_FPS_Thumb3
+    400124: R_FPS_Thumb4
+    400126: R_FPS_Wrist
+    400128: R_UpperArm
+    400130: RIGHT_FPS_HAND
+    400132: Right_Hand
+    400134: Tube
+    400136: Weapon
+    4300000: LEFT_FPS_HAND
+    4300002: RIGHT_FPS_HAND
+    4300004: Tube
+    4300006: Weapon
+    4300008: Bracelet
+    7400000: Lower_Hands_Throw
+    7400002: Lower_Hands_Hold
+    7400004: Lower_Hands_Dash
+    9500000: //RootNode
+    13700000: Bracelet
+    13700002: LEFT_FPS_HAND
+    13700004: RIGHT_FPS_HAND
+    13700006: Tube
+    13700008: Weapon
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bracelet_Material
+    second: {fileID: 2100000, guid: 1300b1ac2162a5544b256e94f0dcd946, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HAND_Material
+    second: {fileID: 2100000, guid: a7f808f18e4efcc4b863d1b8fcacd738, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HandWeapon_Material
+    second: {fileID: 2100000, guid: 4406fda46116a3e438493f3fc576de74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LeftHAND_Material
+    second: {fileID: 2100000, guid: b438554f81400ef4a85626993f90219e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tube_Material
+    second: {fileID: 2100000, guid: e7c8e2153b038e944bb9fb6d19902dba, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Lower_Hands_Throw
+      takeName: Take 001
+      firstFrame: 116
+      lastFrame: 152
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Lower_Hands_Hold
+      takeName: Take 001
+      firstFrame: 165
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Lower_Hands_Dash
+      takeName: Take 001
+      firstFrame: 334
+      lastFrame: 358
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: CTRL_Chest
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

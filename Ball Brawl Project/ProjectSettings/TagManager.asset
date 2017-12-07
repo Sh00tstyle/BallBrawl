@@ -8,6 +8,8 @@ TagManager:
   - Fire
   - Wall
   - Ground
+  - Body
+  - Hood
   layers:
   - Default
   - TransparentFX

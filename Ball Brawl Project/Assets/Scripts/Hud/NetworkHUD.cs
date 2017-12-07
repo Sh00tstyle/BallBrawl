@@ -20,7 +20,7 @@ public class NetworkHUD : MonoBehaviour {
     public GameObject DefaultText;
     public GameObject UserInput;
 
-    public Camera CinematicCamera;
+    public GameObject CinematicCamera;
     public GameObject CameraOrigin;
     public float CameraHeightOffset;
     public float CameraDistanceOffset;
@@ -64,14 +64,14 @@ public class NetworkHUD : MonoBehaviour {
     //Enable Menu, disable Ingame Hud
     private void OnEnterMenu() {
         MenuUI.SetActive(true);
-        CinematicCamera.enabled = true;
+        CinematicCamera.SetActive(true);
         IngameUI.SetActive(false);
     }
 
     //Disable Menu, enable Ingame Hud
     private void OnSelect() {
         MenuUI.SetActive(false);
-        CinematicCamera.enabled = false;
+        CinematicCamera.SetActive(false);
         IngameUI.SetActive(true);
     }
 

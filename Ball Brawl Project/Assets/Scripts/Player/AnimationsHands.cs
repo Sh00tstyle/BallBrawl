@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class AnimationsHands : MonoBehaviour {
 
-    Animator _animator;
+    [SerializeField]
+    private ParticleSystem Discharge;
+
+    [SerializeField]
+    private ParticleSystem Holding;
+
+    private Animator _animator;
+    private bool _isHolding;
 
     // Use this for initialization
     void Start () {
@@ -13,7 +20,11 @@ public class AnimationsHands : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (_isHolding && !Holding.isPlaying) Holding.Play();
+        if (!_isHolding && Holding.isPlaying) {
+            Holding.Stop();
+            Holding.Clear();
+        }
 	}
 
     public void TriggerDashAnimation() {
@@ -22,9 +33,11 @@ public class AnimationsHands : MonoBehaviour {
 
     public void TriggerPushAnimation() {
         _animator.SetTrigger("isThrowing");
+        Discharge.Play();
     }
 
     public void SetHoldAnimation(bool isHolding) {
         _animator.SetBool("isHolding", isHolding);
+        _isHolding = isHolding;
     } 
 }

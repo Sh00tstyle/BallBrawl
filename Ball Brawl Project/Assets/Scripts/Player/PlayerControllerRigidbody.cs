@@ -249,6 +249,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour
                 //print("Dash into velocity direction: " + velocity); 
             }
             _animHands.TriggerDashAnimation();
+            _anim.SetDashing(true);
             AudioManager.PlayEvent(_dash, gameObject, true);
             _dashCooldownTimer = dashCooldown;
         }
@@ -257,13 +258,15 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         {
             _dashCooldownTimer -= Time.deltaTime;
 
-            if (_dashCooldownTimer < 0)
-            {
+            if (_dashCooldownTimer < 0) {
                 _dashCooldownTimer = 0;
+
                 HudOverlayManager.Instance.SetDashOffCooldown();
             }
-            else
-            {
+            else if (_dashCooldownTimer < dashCooldown * 0.75f) {
+                _anim.SetDashing(false);
+            }
+            else {
                 HudOverlayManager.Instance.SetDashOnCooldown(1 - _dashCooldownTimer / dashCooldown, _dashCooldownTimer);
             }
         }

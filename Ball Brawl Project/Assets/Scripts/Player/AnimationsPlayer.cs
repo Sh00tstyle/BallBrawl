@@ -49,4 +49,8 @@ public class AnimationsPlayer : NetworkBehaviour {
     public void TriggerPushAnimation() {
         _animator.SetTrigger("isThrowing");
     }
+
+    public void SetDashing(bool isDashing) {
+        _animator.SetBool("isDashing", isDashing);
+    }
 }

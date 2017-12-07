@@ -9,10 +9,19 @@ public class PlayerTeamScript : NetworkBehaviour {
     private GameObject _playerMeshHolder;
 
     [SerializeField]
+    private GameObject _teamMeshHolder;
+
+    [SerializeField]
     private Material _ball2BlueMat;
 
     [SerializeField]
     private Material _ball3BlueMat;
+
+    [SerializeField]
+    private Material _redTeamBodyMat;
+
+    [SerializeField]
+    private Material _redTeamHoodMat;
 
     [SyncVar]
     private string _assignedTeam;
@@ -34,7 +43,14 @@ public class PlayerTeamScript : NetworkBehaviour {
         SkinnedMeshRenderer renderer = GetComponentInChildren<SkinnedMeshRenderer>();
 
         if (_assignedTeam == Teams.TEAM_RED) {
-            renderer.material.color = Color.red; //will have to be changed for the real model
+
+            Transform[] allChildren = _teamMeshHolder.GetComponentsInChildren<Transform>();
+            foreach(Transform t in allChildren) {
+                if (t.gameObject.GetComponent<SkinnedMeshRenderer>()) {
+                    if(t.gameObject.tag == Tags.BODY) t.gameObject.GetComponent<SkinnedMeshRenderer>().material = _redTeamBodyMat;
+                    if(t.gameObject.tag == Tags.HOOD) t.gameObject.GetComponent<SkinnedMeshRenderer>().material = _redTeamHoodMat;
+                }
+            }
 
             GetComponent<PlayerControllerRigidbody>().SetRotationPlayer(180f);
         } else if (_assignedTeam == Teams.TEAM_BLUE) {
