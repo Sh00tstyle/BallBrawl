@@ -5953,7 +5953,7 @@ MonoBehaviour:
   _footsteps: event:/Player/Footsteps
   _dash: event:/Player/Dash
   _jetpackStart: event:/Player/jetpack_start
-  _jetpackLoop: event:/Player/jetpack_start
+  _jetpackLoop: event:/Player/jetpack_loop
   speed: 13
   gravity: 10
   maxVelocityChange: 25

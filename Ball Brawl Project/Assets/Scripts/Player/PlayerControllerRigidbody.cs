@@ -107,6 +107,17 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+
+        if (_grounded) {
+            HudOverlayManager.Instance.SetJetpackActive();
+        } else {
+            HudOverlayManager.Instance.SetDescendActive();
+        }
+
+        HudOverlayManager.Instance.UpdateFuel(_currentFlightCharge / maxFlightCharge);
+
+        if (_dashCooldownTimer <= 0) HudOverlayManager.Instance.SetDashOffCooldown();
+        else HudOverlayManager.Instance.SetDashOnCooldown(1 - _dashCooldownTimer / dashCooldown, _dashCooldownTimer);
     }
 
     void FixedUpdate() {
@@ -128,16 +139,6 @@ public class PlayerControllerRigidbody : NetworkBehaviour {
         AirMovement(_jetpackInput);
 
         Dash(targetVelocity, _dashInput);
-
-        if (_grounded) {
-            HudOverlayManager.Instance.SetJetpackActive();
-        } else {
-            HudOverlayManager.Instance.SetDescendActive();
-        }
-
-        HudOverlayManager.Instance.UpdateFuel(_currentFlightCharge / maxFlightCharge);
-
-        //DoRotation();
 
         if (_anim != null) _anim.UpdateAnimator(transform.InverseTransformDirection(targetVelocity), _grounded);
 

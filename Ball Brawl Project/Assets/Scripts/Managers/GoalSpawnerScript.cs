@@ -47,6 +47,14 @@ public class GoalSpawnerScript : NetworkBehaviour {
         HudOverlayManager.Instance.UpdateGoalCount(HudOverlayManager.HUDText.CounterTeamBlue, 0);
     }
 
+    public int GoalsTeamRed {
+        get { return _goalTeamRed.GoalsScored; }
+    }
+
+    public int GoalsTeamBlue {
+        get { return _goalTeamBlue.GoalsScored; }
+    }
+
     public static GoalSpawnerScript Instance {
         get { return _instance; }
     }

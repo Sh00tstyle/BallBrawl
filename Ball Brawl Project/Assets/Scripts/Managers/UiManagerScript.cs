@@ -42,7 +42,6 @@ public class UiManagerScript : MonoBehaviour {
             } catch { }
         }
 
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
