@@ -61,9 +61,10 @@ public class GameStateManager : NetworkBehaviour {
             CmdResetMatch();
         }
 
+        UpdateState();
+
         if (PauseManagerScript.Instance.IsPaused) return;
 
-        UpdateState();
         Time.timeScale = _timeScale;
 
         _matchStartTimer -= Time.deltaTime;
@@ -74,9 +75,6 @@ public class GameStateManager : NetworkBehaviour {
 
     private void UpdateState() {
         switch (_currentState) {
-            case GameStates.STATE_PAUSE:
-                break;
-
             case GameStates.STATE_IDLE:
                 break;
 
@@ -118,13 +116,9 @@ public class GameStateManager : NetworkBehaviour {
         _currentState = state;
 
         switch (_currentState) {
-            case GameStates.STATE_PAUSE:
-                PauseManagerScript.Instance.CmdSetPause(true);
-                break;
-
             case GameStates.STATE_IDLE:
                 //This will be the "waiting" state when e.g. a player disconnect or not enough players are connected
-                PauseManagerScript.Instance.CmdSetPause(false);
+                PauseManagerScript.Instance.RpcSetPause(false);
                 PauseManagerScript.Instance.CmdSetBlockInput(true);
 
                 HudOverlayManager.Instance.UpdateMatchTimer("Waiting...");
@@ -146,7 +140,7 @@ public class GameStateManager : NetworkBehaviour {
                 AudioManager.PlayOneShot(_roundStart, gameObject);
                 CmdReleaseBall();
 
-                PauseManagerScript.Instance.CmdSetPause(false); //Disables both pause and input blocking
+                PauseManagerScript.Instance.RpcSetPause(false); //Disables both pause and input blocking
                 break;
 
             case GameStates.STATE_SLOWDOWN:
@@ -188,14 +182,17 @@ public class GameStateManager : NetworkBehaviour {
             //Respawn each player
             PlayerObject playerObj = PlayerManager.Instance.GetPlayerAt(i);
             playerObj.playerObject.GetComponent<PlayerCollisionScript>().RpcRespawn();
-            playerObj.playerObject.GetComponent<PlayerInteractionScript>().ResetCooldowns();
-            
+            playerObj.playerObject.GetComponent<PlayerInteractionScript>().RpcResetCooldowns();  
 
             PlayerControllerRigidbody playerController = playerObj.playerObject.GetComponent<PlayerControllerRigidbody>();
             playerController.RpcResetVelocity();
-            playerController.ResetCooldowns();
+            playerController.RpcResetCooldowns();
         }
     } 
+
+    public int CurrentState {
+        get { return _currentState; }
+    }
 
     public static GameStateManager Instance {
         get { return _instance; }

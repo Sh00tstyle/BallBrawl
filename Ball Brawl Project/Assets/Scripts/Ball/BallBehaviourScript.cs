@@ -55,9 +55,6 @@ public class BallBehaviourScript : NetworkBehaviour
     [SyncVar]
     private bool _isActive;
 
-    [SyncVar]
-    private int _lastPlayerID;
-
     [SyncVar(hook = "AdjustBallColor")] //Hooks the AdjustBallColor() function to the sync var so that it is called whenever the sync var is changed
     private string _currentTeam;
 
@@ -72,7 +69,6 @@ public class BallBehaviourScript : NetworkBehaviour
         _trailRenderer = GetComponent<TrailRenderer>();
         AudioManager.PlayEvent(_ballLoop, gameObject, true);
 
-        SetLastPlayerID(0); //Nothing
         ActivateBallBehaviour();
 
         if (_instance == null)
@@ -83,15 +79,14 @@ public class BallBehaviourScript : NetworkBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag != Tags.PLAYER)
-        {
-            SetLastPlayerID(0);
-        }
         if (collision.gameObject.tag == Tags.WALL)
         {
-            GameObject impactParticles = Instantiate(_shieldImpact, collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal, transform.up));
-            NetworkServer.Spawn(impactParticles);
-            Destroy(impactParticles, 1f);
+            if(isServer) {
+                GameObject impactParticles = Instantiate(_shieldImpact, collision.contacts[0].point, Quaternion.LookRotation(collision.contacts[0].normal, transform.up));
+                NetworkServer.Spawn(impactParticles);
+                Destroy(impactParticles, 1f);
+            }
+            
             AudioManager.PlayOneShot(_impactShield, gameObject);
         }
         else
@@ -120,11 +115,6 @@ public class BallBehaviourScript : NetworkBehaviour
             _renderers[1].material = _ball3WhiteMat;
             _trailRenderer.material = _ballTrailWhiteMat;
         }
-    }
-
-    private void SetLastPlayerID(int playerID)
-    {
-        _lastPlayerID = playerID;
     }
 
     private void SetCurrentTeam(string team)
@@ -156,7 +146,6 @@ public class BallBehaviourScript : NetworkBehaviour
         ActivateBallBehaviour();
 
         SetCurrentTeam(Teams.TEAM_NEUTRAL);
-        SetLastPlayerID(0);
     }
 
     public void ReleaseBall(float forceFactor)
@@ -205,11 +194,9 @@ public class BallBehaviourScript : NetworkBehaviour
         _ballRb.velocity = Vector3.zero;
     }
 
-    public void DeactivateBallBehaviour(int playerID)
+    public void DeactivateBallBehaviour()
     {
         SetIsActive(false);
-
-        SetLastPlayerID(playerID);
 
         DisableBall();
 
@@ -226,11 +213,6 @@ public class BallBehaviourScript : NetworkBehaviour
     public bool IsActive
     {
         get { return _isActive; }
-    }
-
-    public int LastPlayerID
-    {
-        get { return _lastPlayerID; }
     }
 
     public static BallBehaviourScript Instance

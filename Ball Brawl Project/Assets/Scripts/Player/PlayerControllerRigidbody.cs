@@ -23,10 +23,6 @@ public class PlayerControllerRigidbody : NetworkBehaviour
     [SerializeField]
     [EventRef]
     private string _jetpackLoop;
-    [SerializeField]
-    [EventRef]
-    private string _land;
-
 
     [Header("General Movement")]
     public float speed = 10.0f;
@@ -157,6 +153,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour
     {
         if (collision.collider.tag == Tags.GROUND)
         {
+            AudioManager.stopInstance(_jetpackLoop, gameObject);
             _grounded = true;
             _jetpackActivationTimer = 0;
         }
@@ -180,6 +177,7 @@ public class PlayerControllerRigidbody : NetworkBehaviour
     [ClientRpc]
     public void RpcReceivePush(Vector3 direction, float force)
     {
+        _rigidbody.velocity = Vector3.zero; //resetting velocity, so you wont be pushed so hard
         _rigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
 
         if (_playerInteraction.IsHolding)
@@ -195,7 +193,8 @@ public class PlayerControllerRigidbody : NetworkBehaviour
         _rigidbody.velocity = Vector3.zero;
     }
 
-    public void ResetCooldowns()
+    [ClientRpc]
+    public void RpcResetCooldowns()
     {
         _dashCooldownTimer = 0f;
         _currentFlightCharge = maxFlightCharge;

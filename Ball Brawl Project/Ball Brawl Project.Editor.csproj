@@ -472,6 +472,7 @@
     <None Include="Assets\Shaders\CrowdShader.shader" />
     <None Include="Assets\Shaders\MovingPatternShader.shader" />
     <None Include="Assets\Shaders\RimShader.shader" />
+    <None Include="Assets\Shaders\ShieldShader.shader" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

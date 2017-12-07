@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 
 public class PlayerInteractionScript : NetworkBehaviour {
 
+    private static int NEXT_LISTENERNUM = 0;
+
     [SerializeField]
     [EventRef]
     private string _chargeSound;
@@ -63,21 +65,20 @@ public class PlayerInteractionScript : NetworkBehaviour {
         _playerCamera.SetActive(true);
 
         _interactionRange = GetComponentInChildren<InteractionRangeScript>();
-
-        StudioListener studioListener = _playerCamera.GetComponent<StudioListener>();
-
-        if(isServer) {
-            studioListener.ListenerNumber = 0;
-        } else {
-            studioListener.ListenerNumber = 1;
-        }
         
-        ResetCooldowns();
+        RpcResetCooldowns();
     }
 
     private void Awake() {
         _playerId = GetComponent<PlayerIdScript>();
         _playerTeam = GetComponent<PlayerTeamScript>();
+
+        StudioListener studioListener = GetComponent<StudioListener>();
+
+        studioListener.ListenerNumber = NEXT_LISTENERNUM; //dirty, might run out of listener indexes
+        NEXT_LISTENERNUM++;
+
+        studioListener.ApplyListenerIndex();
     }
 
     private void Start() {
@@ -179,7 +180,7 @@ public class PlayerInteractionScript : NetworkBehaviour {
 
     [Command(channel = 2)]
     private void CmdCatchBall() {
-        BallBehaviourScript.Instance.DeactivateBallBehaviour(_playerId.ID);
+        BallBehaviourScript.Instance.DeactivateBallBehaviour();
         BallBehaviourScript.Instance.SetBallPosition(new Vector3(1000f, 1000f, 1000f)); //somewhere
     }
 
@@ -203,9 +204,10 @@ public class PlayerInteractionScript : NetworkBehaviour {
         BallBehaviourScript.Instance.SetBallPosition(_ballParent);
     }
 
-    public void ResetCooldowns() {
+    [ClientRpc]
+    public void RpcResetCooldowns() {
         _abilityCooldownTimer = _abilityCooldown;
-        _catchCooldownTimer = 2f;
+        _catchCooldownTimer = 0f;
 
         HudOverlayManager.Instance.SetPlayerPushOffCooldown();
         HudOverlayManager.Instance.SetCatchOffCooldown();

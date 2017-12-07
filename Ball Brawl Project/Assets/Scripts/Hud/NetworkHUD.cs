@@ -34,28 +34,6 @@ public class NetworkHUD : MonoBehaviour {
     }
 
     void Update() {
-        //Handle Key Input
-        if (!NetworkClient.active && !NetworkServer.active) {
-            if (Input.GetKeyDown(KeyCode.S)) {
-                OnSelect();
-                _manager.StartServer();
-            }
-            if (Input.GetKeyDown(KeyCode.H)) {
-                OnSelect();
-                _manager.StartHost();
-            }
-            if (Input.GetKeyDown(KeyCode.C)) {
-                OnSelect();
-                _manager.StartClient();
-            }
-        }
-        if (NetworkServer.active && NetworkClient.active) {
-            if (Input.GetKeyDown(KeyCode.X)) {
-                OnEnterMenu();
-                _manager.StopHost();
-            }
-        }
-
         //Spin the camera around the origin
         CinematicCamera.transform.RotateAround(CameraOrigin.transform.position, transform.up, Time.deltaTime * CameraRotationSpeed);
         CinematicCamera.transform.LookAt(CameraOrigin.transform.position);
@@ -83,13 +61,25 @@ public class NetworkHUD : MonoBehaviour {
 
     public void OnClickJoin() {
         OnSelect();
-        _manager.StartClient();
+        
         //Read out the user Input
         string IP = UserInput.GetComponent<Text>().text;
         //If the user Input is empty, take the default predetermined IP Address aka. localhost
-        if (IP == null) IP = DefaultText.GetComponent<Text>().text;
+        if (IP == "") IP = DefaultText.GetComponent<Text>().text;
+
+        //This is how you actually do it
         _manager.networkAddress = IP;
+        _manager.networkPort = 7777; //default port we are using
+
+        _manager.StartClient();
+
         AudioManager.setParameter(_menuMusic, gameObject, "Volume", 0f);
+    }
+
+    public void OnDisconnect() {
+        OnEnterMenu();
+
+        _manager.StopHost();
     }
 
     public void OnClickQuit() {

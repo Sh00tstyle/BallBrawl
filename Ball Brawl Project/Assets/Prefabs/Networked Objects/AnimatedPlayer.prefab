@@ -2008,7 +2008,6 @@ GameObject:
   - component: {fileID: 124843643796712876}
   - component: {fileID: 114089809218098368}
   - component: {fileID: 114600351123932404}
-  - component: {fileID: 114067377190156916}
   m_Layer: 2
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -2648,6 +2647,8 @@ GameObject:
   - component: {fileID: 114001391685108296}
   - component: {fileID: 114121004754687306}
   - component: {fileID: 114781957192764010}
+  - component: {fileID: 114838194080003348}
+  - component: {fileID: 114807388234188820}
   m_Layer: 2
   m_Name: AnimatedPlayer
   m_TagString: Player
@@ -3683,7 +3684,7 @@ Transform:
   m_GameObject: {fileID: 1900157992051082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.6, y: 54.174, z: 17.982044}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4015407851504228}
   - {fileID: 4449253071210100}
@@ -5881,18 +5882,6 @@ MonoBehaviour:
   param3: 
   param4: 
   param5: 
---- !u!114 &114067377190156916
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1646875162603820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ListenerNumber: 0
 --- !u!114 &114086383349346456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5965,7 +5954,6 @@ MonoBehaviour:
   _dash: event:/Player/Dash
   _jetpackStart: event:/Player/jetpack_start
   _jetpackLoop: event:/Player/jetpack_start
-  _land: 
   speed: 13
   gravity: 10
   maxVelocityChange: 25
@@ -6140,6 +6128,17 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 0.9
+--- !u!114 &114807388234188820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1900157992051082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb45205f5bd3e6a449ceb0441a749ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114811068169591912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6163,6 +6162,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54bc20b415b3540870aeeff2a26852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114838194080003348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1900157992051082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!114 &114860935625233736
 MonoBehaviour:
   m_ObjectHideFlags: 1

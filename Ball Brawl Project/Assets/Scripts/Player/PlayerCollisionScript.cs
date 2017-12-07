@@ -7,7 +7,6 @@ public class PlayerCollisionScript : NetworkBehaviour {
 
     private Vector3 _spawnPos;
 
-    private PlayerIdScript _playerId;
     private PlayerControllerRigidbody _playerController;
     private PlayerTeamScript _playerTeam;
     private CameraController _cameraController;
@@ -17,20 +16,11 @@ public class PlayerCollisionScript : NetworkBehaviour {
     }
 
     public void Awake() {
-        _playerId = GetComponent<PlayerIdScript>();
         _playerController = GetComponent<PlayerControllerRigidbody>();
         _playerTeam = GetComponent<PlayerTeamScript>();
     }
 
-    public void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag == Tags.BALL) {
-            BallBehaviourScript ballBehaviour = collision.gameObject.GetComponent<BallBehaviourScript>();
-
-            if(ballBehaviour.LastPlayerID != _playerId.ID) Respawn();
-        }
-    }
-
-    public void Respawn() {
+    public void ResetPlayer() {
         //restoring original position and rotation
         transform.position = _spawnPos;
 
@@ -46,6 +36,6 @@ public class PlayerCollisionScript : NetworkBehaviour {
 
     [ClientRpc]
     public void RpcRespawn() {
-        Respawn();
+        ResetPlayer();
     }
 }

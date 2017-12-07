@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -284,9 +282,11 @@
     <Compile Include="Assets\Scripts\Managers\GameStateManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GoalSpawnerScript.cs" />
     <Compile Include="Assets\Scripts\Managers\HudOverlayManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\PauseHandlerScript.cs" />
     <Compile Include="Assets\Scripts\Managers\PauseManagerScript.cs" />
     <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Managers\PlayerSpawnerScript.cs" />
+    <Compile Include="Assets\Scripts\Managers\UiManagerScript.cs" />
     <Compile Include="Assets\Scripts\Networking\NetworkManagerScript.cs" />
     <Compile Include="Assets\Scripts\Networking\NetworkTransformScript.cs" />
     <Compile Include="Assets\Scripts\Networking\PlayerNetworkUtility.cs" />
@@ -447,6 +447,7 @@
     <None Include="Assets\Shaders\CrowdShader.shader" />
     <None Include="Assets\Shaders\MovingPatternShader.shader" />
     <None Include="Assets\Shaders\RimShader.shader" />
+    <None Include="Assets\Shaders\ShieldShader.shader" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
